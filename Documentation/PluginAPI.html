@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<title>Kupfer Plugin API</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7056 2011-06-17 10:50:48Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="kupfer-plugin-api">
+<h1 class="title">Kupfer Plugin API</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr class="field"><th class="docinfo-name">Homepage:</th><td class="field-body"><a class="reference external" href="http://kaizer.se/wiki/kupfer">http://kaizer.se/wiki/kupfer</a></td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a><ul>
+<li><a class="reference internal" href="#the-plugin-file" id="id2">The Plugin File</a></li>
+<li><a class="reference internal" href="#a-short-working-example" id="id3">A Short Working Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference" id="id4">Reference</a><ul>
+<li><a class="reference internal" href="#kupferobject" id="id5">KupferObject</a></li>
+<li><a class="reference internal" href="#leaf" id="id6">Leaf</a></li>
+<li><a class="reference internal" href="#action" id="id7">Action</a></li>
+<li><a class="reference internal" href="#source" id="id8">Source</a></li>
+<li><a class="reference internal" href="#textsource" id="id9">TextSource</a></li>
+<li><a class="reference internal" href="#actiongenerator" id="id10">ActionGenerator</a></li>
+<li><a class="reference internal" href="#the-plugin-runtime" id="id11">The Plugin Runtime</a></li>
+<li><a class="reference internal" href="#kupfer-plugin-support" id="id12">kupfer.plugin_support</a></li>
+<li><a class="reference internal" href="#plugin-packages-resources-and-distribution" id="id13">Plugin Packages, Resources and Distribution</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-plugins" id="id14">Example Plugins</a></li>
+<li><a class="reference internal" href="#reference-to-the-kupfer-package" id="id15">Reference to the <tt class="docutils literal">kupfer</tt> Package</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h1><a class="toc-backref" href="#id1">Introduction</a></h1>
+<p>Kupfer is a Python program that allows loading extension modules
+at runtime. A plugin is equivalent to one Python module implemented
+as one <tt class="docutils literal">.py</tt> file or as a Python package.</p>
+<p>The <tt class="docutils literal">kupfer</tt> package is organized as follows:</p>
+<pre class="literal-block">
+kupfer/
+    obj/
+    ui/
+    core/
+    plugin/
+        core/__init__.py
+        applications.py
+        ...
+    ...
+</pre>
+<p>Plugins live in the package <tt class="docutils literal">kupfer.plugin</tt>. Kupfer also includes
+directories called <tt class="docutils literal">kupfer/plugins</tt> from <tt class="docutils literal">$XDG_DATA_DIRS</tt>, which
+typically means <tt class="docutils literal">/usr/share/kupfer/plugins</tt> and
+<tt class="docutils literal"><span class="pre">$HOME/.local/share/kupfer/plugins</span></tt>. These directories are
+transparently included into the kupfer package, so the user has multiple
+choices of where to install plugins.</p>
+<div class="section" id="the-plugin-file">
+<h2><a class="toc-backref" href="#id2">The Plugin File</a></h2>
+<p>A kupfer plugin is a <tt class="docutils literal">.py</tt> file with some special attributes.</p>
+<p>It starts like this (an imagined example):</p>
+<pre class="literal-block">
+__kupfer_name__ = _(&quot;Cool X-Documents&quot;)
+__kupfer_sources__ = (&quot;DocumentSource&quot;, )
+__kupfer_text_sources__ = ()
+__kupfer_actions__ = (&quot;Open&quot;, )
+__description__ = _(&quot;Documents from the X program&quot;)
+__version__ = &quot;1&quot;
+__author__ = &quot;Tom Author&quot;
+</pre>
+<p>For a plugin, the following attributes are required:</p>
+<pre class="literal-block">
+__kupfer_name__ (Localized name of plugin)
+__description__ (Localized description of plugin)
+__version__
+__author__
+</pre>
+<p>For the plugin to do anything, the following attributes may be defined:</p>
+<pre class="literal-block">
+__kupfer_sources__ = ()
+__kupfer_text_sources__ = ()
+__kupfer_actions__ = ()
+__kupfer_action_generators__ = ()
+__kupfer_contents__ = ()
+</pre>
+<p>They should be tuples of <em>names</em> of classes in the module:</p>
+<ul class="simple">
+<li>all sources have to be subclasses of <tt class="docutils literal">kupfer.objects.Source</tt></li>
+<li>all text sources have to be subclasses of <tt class="docutils literal">kupfer.objects.TextSource</tt></li>
+<li>all actions have to be subclasses of <tt class="docutils literal">kupfer.objects.Action</tt></li>
+</ul>
+<p>If an example plugin declares:</p>
+<pre class="literal-block">
+__kupfer_sources__ = (&quot;DocumentSource&quot;, )
+</pre>
+<p>it will later in the file define the class <tt class="docutils literal">DocumentSource</tt>:</p>
+<pre class="literal-block">
+from kupfer.objects import Source
+
+class DocumentSource (Source):
+    def __init__(self):
+        Source.__init__(self, _(&quot;Cool X-Documents&quot;))
+
+    def get_items(self):
+        ...
+    # later we will see what we can do here!
+</pre>
+<p>Ok, this looks simple. So what are Leaves, Sources and Actions?</p>
+<p>A <strong>Leaf</strong> is an object, it represents a program or a file, or a text or
+something else. Every type of Leaf has different possibilities, and you
+can define new Leaves. Example: a <tt class="docutils literal">FileLeaf</tt> represents a file on the
+disk.</p>
+<p>A <strong>Source</strong> produces a collection of Leaves, so it makes Kupfer know
+about new objects. For example, it can provide all the FileLeaves for a
+particular folder.</p>
+<p>An <strong>Action</strong> is the part where something happens, an action is applied
+to a Leaf, and something happens. For example, <em>Open</em> can be an
+action that works with all <tt class="docutils literal">FileLeaf</tt>.</p>
+</div>
+<div class="section" id="a-short-working-example">
+<h2><a class="toc-backref" href="#id3">A Short Working Example</a></h2>
+<p>The very simplest thing we can do is to provide an action on
+objects that already exist in Kupfer. These actions appear in the
+right-hand actions pane in kupfer, when an object of the right type is
+selected.</p>
+<p>The complete python code for the plugin:</p>
+<pre class="literal-block">
+__kupfer_name__ = _(&quot;Image Viewer&quot;)
+__kupfer_actions__ = (&quot;View&quot;, )
+__description__ = _(&quot;View images quickly&quot;)
+__version__ = &quot;&quot;
+__author__ = &quot;Tom Author&quot;
+
+import gtk
+
+from kupfer.objects import Action, FileLeaf
+
+class View (Action):
+    def __init__(self):
+        Action.__init__(self, _(&quot;View&quot;))
+
+    def item_types(self):
+        yield FileLeaf
+
+    def valid_for_item(self, fileobj):
+        return fileobj.object.endswith(&quot;.jpg&quot;)
+
+    def activate(self, fileobj):
+        image_widget = gtk.image_new_from_file(fileobj.object)
+        image_widget.show()
+        window = gtk.Window()
+        window.add(image_widget)
+        window.present()
+</pre>
+<p>That is all. What we did was the following:</p>
+<ul class="simple">
+<li>Declare a plugin called &quot;Image Viewer&quot; with an action class <tt class="docutils literal">View</tt>.</li>
+<li><tt class="docutils literal">View</tt> declares that it works with <tt class="docutils literal">FileLeaf</tt></li>
+<li><tt class="docutils literal">View</tt> only accepts <tt class="docutils literal">FileLeaf</tt> that end with '.jpg'</li>
+<li><tt class="docutils literal">View</tt> defines a method <tt class="docutils literal">activate</tt> that when called, will use gtk
+to show the file in a window</li>
+</ul>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p>Kupfer uses a simplified programming style of composition and
+cooperative superclasses.</p>
+<p>You normally never call a superclass implementation inside a method
+that you define, with the exception of <tt class="docutils literal">__init__</tt>.</p>
+<p class="last">On the other hand, there are superclass methods that should not be
+overridden. For example, <tt class="docutils literal">KupferObject.get_pixbuf</tt> is never
+overridden, instead you implement <tt class="docutils literal">KupferObject.get_icon_name</tt>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="reference">
+<h1><a class="toc-backref" href="#id4">Reference</a></h1>
+<p>Below follows a complete summary. To accompany this reference, you can
+read kupfer's inline module documentation with pydoc, by doing the
+following in the source directory:</p>
+<pre class="literal-block">
+$ pydoc kupfer.obj.base
+</pre>
+<p>or equivalently:</p>
+<pre class="literal-block">
+$ python
+&gt;&gt;&gt; help(&quot;kupfer.obj.base&quot;)
+</pre>
+<div class="section" id="kupferobject">
+<h2><a class="toc-backref" href="#id5">KupferObject</a></h2>
+<p>KupferObject implements the things that are common to all objects:
+<em>name</em>, <em>description</em>, <em>icon</em>, <em>thumbnail</em> and <em>name aliases</em>.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">__init__(self, name)</tt></dt>
+<dd><p class="first">This is called when you call <tt class="docutils literal">Leaf.__init__</tt>, or <tt class="docutils literal">Source.__init__</tt>,
+and so on in your object's <tt class="docutils literal">__init__</tt> method.</p>
+<p class="last">The name parameter must be a unicode string. An object can not
+change name after it has called __init__.</p>
+</dd>
+<dt><tt class="docutils literal">get_description(self)</tt></dt>
+<dd>Return a longer user-visible unicode string that
+describes the object.</dd>
+<dt><tt class="docutils literal">get_icon_name(self)</tt></dt>
+<dd><p class="first">Return a string of one icon name for the object.</p>
+<p class="last">The icon name should preferably be in the <a class="reference external" href="http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html">Icon Naming
+Specification</a></p>
+</dd>
+<dt><tt class="docutils literal">get_gicon(self)</tt></dt>
+<dd>Return a GIcon (GIO icon) object. This takes precedence
+over the icon name, if it is defined.</dd>
+<dt><tt class="docutils literal">get_thumbnail(self, width, height)</tt></dt>
+<dd>Implement <tt class="docutils literal">get_thumbnail</tt> to return a GdkPixbuf object of the
+requested size that is a thumbnail of the object. If applicable.</dd>
+<dt><tt class="docutils literal">get_pixbuf(self, x)</tt></dt>
+<dd>This should not be redefined. Define <tt class="docutils literal">get_icon_name</tt> and/or
+<tt class="docutils literal">get_gicon</tt> instead.</dd>
+<dt><tt class="docutils literal">get_icon(self)</tt></dt>
+<dd>This should not be redefined. Define <tt class="docutils literal">get_icon_name</tt> and/or
+<tt class="docutils literal">get_gicon</tt> instead.</dd>
+<dt><tt class="docutils literal">repr_key(self)</tt></dt>
+<dd>Return an object whose str() will be used in the __repr__,
+self is returned by default.
+This value is used to differentiate and recognize objects.
+Override this if the objects type and name is not enough
+to differentiate it from other objects.</dd>
+<dt><tt class="docutils literal">__repr__</tt></dt>
+<dd>This should not be redefined. Define <tt class="docutils literal">repr_key</tt> instead.</dd>
+<dt><tt class="docutils literal">kupfer_add_alias(self, alias)</tt></dt>
+<dd>This should not be redefined, but can be called by the object
+to add an alternate name to the object.</dd>
+</dl>
+<div class="section" id="kupferobject-attributes">
+<h3>KupferObject Attributes</h3>
+<dl class="docutils">
+<dt><tt class="docutils literal">KupferObject.rank_adjust</tt></dt>
+<dd>A number to adjust the ranking of a certain object. Should only
+be used on Actions. Should be set in the range -10 to -1 for actions
+that apply to many objects but not default for any.</dd>
+<dt><tt class="docutils literal">KupferObject.fallback_icon_name</tt></dt>
+<dd>Used as a the class' fallback for icon name. Do not change this.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="leaf">
+<h2><a class="toc-backref" href="#id6">Leaf</a></h2>
+<p>Leaf inherits from KupferObject.</p>
+<p>A Leaf represents an object that the user will want to act on. Examples
+are a file, an application or a free-text query (TextLeaf).</p>
+<p>This defines, in addition to KupferObject:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">__init__(self, obj, name)</tt></dt>
+<dd><p class="first">The default implementation of <tt class="docutils literal">__init__</tt> stores the parameter
+<tt class="docutils literal">obj</tt> into <tt class="docutils literal">self.object</tt> and passes <tt class="docutils literal">name</tt> up to
+<tt class="docutils literal">KupferObject.__init__</tt>.</p>
+<p class="last"><tt class="docutils literal">obj</tt> can be any data that the Leaf represents. <tt class="docutils literal">name</tt> must be
+a unicode string.</p>
+</dd>
+<dt><tt class="docutils literal">Leaf.object</tt></dt>
+<dd><tt class="docutils literal">Leaf.object</tt> is the represented object, which is the
+implementation-specific internal data.</dd>
+<dt><tt class="docutils literal">get_actions()</tt></dt>
+<dd>Return a sequence of Actions that always apply to the Leaf. These
+are &quot;built-in&quot; actions.</dd>
+<dt><tt class="docutils literal">__hash__</tt> and <tt class="docutils literal">__eq__</tt></dt>
+<dd><p class="first">Leaves are hashable, can be members in a set, and duplicates are
+recognized (and removed); this is essensial so that equivalent
+Leaves from different sources are recognized.</p>
+<p>These methods need normally not be overridden.</p>
+<p class="last">By default leaves are equal if both the name and the <tt class="docutils literal">Leaf.object</tt>
+attribute are the same.</p>
+</dd>
+<dt><tt class="docutils literal">has_content()</tt> and <tt class="docutils literal">content_source()</tt></dt>
+<dd><p class="first">A leaf can contain something, like a folder contains files or a
+music album songs.</p>
+<p>If the Leaf should have content, it should override <tt class="docutils literal">has_content</tt>
+to return <tt class="docutils literal">True</tt> and define <tt class="docutils literal">content_source()</tt> to return
+an instance of a Source.</p>
+<p class="last">A Leaf may decide dynamically if it has content or not.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="action">
+<h2><a class="toc-backref" href="#id7">Action</a></h2>
+<p>Action inherits from KupferObject.</p>
+<p>An Action represents a command using a direct object and an optional
+indirect object. One example is <tt class="docutils literal">kupfer.obj.fileactions.Open</tt> that
+will open its direct object (which must be a file), with its default
+viewer.</p>
+<p>Actions are the most versatile parts of Kupfer, since they can define
+ways to use objects together. They also have to decide, which types of
+Leaves they apply to, and if they apply to a given Leaf.</p>
+<p>An action is either a <cite>Subject + Verb</cite> action: It needs one object,
+this is the direct object.</p>
+<p>Or it is a <cite>Subject + Verb + Object</cite> action: It needs two objects,
+one direct object (&quot;obj&quot;) and one indirect object (&quot;iobj&quot;).</p>
+<p>Action defines, in addition to KupferObject:</p>
+<div class="section" id="activate-carrying-out-the-action">
+<h3>Activate: Carrying Out the Action</h3>
+<dl class="docutils">
+<dt><tt class="docutils literal">activate(self, obj)</tt></dt>
+<dd>Called to perform the action if the action is a normal
+<cite>Subject + Verb</cite> action.</dd>
+<dt><tt class="docutils literal">activate(self, obj, iobj)</tt></dt>
+<dd>Called to perform the action if the action is a three-way
+<cite>Subject + Verb + Object</cite> action. (That is, <tt class="docutils literal">requires_object</tt>
+returns <tt class="docutils literal">True</tt>)</dd>
+<dt><tt class="docutils literal">activate_multiple(self, objects)</tt></dt>
+<dd><!--  -->
+</dd>
+<dt><tt class="docutils literal">activate_multiple(self, objects, iobjects)</tt></dt>
+<dd><p class="first">If implemented, <tt class="docutils literal">activate_multiple</tt> is called with preference over
+<tt class="docutils literal">activate(self, obj, iobj)</tt> or <tt class="docutils literal">activate(self, obj)</tt> as
+appropriate.</p>
+<p>Implement <tt class="docutils literal">activate_multiple</tt> to handle multiple objects on either
+side in a smart way.</p>
+<p class="last">You should implement <tt class="docutils literal">activate_multiple</tt> if it is possible to do
+something better than the equivalent of repeating <tt class="docutils literal">activate</tt>
+<em>n</em> for <em>n</em> objects.</p>
+</dd>
+</dl>
+<p><tt class="docutils literal">activate</tt> and <tt class="docutils literal">activate_multiple</tt> also receive a keyword argument
+called <tt class="docutils literal">ctx</tt> if the action defines <tt class="docutils literal">wants_context(self)</tt> to return
+<tt class="docutils literal">True</tt>. See <tt class="docutils literal">wants_context</tt> below for more information.</p>
+</div>
+<div class="section" id="determining-eligible-objects">
+<h3>Determining Eligible Objects</h3>
+<dl class="docutils">
+<dt><tt class="docutils literal">item_types(self)</tt></dt>
+<dd>This method should return a sequence of all Leaf types
+that the action can apply to (direct object).</dd>
+<dt><tt class="docutils literal">valid_for_item(self, item)</tt></dt>
+<dd><p class="first">This method is called for each potential direct object
+of the correct type.
+Return True if the object is compatible with the action.</p>
+<p class="last">By default always returns <tt class="docutils literal">True</tt>.</p>
+</dd>
+<dt><tt class="docutils literal">requires_object(self)</tt></dt>
+<dd><p class="first">Return <tt class="docutils literal">True</tt> if the action is a <cite>Subject + Verb + Object</cite>
+action and requires both a direct and an indirect object.</p>
+<p class="last">If <tt class="docutils literal">requires_object</tt> returns <tt class="docutils literal">True</tt>,  then you must must also
+define (at least) <tt class="docutils literal">object_types</tt>.</p>
+</dd>
+<dt><tt class="docutils literal">object_types(self)</tt></dt>
+<dd>Return a sequence of all Leaf types that are valid for the action's
+indirect object.</dd>
+<dt><tt class="docutils literal">object_source(self, for_item)</tt></dt>
+<dd>If the action's indirect objects should not be picked from the full
+catalog, but from a defined source, return an instance of the Source
+here, else return None. <tt class="docutils literal">for_item</tt> is the direct object.</dd>
+<dt><tt class="docutils literal">valid_object(self, iobj, for_item)</tt></dt>
+<dd>This method, if defined,  will be called for each indirect object
+(with the direct object as <tt class="docutils literal">for_item</tt>), to decide if it can be
+used. Return <tt class="docutils literal">True</tt> if it can be used.</dd>
+</dl>
+</div>
+<div class="section" id="auxiliary-method-wants-context-self">
+<h3>Auxiliary Method <tt class="docutils literal">wants_context(self)</tt></h3>
+<dl class="docutils">
+<dt><tt class="docutils literal">wants_context(self)</tt></dt>
+<dd><p class="first">Return <tt class="docutils literal">True</tt> if <tt class="docutils literal">activate</tt> should receive an <tt class="docutils literal">ExecutionToken</tt>
+as the keyword argument <tt class="docutils literal">ctx</tt>. This allows posting late
+(after-the-fact) results and errors, as well as allowing access to
+the GUI environment.</p>
+<p class="last"><tt class="docutils literal">wants_context</tt> defaults to <tt class="docutils literal">False</tt> which corresponds to
+the old protocol without <tt class="docutils literal">ctx</tt>.</p>
+</dd>
+</dl>
+<p>So instead of <tt class="docutils literal">activate(self, obj)</tt>, the method should be implemented
+as <tt class="docutils literal">activate(self, obj, ctx)</tt>.</p>
+<p>The object passed as <tt class="docutils literal">ctx</tt> has the following interface:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">ctx.register_late_result(result_object)</tt></dt>
+<dd>Register the <tt class="docutils literal">result_object</tt> as a late result. It must be a
+<tt class="docutils literal">Leaf</tt>.</dd>
+<dt><tt class="docutils literal">ctx.register_late_error(exc_info=None)</tt></dt>
+<dd><p class="first">Register an asynchronous error. (For synchronous errors, simply raise
+an <tt class="docutils literal">OperationError</tt> inside <tt class="docutils literal">activate</tt>.)</p>
+<p class="last">For asynchronous errors, call <tt class="docutils literal">register_late_error</tt>. If
+<tt class="docutils literal">exc_info</tt> is <tt class="docutils literal">None</tt>, the current exception is used.
+If <tt class="docutils literal">exc_info</tt> is an <tt class="docutils literal">OperationError</tt> instance, then it is used
+as error. Otherwise, a tuple like <tt class="docutils literal">sys.exc_info()</tt> can be passed.</p>
+</dd>
+<dt><tt class="docutils literal">ctx.environment</tt></dt>
+<dd><p class="first">The environment object, which has the following methods:</p>
+<dl class="last docutils">
+<dt><tt class="docutils literal">get_timestamp(self)</tt></dt>
+<dd>Return the current event timestamp</dd>
+<dt><tt class="docutils literal">get_startup_notification_id(self)</tt></dt>
+<dd>Make and return a startup notification id</dd>
+<dt><tt class="docutils literal">get_display(self)</tt></dt>
+<dd>Return the display name (i.e <tt class="docutils literal">:0.0</tt>)</dd>
+<dt><tt class="docutils literal">present_window(self, window)</tt></dt>
+<dd>Present <tt class="docutils literal">window</tt> (a <tt class="docutils literal">gtk.Window</tt>) on the current
+workspace and monitor using the current event time.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="auxiliary-action-methods">
+<h3>Auxiliary Action Methods</h3>
+<p>Some auxiliary methods tell Kupfer about how to handle the action:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">is_factory(self)</tt></dt>
+<dd>Return <tt class="docutils literal">True</tt> if the return value of <tt class="docutils literal">activate</tt> is a source
+that should be displayed immediately.</dd>
+<dt><tt class="docutils literal">has_result(self)</tt></dt>
+<dd>Return <tt class="docutils literal">True</tt> if the action's return value in <tt class="docutils literal">activate</tt> should
+be selected.</dd>
+<dt><tt class="docutils literal">is_async(self)</tt></dt>
+<dd>Return <tt class="docutils literal">True</tt> if the action returns a <tt class="docutils literal">Task</tt> object conforming to
+<tt class="docutils literal">kupfer.task.Task</tt> from <tt class="docutils literal">activate</tt>. The task will be executed
+asynchronously in Kupfer's task queue.</dd>
+<dt><tt class="docutils literal">repr_key(self)</tt></dt>
+<dd>Override this to define a unique key for the action,
+if you need to differentiate between different instances of the
+same Action class.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="source">
+<h2><a class="toc-backref" href="#id8">Source</a></h2>
+<p>Source inherits from KupferObject.</p>
+<p>A Source understands specific data and delivers Leaves for it.</p>
+<p>A Source subclass must at a minimum implement <tt class="docutils literal">__init__</tt>,
+<tt class="docutils literal">get_items</tt> and <tt class="docutils literal">provides</tt>.</p>
+<p><tt class="docutils literal">Source</tt> defines, in addition to <tt class="docutils literal">KupferObject</tt>:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">__init__(self, names)</tt></dt>
+<dd>You must call this method with a unicode name in the subclass
+<tt class="docutils literal">__init__(self)</tt>.</dd>
+<dt><tt class="docutils literal">get_items(self)</tt></dt>
+<dd><p class="first">Your source should define <tt class="docutils literal">get_items</tt> to return a sequence
+of leaves which are its items; the return value is cached and used
+until <tt class="docutils literal">mark_for_update</tt> is called.</p>
+<p>Often, implementing <tt class="docutils literal">get_items</tt> in the style of a generator (using
+<tt class="docutils literal">yield</tt>) is the most convenient.</p>
+<p class="last">The Leaves shall be returned in natural order (most relevant first),
+or if sorting is required, return in any order and define
+<tt class="docutils literal">should_sort_lexically</tt>.</p>
+</dd>
+<dt><tt class="docutils literal">get_leaves(self)</tt></dt>
+<dd><tt class="docutils literal">get_leaves</tt> must not be overridden, define <tt class="docutils literal">get_items</tt>
+instead.</dd>
+<dt><tt class="docutils literal">provides(self)</tt></dt>
+<dd><p class="first">Return a sequence of all precise Leaf types the Source may contain.</p>
+<p class="last">Often, the Source contains Leaves of only one type, in that case
+the implementation is written simply as <tt class="docutils literal">yield ThatLeafType</tt>.</p>
+</dd>
+<dt><tt class="docutils literal">should_sort_lexically(self)</tt></dt>
+<dd>Return <tt class="docutils literal">True</tt> if the Source's leaves should be sorted
+alphabethically. If not sorted lexically, <tt class="docutils literal">get_items</tt> should yield
+leaves in order of the most relevant object first (for example the
+most recently used).</dd>
+<dt><tt class="docutils literal">initialize(self)</tt></dt>
+<dd>This method is called when the source should be made ready to use.
+This is where it should register for external change callbacks, for
+example.</dd>
+<dt><tt class="docutils literal">finalize(self)</tt></dt>
+<dd>This method is called before the Source is disabled (shutdown or
+plugin deactivated).</dd>
+<dt><tt class="docutils literal">get_leaf_repr(self)</tt></dt>
+<dd>Return a Leaf that represents the Source, if applicable; for example
+the DirectorySource is represented by a FileLeaf for the directory.</dd>
+<dt><tt class="docutils literal">__hash__</tt> and <tt class="docutils literal">__eq__</tt></dt>
+<dd>Sources are hashable, and equivalents are recognized just like
+Leaves, and the central SourceController manages them so that there
+are no duplicates in the application.</dd>
+<dt><tt class="docutils literal">get_items_forced(self)</tt></dt>
+<dd>Like <tt class="docutils literal">get_items</tt>, called when a refresh is forced. By default
+it just calls <tt class="docutils literal">get_items</tt>.</dd>
+<dt><tt class="docutils literal">mark_for_update(self)</tt></dt>
+<dd>Should not be overridden. Call <tt class="docutils literal">mark_for_update</tt> in the source to
+mark it so that it is refreshed by calling <tt class="docutils literal">get_items</tt>.</dd>
+<dt><tt class="docutils literal">repr_key(self)</tt></dt>
+<dd>Define to a unique key if you need to differentiate between sources
+of the same class. Normally only used with Sources from factory
+actions or from decorator sources.</dd>
+<dt><tt class="docutils literal">toplevel_source(self)</tt></dt>
+<dd>If applicable, the source can return a different source to represent
+it and its objects in the top level of the catalog. The default
+implementation returns <tt class="docutils literal">self</tt> which is normally what you want.</dd>
+<dt><tt class="docutils literal">is_dynamic(self)</tt></dt>
+<dd>Return <tt class="docutils literal">True</tt> if the Source should not be cached. This is almost
+never used.</dd>
+</dl>
+<div class="section" id="saving-source-configuration-data">
+<h3>Saving Source configuration data</h3>
+<p>These methods are must be implemented if the Source needs to save
+user-produced configuration data.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">config_save_name(self)</tt></dt>
+<dd>Return the name key to save the data under. This should almost
+always be literally <tt class="docutils literal">return __name__</tt></dd>
+<dt><tt class="docutils literal">config_save(self)</tt></dt>
+<dd><p class="first">Implement this to return a datastructure that succintly but
+perfectly represents the configuration data. The returned
+value must be a composition of simple types, that is, nested
+compositions of <tt class="docutils literal">dict</tt>, <tt class="docutils literal">list</tt>, <tt class="docutils literal">str</tt> etc.</p>
+<p class="last">This is called after <tt class="docutils literal">finalize</tt> is called on the source.</p>
+</dd>
+<dt><tt class="docutils literal">config_restore(self, state)</tt></dt>
+<dd>The <tt class="docutils literal">state</tt> parameter is passed in as the saved return value
+of <tt class="docutils literal">config_save</tt>. <tt class="docutils literal">config_restore</tt> is called before
+<tt class="docutils literal">initialize</tt> is called on the Source.</dd>
+</dl>
+</div>
+<div class="section" id="content-decorators">
+<h3>Content Decorators</h3>
+<p>A content-decorating source provides content to a Leaf, where it does
+not control the Leaf. An example is the recent documents content
+decorator, that provides document collections as content to
+applications.</p>
+<p>A normal Source listed in <tt class="docutils literal">__kupfer_sources__</tt> will be eligible for
+content decoration as well if it implements the needed methods.
+Otherwise content-only sources are listed in <tt class="docutils literal">__kupfer_contents__</tt>.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">&#64;classmethod decorates_type(cls)</tt></dt>
+<dd>Return the type of Leaf that can be decorated. You must also
+implement <tt class="docutils literal">decorate_item</tt>.</dd>
+<dt><tt class="docutils literal">&#64;classmethod decorate_item(cls, leaf)</tt></dt>
+<dd><p class="first">Return an instance of a Source (normally of the same type as the
+content decorator itself) that is the content for the object
+<tt class="docutils literal">leaf</tt>.  Return <tt class="docutils literal">None</tt> if not applicable.</p>
+<p class="last">Sources returned from <tt class="docutils literal">decorate_item</tt> go into the common Source
+pool. The new source instance will not be used if the returned
+instance is equivalent (as defined by class and <tt class="docutils literal">reepr_key</tt>
+above).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="source-attributes">
+<h3>Source Attributes</h3>
+<dl class="docutils">
+<dt><tt class="docutils literal">Source.source_user_reloadable = False</tt></dt>
+<dd>Set to <tt class="docutils literal">True</tt> if the source should have a user-visible
+<em>Rescan</em> action. Normally you much prefer to use change
+notifications so that this is not necessary.</dd>
+<dt><tt class="docutils literal">Source.source_prefer_sublevel = False</tt></dt>
+<dd>Set to <tt class="docutils literal">True</tt> to not export its objects to the top level by
+default. Normally you don't wan't to change this</dd>
+<dt><tt class="docutils literal">Source._version</tt></dt>
+<dd>Internal number that is <tt class="docutils literal">1</tt> by default. Update this number in
+<tt class="docutils literal">__init__</tt> to invalidate old versions of cache files.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="textsource">
+<h2><a class="toc-backref" href="#id9">TextSource</a></h2>
+<p>TextSource inherits from KupferObject.</p>
+<p>A text source returns items for a given text string, it is much like a
+simplified version of Source. At a minimum, a TextSource subclass must
+implement <tt class="docutils literal">get_text_items</tt> and <tt class="docutils literal">provides</tt>.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">__init__(self, name)</tt></dt>
+<dd>Override as <tt class="docutils literal">__init__(self)</tt> to provide a unicode name for the
+source.</dd>
+<dt><tt class="docutils literal">get_text_items(self, text)</tt></dt>
+<dd>Return a sequence of Leaves for the unicode string <tt class="docutils literal">text</tt>.</dd>
+<dt><tt class="docutils literal">provides(self)</tt></dt>
+<dd>Return a sequence of the Leaf types it may contain</dd>
+<dt><tt class="docutils literal">get_rank(self)</tt></dt>
+<dd>Return a static rank score for text output of this source.</dd>
+</dl>
+</div>
+<div class="section" id="actiongenerator">
+<h2><a class="toc-backref" href="#id10">ActionGenerator</a></h2>
+<p>ActionGenerator inherits from object.</p>
+<p>ActionGenerator is a helper object that can be declared in
+<tt class="docutils literal">__kupfer_action_generators__</tt>. It allows generating action objects
+dynamically.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">get_actions_for_leaf(self, leaf)</tt></dt>
+<dd>Return a sequence of Action objects appropriate for this Leaf</dd>
+</dl>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal">ActionGenerator</tt> should not perform any expensive
+computation, and not access any slow media (files, network) when
+returning actions.  Such expensive checks must postponed and be
+performed in each Action's <tt class="docutils literal">valid_for_item</tt> method.</p>
+</div>
+</div>
+<div class="section" id="the-plugin-runtime">
+<h2><a class="toc-backref" href="#id11">The Plugin Runtime</a></h2>
+<div class="topic">
+<p class="topic-title first">How a plugin is activated</p>
+<ol class="arabic">
+<li><p class="first">The plugin module is imported into Kupfer.</p>
+<p>If an error occurs, the loading fails and the plugin is disabled.
+If the error raised is an ImportError then Kupfer report it as a
+dependency problem.</p>
+</li>
+<li><p class="first">Kupfer will initialize a <tt class="docutils literal">kupfer.plugin_support.PluginSettings</tt>
+object if it exists (see next section)</p>
+</li>
+<li><p class="first">Kupfer will call the module-level function
+<tt class="docutils literal">initialize_plugin(name)</tt> if it exists.</p>
+</li>
+<li><p class="first">Kupfer instantiates the declared sources and actions and insert
+sources, actions, content decorators, action generators and text
+sources into the catalog.</p>
+</li>
+</ol>
+</div>
+<div class="topic">
+<p class="topic-title first">When a plugin is deactivated</p>
+<p>When the plugin is disabled, the module-level function
+<tt class="docutils literal">finalize_plugin(name)</tt> is called if it exists. [It is not yet
+final whether this function is called at shutdown or only when
+hot-unplugging plugins.]</p>
+</div>
+</div>
+<div class="section" id="kupfer-plugin-support">
+<h2><a class="toc-backref" href="#id12">kupfer.plugin_support</a></h2>
+<p>This module provides important API for several plugin features.</p>
+<div class="section" id="pluginsettings">
+<h3>PluginSettings</h3>
+<p>To use user-settable configuration parameters, use:</p>
+<pre class="literal-block">
+__kupfer_settings__ = plugin_support.PluginSettings(
+    {
+        &quot;key&quot; : &quot;frobbers&quot;,
+        &quot;label&quot;: _(&quot;Number of frobbers&quot;),
+        &quot;type&quot;: int,
+        &quot;value&quot;: 9,
+    },
+)
+</pre>
+<p>Where <tt class="docutils literal">PluginSettings</tt> takes a variable argument list of config
+parameter descriptions. The configuration values are accessed with
+<tt class="docutils literal">__kupfer_settings__[key]</tt> where <tt class="docutils literal">key</tt> is from the parameter
+description. Notice that <tt class="docutils literal">__kupfer_settings__</tt> is not updated with
+the user values until the plugin is properly initialized.</p>
+<p><tt class="docutils literal">PluginSettings</tt> is read-only but supports the GObject signal
+<tt class="docutils literal"><span class="pre">plugin-setting-changed</span> (key, value)</tt> when values change.</p>
+</div>
+<div class="section" id="check-dbus-support-and-check-keyring-support">
+<h3>check_dbus_support and check_keyring_support</h3>
+<p><tt class="docutils literal">plugin_support</tt> provides the convenience functions
+<tt class="docutils literal">check_dbus_support()</tt> and <tt class="docutils literal">check_keyring_support()</tt> that raise the
+appropriate error if a dependency is missing.</p>
+</div>
+<div class="section" id="alternatives">
+<h3>Alternatives</h3>
+<p>Alternatives are mutually exclusive features where the user must select
+which to use. Each category permits one choice.</p>
+<div class="topic">
+<p class="topic-title first">Categories of Alternatives</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name"><tt class="docutils literal">terminal</tt>:</th><td class="field-body">the terminal used for running programs that require
+terminal</td>
+</tr>
+<tr class="field"><th class="field-name"><tt class="docutils literal">icon_renderer</tt>:</th><td class="field-body">method used to look up icon names</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each category has a specific format of required data that is defined in
+<tt class="docutils literal">kupfer/plugin_support.py</tt>. A plugin should use the function
+<tt class="docutils literal">kupfer.plugin_support.register_alternative(caller, category_key, id_, **kwargs)</tt>
+to register their implementations of new alternatives. The arguments are:</p>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">register_alternative(caller, category_key, id_, ** kwargs)</tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name"><tt class="docutils literal">caller</tt>:</th><td class="field-body">the name of the calling plugin, is always <tt class="docutils literal">__name__</tt></td>
+</tr>
+<tr class="field"><th class="field-name"><tt class="docutils literal">category_key</tt>:</th><td class="field-body">one of the above categories</td>
+</tr>
+<tr class="field"><th class="field-name"><tt class="docutils literal">id_</tt>:</th><td class="field-body">the plugin's identifier for the alternative</td>
+</tr>
+<tr class="field"><th class="field-name"><cite>kwargs</cite>:</th><td class="field-body">key-value pairs defining the alternative</td>
+</tr>
+</tbody>
+</table>
+<p><tt class="docutils literal">register_alternative</tt> is normally called in the plugin's
+<tt class="docutils literal"><span class="pre">initialize_plugin(..)</span></tt> function.</p>
+</div>
+<div class="topic">
+<p class="topic-title first">Fields requried for the category <tt class="docutils literal">terminal</tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name"><tt class="docutils literal">name</tt>:</th><td class="field-body">unicode visible name</td>
+</tr>
+<tr class="field"><th class="field-name"><tt class="docutils literal">argv</tt>:</th><td class="field-body">argument list: list of byte strings</td>
+</tr>
+<tr class="field"><th class="field-name"><tt class="docutils literal">exearg</tt>:</th><td class="field-body">the execute-flag as a byte string (<tt class="docutils literal">&quot;&quot;</tt> when N/A)</td>
+</tr>
+<tr class="field"><th class="field-name"><tt class="docutils literal">desktopid</tt>:</th><td class="field-body">the likely application id as a byte string</td>
+</tr>
+<tr class="field"><th class="field-name"><tt class="docutils literal">startup_notify</tt>:</th><td class="field-body">whether to use startup notification as boolean</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="topic">
+<p class="topic-title first">Fields required for the category <tt class="docutils literal">icon_renderer</tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name"><tt class="docutils literal">name</tt>:</th><td class="field-body">unicode visible name</td>
+</tr>
+<tr class="field"><th class="field-name"><tt class="docutils literal">renderer</tt>:</th><td class="field-body">an object with an interface just like
+<tt class="docutils literal">kupfer.icons.IconRenderer</tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="plugin-packages-resources-and-distribution">
+<h2><a class="toc-backref" href="#id13">Plugin Packages, Resources and Distribution</a></h2>
+<p>A plugin is a Python module–either a single python file or a folder with
+an <tt class="docutils literal">__init__.py</tt> file (a package module). In the latter case, the
+whole of the plugin can be defined inside <tt class="docutils literal">__init__.py</tt>, or it can be
+split into several modules. Kupfer will look for all the description
+variables (like <tt class="docutils literal">__kupfer_name__</tt>) in <tt class="docutils literal">__init__.py</tt>.</p>
+<div class="topic">
+<p class="topic-title first">Plugin-installed custom icons</p>
+<p>A package module may include custom icons as .svg files. The icon files
+must be declared in a file inside the python package called
+<tt class="docutils literal"><span class="pre">icon-list</span></tt>.</p>
+<ul class="simple">
+<li>Each line is a tab-separated field list, with the icon name in
+the first column and the filename (relative to the plugin package)
+in the second column.</li>
+<li>Lines can be commented with a leading <tt class="docutils literal">#</tt></li>
+<li>If a literal <tt class="docutils literal">!override</tt> appears in the third column, the icon
+is installed even if it overrides the currently used GTK icon
+theme.</li>
+</ul>
+</div>
+<p>Plugins may be installed into any of the <tt class="docutils literal">kupfer/plugins</tt> data
+directories. Package modules can also be installed and used as <tt class="docutils literal">.zip</tt>
+files, so they too can be distributed as single files.</p>
+</div>
+</div>
+<div class="section" id="example-plugins">
+<h1><a class="toc-backref" href="#id14">Example Plugins</a></h1>
+<p>I want to specifically highlight certain files in Kupfer that are good
+to read as examples.</p>
+<ul class="simple">
+<li>Custom Leaf and Action: the common case of creating a custom
+<tt class="docutils literal">Leaf</tt> type and defining its default <tt class="docutils literal">Open</tt> action, see
+<tt class="docutils literal">kupfer/plugin/notes.py</tt></li>
+<li>Content decoration: making content for objects, see
+<tt class="docutils literal">kupfer/plugin/archiveinside.py</tt> (<em>Deep Archives</em> plugin)</li>
+<li>Asynchronous error reporting: see <tt class="docutils literal">kupfer/plugin/volumes.py</tt>, action
+<em>Unmount</em></li>
+</ul>
+</div>
+<div class="section" id="reference-to-the-kupfer-package">
+<h1><a class="toc-backref" href="#id15">Reference to the <tt class="docutils literal">kupfer</tt> Package</a></h1>
+<p>There are several modules inside the <tt class="docutils literal">kupfer</tt> package that a plugin
+can reuse.</p>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.commandexec</tt></p>
+<p><tt class="docutils literal">kupfer.commandexec</tt> is not used by plugins anymore
+after version v204. See <a class="reference internal" href="#auxiliary-method-wants-context-self">Auxiliary Method wants_context(self)</a>
+above instead.</p>
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.config</tt></p>
+<!--  -->
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.interface</tt></p>
+<p>This module does not need to be imported just to implement the
+interface it defines.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">TextRepresentation</tt></dt>
+<dd><dl class="first last docutils">
+<dt><tt class="docutils literal">get_text_representation</tt></dt>
+<dd>If a Leaf has a text representation (used for
+copy-to-clipboard), it should implement this method
+and return a unicode string.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.kupferstring</tt></p>
+<p>A <strong>byte string</strong> (Python <tt class="docutils literal">str</tt>) is just a stream of data. When
+you handle byte strings that is text, you must convert it to unicode
+as soon as possible. You only know the encoding depending on the
+source of the byte string.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">tounicode</tt></dt>
+<dd>decode UTF-8 or unicode object into unicode.</dd>
+<dt><tt class="docutils literal">tolocale(ustr)</tt></dt>
+<dd>coerce unicode <tt class="docutils literal">ustr</tt> into a locale-encoded bytestring.</dd>
+<dt><tt class="docutils literal">fromlocale(lstr)</tt></dt>
+<dd>decode locale-encoded bytestring <tt class="docutils literal">lstr</tt> to a unicode object.</dd>
+</dl>
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.objects</tt></p>
+<p><tt class="docutils literal">kupfer.objects</tt> includes the basic objects from the package
+<tt class="docutils literal">kupfer.obj</tt>, such as <tt class="docutils literal">Leaf</tt>, <tt class="docutils literal">Action</tt>, <tt class="docutils literal">Source</tt> etc.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">FileLeaf</tt>, <tt class="docutils literal">AppLeaf</tt>, <tt class="docutils literal">TextLeaf</tt> etc.</dt>
+<dd>The basic re-usable types live here</dd>
+<dt><tt class="docutils literal">OperationError</tt></dt>
+<dd><p class="first">Exception type for user-visible errors in action execution.
+Raise <tt class="docutils literal">OperationError</tt> with a unicode localized error message
+inside <tt class="docutils literal">Action.activate</tt> to notify the user of a serious
+error.</p>
+<p class="last">Specialized versions exist: Such as
+<tt class="docutils literal">CommandMissingError(cmd)</tt>, <tt class="docutils literal">NotAvailableError(toolname)</tt>,
+<tt class="docutils literal">NoMultiError()</tt></p>
+</dd>
+</dl>
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.pretty</tt></p>
+<!--  -->
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.runtimehelper</tt></p>
+<!--  -->
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.textutils</tt></p>
+<!--  -->
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.uiutils</tt></p>
+<dl class="docutils">
+<dt><tt class="docutils literal">show_notification(title, <span class="pre">text='',</span> <span class="pre">icon_name='',</span> nid=0)</tt></dt>
+<dd><p class="first">Show a notification. If a previous return value is passed as
+<tt class="docutils literal">nid</tt> , try to replace that previous notification.</p>
+<p class="last">Returns a notification identifier, or None if notifications
+are not supported.</p>
+</dd>
+</dl>
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.utils</tt></p>
+<dl class="docutils">
+<dt><tt class="docutils literal">spawn_async(argv)</tt></dt>
+<dd>Spawn a child process, returning True if successfully started.</dd>
+<dt><tt class="docutils literal">spawn_in_terminal(argv)</tt></dt>
+<dd><!--  -->
+</dd>
+<dt><tt class="docutils literal">show_path(path)</tt></dt>
+<dd><!--  -->
+</dd>
+<dt><tt class="docutils literal">show_url(url)</tt></dt>
+<dd>Display with default viewer for <tt class="docutils literal">path</tt> or <tt class="docutils literal">url</tt>.</dd>
+<dt><tt class="docutils literal">get_display_path_for_bytestring(filepath)</tt></dt>
+<dd>File paths are bytestrings (and are not text).
+<tt class="docutils literal">get_display_path_for_bytestring</tt> returns a user-displayable
+text representation as a unicode object.</dd>
+</dl>
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.task</tt></p>
+<!--  -->
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.weaklib</tt></p>
+<!--  -->
+</div>
+<div class="topic">
+<p class="topic-title first"><tt class="docutils literal">kupfer.core</tt></p>
+<p>The module <tt class="docutils literal">kupfer.core</tt> can not be used by plugins.</p>
+</div>
+<!-- vim: ft=rst tw=72 et sts=4 sw=4 -->
+<!-- this document best viewed with rst2html -->
+</div>
+</div>
+</body>
+</html>

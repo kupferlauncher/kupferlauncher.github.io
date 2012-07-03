@@ -1,0 +1,1283 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<title>NEWS for kupfer</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7056 2011-06-17 10:50:48Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="news-for-kupfer">
+<h1 class="title">NEWS for kupfer</h1>
+
+<div class="section" id="kupfer-v208">
+<h1>kupfer v208</h1>
+<p>Released Friday,  1 June 2012</p>
+<ul class="simple">
+<li>Fix bug with nonexisting catalog directories (Karol) (<strong class="lp">1000980</strong>)</li>
+<li>Fix sending to many with Thunderbird (Karol) (<strong class="lp">955100</strong>)</li>
+<li>Fix history file for OpenOffice/LibreOffice (Karol)</li>
+<li><em>Audacious</em> plugin: Work with Audacious 3 (Ulrik)</li>
+<li>Localization updates:<ul>
+<li>cs, Marek Černocký</li>
+<li>es, Daniel Mustieles</li>
+<li>fr, Alexandre Franke, Bruno Brouard</li>
+<li>ru, Nikolay Barbariyskiy</li>
+<li>sl, Matej Urbančič</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-v207">
+<h1>kupfer v207</h1>
+<p>Released Sunday, 26 February 2012</p>
+<ul class="simple">
+<li>Documentation translated to French by Bruno Brouard</li>
+<li>New translation to Brazilian Portuguese by Djavan Fagundes</li>
+<li>New translation to Hungarian by SanskritFritz</li>
+<li>Handle large text objects a bit better</li>
+<li>Introduce proxy objects <em>Clipboard File</em> and <em>Clipboard Text</em>. These
+objects are implemented in the <em>Clipboard</em> plugin, just like the <em>Selected
+Text</em> object which has changed home to this plugin. Accordingly,
+deactivating the clipboard plugin will deactivate these proxies.</li>
+<li>Support copying and pasting files from/to the clipboard, which allows much
+easier integration with file managers.</li>
+<li>Add an information text detailing which keyring backend is used to store
+passwords, visible in the user credentials dialog.</li>
+<li><em>Vim:</em> Expand the vim plugin to use a helper process to track running
+server instances of (G)Vim. Each running session is exported as an object,
+and most importantly, files can be opened in a session using the action
+<em>Open With</em>.</li>
+<li><em>Multihead Support:</em> This new plugin will start the &quot;keyboard shortcut
+relay&quot; service on additional screens, if it is needed. It is active by
+default, and does not do anything on configurations with a single
+X screen.</li>
+<li><em>Send Keys:</em> Allow sending key sequences using comma trick.</li>
+<li><em>Thunar:</em> Add action <em>Symlink In...</em></li>
+<li><em>Quicksilver Icons:</em> New plugin with a few icons from Quicksilver</li>
+<li>Use themable custom icon names <tt class="docutils literal"><span class="pre">kupfer-execute</span></tt>, <tt class="docutils literal"><span class="pre">kupfer-catalog</span></tt>,
+<tt class="docutils literal"><span class="pre">kupfer-launch</span></tt>. Also allow plugins to choose to supply icons when the
+icon theme lacks them, or always override the icon theme.</li>
+<li>Fix passing zero-length arguments to programs (Fabián Ezequiel Gallina)
+(<strong class="lp">863349</strong>)</li>
+<li><em>Gmail:</em> Expose more contact info fields (Adi Sieker, Karol Będkowski)</li>
+<li>Add plugin <em>DuckDuckGo</em> (Isaac Aggrey)</li>
+<li>Add quick note action to <em>Zim</em> (Karol Będkowski)</li>
+<li>Add <em>Edit Contact in Gmail</em> to <em>Gmail</em> (Karol)</li>
+<li>Fix version detection in <em>Gajim</em> (Karol)</li>
+<li><em>Google Translate:</em> Since Google no longer provides this API (for free),
+this plugin is no longer included in Kupfer.</li>
+<li>Fix compatibility with dbus-python version 1.0 (<strong class="lp">921829</strong>)</li>
+<li>Fix loss of window shape when centering (David Schneider) (<strong class="lp">779845</strong>)</li>
+<li>We are now using the format .tar.xz for the distribution tarball.</li>
+<li>The git repository and tarball now includes a local copy of waf (1.6.11),
+unmodified but with unused in Tools/ and extras/ removed.</li>
+<li>Localization updates:<ul>
+<li>(cs) Marek Černocký</li>
+<li>(de) Mario Blättermann</li>
+<li>(fr) Bruno Brouard</li>
+<li>(es) Daniel Mustieles</li>
+<li>(hu) SanskritFritz</li>
+<li>(pl) Piotr Drąg</li>
+<li>(pt_BR) Djavan Fagundes</li>
+<li>(sl) Andrej Žnidaršič</li>
+<li>(sv) Ulrik</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-v206">
+<h1>kupfer v206</h1>
+<p><cite>The longest changelog ever—the best Kupfer ever?</cite></p>
+<p>Released Thursday, 14 April 2011</p>
+<p>These are changes since the v205 release. Below this I have included, the
+full changelog for all the features introduced in v205, since it was not
+published in whole together with the v205 release.</p>
+<p>I would like to thank all contributors for patches, bug reports, comments
+and translations. A special thanks to those who have contributed to the
+<a class="reference external" href="http://kaizer.se/wiki/kupfer/help/">user documentation</a>; it is now complete in both Polish and Spanish.</p>
+<p>If you like my work with Kupfer, you can support me by donating. There are
+instructions how to do so on the web page. –ulrik.</p>
+<ul class="simple">
+<li><em>Thunderbird:</em> fix double create email windows (<strong class="lp">747198</strong>)</li>
+<li><em>Thunderbird:</em> fix problem with loading contacts (Karol Będkowski)
+(<strong class="lp">747438</strong>)</li>
+<li>Use <tt class="docutils literal">rst2man</tt> as it was configured (<strong class="lp">747500</strong>)</li>
+<li>Reduce runtime memory use for substantially by reimplementing the icon
+cache (expectations vary btw. 10 to 30 percent).</li>
+<li>Prefer gnomekeyring over kwallet, and don't load keyring support if it is
+not requested by a plugin (<strong class="lp">747864</strong>)</li>
+<li>Make the &quot;folder&quot; icon take precedence over &quot;inode/directory&quot;</li>
+<li>Fix a regression in <em>Go To</em> that would not focus minimized windows.</li>
+<li>In <em>Go To</em> action, cycle application windows (if they are all on the same
+workspace).</li>
+<li>Fix <strong class="lp">671105</strong>: the user's home is aliased as <em>Home Folder</em> and the
+&quot;lookalike&quot; application is hidden.</li>
+<li>Use GTK+ as default icon set, the ASCII icon set remains as a plugin</li>
+<li>Fix regression <strong class="lp">749824</strong>, kupfer used a GTK+ 2.20 feature. Kupfer
+should now run under GTK+ 2.18 (2.16?). GTK+ 2.20 is recommended and
+needed for full input method support.</li>
+<li>Remake <tt class="docutils literal">.desktop</tt> file parsing to be much more lenient, so that we
+can launch all applications again. Affected were especially launcher files
+written by wine.</li>
+<li>Make sure the <tt class="docutils literal">Home</tt> key works in text mode (<strong class="lp">750240</strong>)</li>
+<li><em>Rhythmbox:</em> Fix omission of <tt class="docutils literal">.jpg</tt> extension when searching cover art
+(William Friesen)</li>
+<li>Support xfce4-dict in <em>Dictionary</em> plugin (David Schneider)</li>
+<li>Make sure <tt class="docutils literal">kupfer.svg</tt> can be mimetype-detected (NAKAMURA Yoshitaka)
+(<strong class="lp">750488</strong>)</li>
+<li>Fix regression that prevented mimetypes and icon cache from being updated
+properly when installing from source.</li>
+<li>Focus the plugin list search box by default in the preferences window.</li>
+<li>Fix regression in <em>XFCE Session Management</em> that had a broken logout
+command.</li>
+<li>Install kupfer as a Thunar 'sendto' object.</li>
+<li>Fix a bug in the autostart file we installed, it was including a '%F'
+which broke <tt class="docutils literal"><span class="pre">--no-splash</span></tt> when autostarted on XFCE.</li>
+<li><em>LibreOffice:</em> support their newer recent documents file (Karol Będkowski)</li>
+<li><em>Notes:</em> Insert newlines after the new note title (<strong class="lp">748991</strong>)</li>
+<li><em>Commands:</em> Recognize absolute paths with arguments as shell commands (for
+example <tt class="docutils literal">/bin/grep <span class="pre">--help</span></tt>. (<strong class="lp">152093</strong>)</li>
+<li><em>GNU Screen:</em> check if sessions are still active (<strong class="lp">756449</strong>), don't
+give up even if <tt class="docutils literal">$SCREENDIR</tt> is missing when we are started
+(<strong class="lp">753376</strong>)</li>
+<li><em>Notes:</em> support the program kzrnote as well</li>
+<li>Renamed the two like-named command actions in spanish (Daniel Mustieles)</li>
+<li>Localization updates for v206:<ul>
+<li>sl Andrej Žnidaršič</li>
+<li>es Daniel Mustieles</li>
+<li>de Mario Blättermann</li>
+</ul>
+</li>
+</ul>
+<p>This is the changelog for the v205 release, which was released previously.</p>
+<ul class="simple">
+<li>Changes to the interface<ul>
+<li>Add a small menu button on the window for explicit access to
+context actions, preferences window, and help.</li>
+<li>Increase icon size to 128px</li>
+<li>Always show description field</li>
+<li>Use an undecorated window with rounded corners</li>
+<li>Let the frame be slightly transparent if supported</li>
+<li>Themable colors and properties by using GTK+ styling, see
+<tt class="docutils literal">Documentation/GTKTheming.rst</tt>, and the plugin <em>Custom Theme</em> that
+shows how to use custom styles.</li>
+</ul>
+</li>
+<li>Add context action &quot;Set X as default action for object Y&quot;<ul>
+<li>For example, you can make <em>Launch Again</em> default for Terminal, and our
+default configuration uses this setting for two common terminals (GNOME
+and XFCE).</li>
+</ul>
+</li>
+<li>Updated Kupfer's technical documentation (in <tt class="docutils literal">Documentation/</tt>),
+including the Plugin API reference.</li>
+<li>Implement a preedit widget for input methods, also resolving
+the incompatibility with ibus (David Schneider) (<strong class="lp">696727</strong>)</li>
+<li>Re-implement launching of applications</li>
+<li>Allow the user to configure which terminal program is used.
+Applies to all of <em>Run in Terminal</em>, <em>Open Terminal Here</em>, for .desktop
+files that specify <tt class="docutils literal">Terminal=true</tt> etc.</li>
+<li>Implement an &quot;alternatives&quot; mechanism so that plugins can
+register mutually exclusive alternatives. Currently implemented
+are Terminals (see above) and Icon Renderers.</li>
+<li><em>Thunar</em>: Use Thunar 1.2's Copy and Move API.<ul>
+<li>These allow copying and moving anything through thunar, and it will
+show progress dialogs for longer transactions.</li>
+</ul>
+</li>
+<li>Add <em>Ascii &amp; Unicode Icon Set</em> for fun</li>
+<li>Add simple plugin <em>Quick Image Viewer</em> to show images in a simple way.</li>
+<li>Add <em>Send Keys</em> plugin that can send synthetic keyboard events,
+and prominently can be used for the <em>Paste to Foreground Window</em>
+action on text. Requires <tt class="docutils literal">xautomation</tt> package. (<strong class="lp">621453</strong>)</li>
+<li><em>Volumes:</em> treat mounts as regular folders, so they can be targets for
+file operations.</li>
+<li><em>File Actions:</em> the action <em>Move to Trash</em> switches home to the <em>Trash</em>
+plugin, the archive actions go to new <em>Archive Manager</em> plugin. <em>Archive
+Manager</em> also updated to recognize more archive file types, including
+<tt class="docutils literal">.xz</tt>.</li>
+<li>Activate current selection on double-click in the interface.
+(<strong class="lp">700948</strong>)</li>
+<li>Update the preferences window and move the folder configuration to the
+Catalog tab.</li>
+<li>Add <tt class="docutils literal">initialize_plugin</tt> to the plugin interface.</li>
+<li>The D-Bus interface has been extended with X screen and timestamp-aware
+versions of all methods:<ul>
+<li><tt class="docutils literal">PresentOnDisplay</tt>, <tt class="docutils literal">PutFilesOnDisplay</tt>, <tt class="docutils literal">PutTextOnDisplay</tt>,
+<tt class="docutils literal">ExecuteFileOnDisplay</tt>  all act like their similarly-named
+predecessors, but take <tt class="docutils literal">$DISPLAY</tt> and <tt class="docutils literal">$DESKTOP_STARTUP_ID</tt> as their
+last two arguments.</li>
+<li><tt class="docutils literal"><span class="pre">kupfer-exec</span></tt> activation sends the event timestamp so that focus can
+be carried along correctly even when running <tt class="docutils literal">.kfcom</tt> files (if
+activated as an application by startup-notification-aware launchers,
+this works with most standard desktop components).</li>
+</ul>
+</li>
+<li>Internally, change how actions are carried out by allowing the
+action execution context object to be passed down the execution chain
+instead of being a global resource. This also allows plugins to cleanly
+access current environment (event timestamp, current screen etc).<ul>
+<li>Support running kupfer on multiple X screens (<strong class="lp">614796</strong>), use
+the command <tt class="docutils literal">kupfer <span class="pre">--relay</span></tt> on each additional screen for global
+keyboard shortcut support. This is experimental until further notice!</li>
+</ul>
+</li>
+<li>The <em>Tracker 0.8</em> plugin supports version 0.8 and 0.10 alike. Because of
+that and the expected compatibility with one version after this too, it's
+now called <em>Tracker</em>.</li>
+<li>The <em>Favorites</em> plugin lists <em>Kupfer Help</em> and <em>Kupfer Preferences</em> by
+default (for new users), so that it's not empty and those items are ranked
+higher.</li>
+<li>In free-text mode, show a character count in the text entry.</li>
+<li>The action <em>Go To</em> on applications has changed implementation. It will
+first bring to front all the application's windows on the current
+workspace, and upon the next invocations it will focus the other
+workspaces, in order, if they have windows from the same application.  For
+single-window applications, nothing is changed.</li>
+<li>Localization updates for v205:<ul>
+<li>(cs) Marek Černocký</li>
+<li>(de) Mario Blättermann</li>
+<li>(es) Daniel Mustieles</li>
+<li>(ko) Kim Boram</li>
+<li>(nb) Kjartan Maraas</li>
+<li>(pl) Karol Będkowski</li>
+<li>(sl) Andrej Žnidaršič</li>
+<li>(sv) Ulrik</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-v205">
+<h1>kupfer v205</h1>
+<p>Congratulating ourselves</p>
+<p>Released Friday, 1 April 2011</p>
+<ul class="simple">
+<li>Changes to the interface<ul>
+<li>NOw we have a teh awsum interface</li>
+</ul>
+</li>
+<li>Add context action &quot;Set X as default action for object Y&quot;<ul>
+<li>You can finally make Kupfer do what you want.</li>
+</ul>
+</li>
+<li>Implement a preedit widget for input methods, also resolving
+the incompatibility with ibus (David Schneider) (<strong class="lp">696727</strong>)<ul>
+<li>Ok, so that foreign people can enter text too.</li>
+</ul>
+</li>
+<li>Updated Kupfer's technical documentation (in <tt class="docutils literal">Documentation/</tt>),
+including the Plugin API reference.<ul>
+<li>Someone finally bothered</li>
+</ul>
+</li>
+<li>The action <em>Go To</em> on applications has changed implementation. It will
+first bring to front all yada yada, etc...<ul>
+<li>Whatever, it finally works in a sensible way</li>
+</ul>
+</li>
+<li>And tons of other stuff, enjoy!</li>
+</ul>
+</div>
+<div class="section" id="kupfer-v204">
+<h1>kupfer v204</h1>
+<p>Released Friday, 18 March 2011</p>
+<ul class="simple">
+<li>Expand and improve upon <a class="reference external" href="http://kaizer.se/wiki/kupfer/help/">Kupfer's User Documentation</a>.</li>
+<li>Use and require <strong>Waf 1.6</strong>, which supports building using either Python 3
+or Python 2.6+. Kupfer itself still uses Python 2.6+ only.</li>
+<li>Add <em>Gwibber</em> plugin that allows integration with Twitter, Identi.ca, Buzz
+etc. (Karol Będkowski)</li>
+<li>Add chat client <em>Empathy</em> plugin (Jakh Daven)</li>
+<li>Remove the plugin <em>Twitter</em> since it is incompatible and has no updated
+implementation.</li>
+<li>Add <em>Show QRCode</em> plugin by Thomas Renard (<strong class="lp">611162</strong>)</li>
+<li>Periodically save data from plugins so it's not lost if Kupfer can't exit
+cleanly at logout</li>
+<li><em>Commands</em>: Add actions <em>Pass to Command</em>, <em>Filter through Command</em>, <em>Send
+to Command</em> which add a lot of shell script-related power to Kupfer.
+These actions, and <em>Run (Get Output)</em> as well, use a shell so
+that you can run shell pipelines.</li>
+<li><em>Search the Web</em>: Fix bug in OpenSearch parser (<strong class="lp">682476</strong>)</li>
+<li><em>VirtualBox</em>: Support vboxapi4 (Karol Będkowski)</li>
+<li><em>Thunderbird</em>: Fix problems in the mork parser (Karol Będkowski)
+(<strong class="lp">694314</strong>)</li>
+<li><em>OpenOffice</em>: Support LibreOffice too (Karol Będkowski)</li>
+<li>Fix &quot;Y2011 bug&quot; where the time parameter overflowed INT32 in keybinder</li>
+<li><em>Shorten Links</em>: Use only services with stable API, added and removed
+services.</li>
+<li><em>Google Search</em>, <em>Google Translate</em> and <tt class="docutils literal">bit.ly</tt> in <em>Shorten Links</em> can
+use SSL for transport if a third-party plugin is installed.</li>
+<li>Fix bug if evolution address book is missing (Luca Falavigna)
+(<strong class="lp">691305</strong>)</li>
+<li>Fix <em>Search the Web</em> to use localized <tt class="docutils literal"><span class="pre">firefox-addons</span></tt> subdirectories
+for search engines (<strong class="lp">735083</strong>)</li>
+<li>Fix bug with integer division (Francesco Marella)</li>
+<li><em>APT:</em> Workaround bug with <tt class="docutils literal">subprocess</tt> (<strong class="lp">711136</strong>)</li>
+<li>Find cover art files just like Rhythmbox (William Friesen) (<strong class="lp">676433</strong>)</li>
+<li>Use <tt class="docutils literal">readlink</tt> in <tt class="docutils literal"><span class="pre">kupfer-exec</span></tt> script too since <tt class="docutils literal">realpath</tt> is not
+always available.</li>
+<li>Allow plugins to use update notifications (William Friesen)</li>
+<li>Bug <strong class="lp">494237</strong> is hopefully fixed once and for all.</li>
+<li>The <em>Large Type</em> action will work with anything that has
+<tt class="docutils literal">TextRepresentation</tt></li>
+</ul>
+<ul class="simple">
+<li>Localization updates:<ul>
+<li>(cs) Marek Černocký</li>
+<li>(da) Joe Hansen</li>
+<li>(de) Mario Blättermann</li>
+<li>(es) Daniel Mustieles</li>
+<li>(gl) Marcos Lans</li>
+<li>(pl) Karol Będkowski</li>
+<li>(sl) Andrej Žnidaršič</li>
+<li>(sv) Ulrik</li>
+<li>(zh_CN) Aron Xu, Yinghua Wang</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-v203">
+<h1>kupfer v203</h1>
+<p>Released Saturday,  6 November 2010</p>
+<ul class="simple">
+<li>Center Kupfer on the monitor were the mouse pointer is (<strong class="lp">642653</strong>,
+<em class="git">3d0ba12</em>)</li>
+<li>Ignore the system's configured input manager by default (User can choose
+by pressing Shift+F10 in Kupfer). Kupfer is still not compatible with
+ibus 1.3. (<strong class="lp">601816</strong>, <em class="git">4f029e6</em>)</li>
+<li>Use <tt class="docutils literal">readlink</tt> instead of <tt class="docutils literal">realpath</tt> (<em class="git">656b32d</em>)</li>
+<li><em>Opera Mail</em>: Handle contacts with multiple e-mail addresses (Chris
+Parsons) (<strong class="lp">661893</strong>, <em class="git">12924be</em>)</li>
+<li><em>Google Translate</em>: Fix language list (Karol Będkowski) (<strong class="lp">600406</strong>,
+<em class="git">7afac2b</em>)</li>
+<li><em>TSClient</em>: Search recursively for session files (Karol, Freddie Brandt)
+(<em class="git">ad58c2e</em>)</li>
+<li><em>Rhythmbox</em>: Fix thumbnail lookup (William Friesen) (<strong class="lp">669077</strong>,
+<em class="git">b673f98</em>)</li>
+<li>New Slovenian translation of help by Matej Urbančič (<em class="git">3b7df25</em>)</li>
+<li>New Turkish translation by M. Deran Delice (<em class="git">bd95d2a</em>)</li>
+</ul>
+</div>
+<div class="section" id="kupfer-v202">
+<h1>kupfer v202</h1>
+<p>Released Sunday,  5 September 2010</p>
+<ul class="simple">
+<li>Add option to hide Kupfer when focus is lost (and enable by default)
+(Grigory Javadyan) (<strong class="lp">511972</strong>)</li>
+<li>Use application indicators when available (Francesco Marella)
+(<strong class="lp">601861</strong>)</li>
+<li>Python module <cite>keyring</cite> is now optional for Kupfer (but required for
+the same plugins that used them before)</li>
+<li>Update <em>Google Translate</em> for protocol changes (Karol, Ulrik) (<strong class="lp">600406</strong>)</li>
+<li>Disable saving window position until a better solution is found</li>
+<li>Use 'mailto:' as URL (<strong class="lp">630489</strong>)</li>
+<li>Fix UI glictch with empty Source (William Friesen) (<strong class="lp">630244</strong>)</li>
+<li>Small changes (Francesco Marella)</li>
+<li>New Czech translation of the help pages (Marek Černocký)</li>
+<li>New Italian translation of the help pages (Francesco Marella)</li>
+<li>New Polish translation of the help pages (Karol Będkowski)</li>
+<li>New Basque translation (Oier Mees, Iñaki Larrañaga Murgoitio)</li>
+<li>New Galician translation (Fran Diéguez)</li>
+<li>Localization updates:<ul>
+<li>cs (Marek Černocký)</li>
+<li>de (Mario Blättermann)</li>
+<li>pl (Karol Będkowski)</li>
+<li>sl (Andrej Žnidaršič)</li>
+<li>zh_CN (Aron Xu)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-v201">
+<h1>kupfer v201</h1>
+<p>Released Wednesday, 30 June 2010</p>
+<ul class="simple">
+<li>New Logo and Icon by Nasser Alshammari!</li>
+<li>New plugin <em>Opera Mail</em> by Chris Parsons</li>
+<li>New plugin <em>SSH Hosts</em> by Fabian Carlström</li>
+<li>New plugin <em>Filezilla</em> by Karol Będkowski</li>
+<li>New plugin <em>Getting Things GNOME!</em> (Karol)</li>
+<li>New plugin <em>Vim</em> (recent files)</li>
+<li><em>Clipboard:</em> Option <em>Copy selection to primary clipboard</em> (Karol)</li>
+<li><em>Firefox:</em> Option <em>Include visited sites</em> (Karol) (<strong class="lp">584618</strong>)</li>
+<li><em>Thunar:</em> Action <em>Send To...</em> (Karol)</li>
+<li>New preferences tab for Catalog configuration</li>
+<li>Allow disabling and &quot;unloading&quot; plugins at runtime</li>
+<li>Support new tracker in plugin <em>Tracker 0.8</em></li>
+<li><em>Shell Commands:</em> New Action <em>Run (Get Output)</em></li>
+<li>New plugin capabilities: ActionGenerator, Plugin setting change
+notifications (Karol)</li>
+<li>Use <tt class="docutils literal">setproctitle</tt> module if available to set process title to
+<tt class="docutils literal">kupfer</tt> (new optional dependency)</li>
+<li>Don't use a crypted keyring (partially addresses <strong class="lp">593319</strong>)</li>
+<li>Fix <strong class="lp">544908</strong>: Retain window position across sessions</li>
+<li>Fix <strong class="lp">583747</strong>: Use real theme colors for highlight</li>
+<li>Fix <strong class="lp">593312</strong>: About window has no icon</li>
+<li>More minor changes</li>
+<li>Localization updates:<ul>
+<li>cs, Marek Černocký</li>
+<li>de, Mario Blättermann</li>
+<li>es, Jorge González</li>
+<li>it, Francesco Marella</li>
+<li>pl, Karol Będkowski</li>
+<li>sl, Andrej Žnidaršič</li>
+<li>sv, Ulrik</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-v200">
+<h1>kupfer v200</h1>
+<p>Released Wednesday,  7 April 2010</p>
+<ul class="simple">
+<li>Add Keyboard Shortcut configuration (Karol Będkowski)</li>
+<li>Make it easier to copy and move files (William Friesen), while showing
+user-friendly errors when action is not possible (Ulrik) (<strong class="lp">516530</strong>)</li>
+<li>Collect results in a <em>Command Results</em> subcatalog, including results from
+asynchronous commands (Pro tip: Bind a trigger to <em>Command Results</em> →
+<em>Search Contents</em>, for quick access to copied files, downloaded files etc)</li>
+<li><em>Last Result</em> proxy object implemented</li>
+<li>Add <em>Cliboards</em> -&gt; <em>Clear</em> action (Karol)</li>
+<li>Add <em>Rescan</em> action for some sources (Karol)</li>
+<li>Add an icon in the plugin list search field to enable clearing it (Karol)</li>
+<li>Fix spelling (Francesco Marella)</li>
+<li>Fix bug <strong class="lp">544289</strong></li>
+<li>Require python module <tt class="docutils literal">keyring</tt> (since pandoras-box-1.99, but was not
+mentioned)</li>
+<li>Recommend python-keybinder version 0.0.9 or later</li>
+<li>Localization updates:<ul>
+<li>cs Marek Černocký</li>
+<li>de Mario Blättermann</li>
+<li>es Jorge González</li>
+<li>pl Karol Będkowski</li>
+<li>sl Andrej Žnidaršič</li>
+<li>sv Ulrik</li>
+<li>zh_CN Aron Xu</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-pandoras-box-1-99">
+<h1>kupfer version pandoras-box-1.99</h1>
+<p>Released Tuesday, 16 March 2010</p>
+<ul class="simple">
+<li>Plugins can be loaded at runtime, although not unloaded can they not</li>
+<li>Plugins can bundle icons, and plugins can be packaged in .zip files</li>
+<li>New plugins <em>Google Search</em>, <em>Textfiles</em> and <em>Thunar</em></li>
+<li>New plugin <em>Deep Archives</em> to browse inside .zip and .tar files</li>
+<li>New plugins <em>Twitter</em>, <em>Gmail</em> and <em>Google Picasa</em> by Karol Będkowski</li>
+<li>New plugin <em>Evolution</em> by Francesco Marella</li>
+<li>New action <em>Get Note Search Results...</em> in <em>Notes</em> by William Friesen
+(LP#511954)</li>
+<li>New plugin capabilities (user credentials, background loader) by Karol</li>
+<li>Added <em>Next Window</em> proxy object to <em>Window List</em> plugin</li>
+<li>Allow saving Kupfer commands to .kfcom files, and executing them with
+the <tt class="docutils literal"><span class="pre">kupfer-exec</span></tt> helper script.</li>
+<li>Display error notifications to the user when some actions can not be
+carried out.</li>
+<li>Allow collecting selections with the <em>Clipboard</em> plugin (Karol)</li>
+<li>Include Gnome/Yelp documentation written using Mallard (Mario Blättermann)</li>
+<li>Make <em>Zim</em> plugin compatible with newer Zim (Karol, Ulrik)</li>
+<li>Detect multiple volume rar files (William Friesen) (LP#516021)</li>
+<li>Detect XFCE logout better (Karol) (LP#517819)</li>
+<li>Fix reading VirtualBox config files (Alexey Porotnikov) (LP#520987)</li>
+<li>Fixed module name collision in user plugins (LP#518958), favoriting &quot;loose&quot;
+applications (LP#518908), bookmarked folders description (LP#509385),
+Locate plugin on OpenSUSE (LP#517819), Encoding problem for application
+aliases (LP#537730)</li>
+<li>New French translation by Christophe Benz</li>
+<li>New Norwegian (Bokmål) translation by Kjartan Maraas</li>
+<li>Kupfer now requires Python 2.6</li>
+<li>Localization updates:<ul>
+<li>cs Marek Černocký</li>
+<li>de Mario Blättermann</li>
+<li>es Jorge González</li>
+<li>fr Christophe Benz</li>
+<li>it Francesco Marella</li>
+<li>nb Kjartan Maraas</li>
+<li>pl Karol Będkowski</li>
+<li>pt Carlos Pais</li>
+<li>sl Andrej Žnidaršič</li>
+<li>sv Ulrik</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-pandoras-box-1-1">
+<h1>kupfer version pandoras-box-1.1</h1>
+<p>Released Monday,  8 February 2010</p>
+<ul class="simple">
+<li>Fix bug in contact grouping code that could cause unusable Kupfer with Pidgin
+plugin. Reported by Vadim Peretokin (LP#517548)</li>
+<li>Chromium plugin will index Google Chrome bookmarks as fallback, by William
+Friesen (LP#513602)</li>
+<li>Kupfer's nautilus plugin was changed to be easier to reuse for others</li>
+<li>Some minor changes</li>
+<li>Localization updates:<ul>
+<li>pt (Carlos Pais)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-pandoras-box-1">
+<h1>kupfer version pandoras-box-1</h1>
+<p>&quot;Pandora's box&quot;</p>
+<p>Released Monday, 1 February 2010</p>
+<ul class="simple">
+<li>Implement the famous &quot;comma trick&quot;: Press , (comma) in the first or
+third pane to make a stack of objects to perform actions on. This allows
+actions on many objects and even many-to-many actions.</li>
+<li>New plugin: <em>Triggers</em>: Add global keybindings to any command you can
+perform in Kupfer.</li>
+<li>New plugin <em>Skype</em> by Karol Będkowski</li>
+<li>New plugin <em>Thunderbird</em> (or Icedove) (Karol)</li>
+<li>Implement merging of contacts and hosts: All contacts of the same name are
+merged into one object. (Karol, Ulrik)</li>
+<li>New plugin <em>Higher-order Actions</em> to work with saved commands as objects</li>
+<li>The <em>Favorites</em> plugin was reimplemented: you may favorite (almost) any
+object. Favorites get a star and a rank boost.</li>
+<li><em>Window List</em> plugin was improved, most notably a <em>Frontmost Window</em> proxy
+object was added</li>
+<li>New proxy object <em>Last Command</em></li>
+<li>The <em>Firefox</em> plugin now includes most-visited sites from browser history
+(William Friesen, Karol, Ulrik)</li>
+<li>The list of plugins has a field to allow filtering the list (Karol)</li>
+<li>New Czech localization by Marek Černocký</li>
+<li>Many smaller changes.</li>
+<li>Localization updates:<ul>
+<li>cs (Marek Černocký, Petr Kovar)</li>
+<li>de (Mario Blättermann)</li>
+<li>nl (Martin Koelewijn)</li>
+<li>pl (Karol)</li>
+<li>sv</li>
+<li>sl (Andrej Žnidaršič)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c19-1">
+<h1>kupfer version c19.1</h1>
+<p>Released 31 December 2009</p>
+<ul class="simple">
+<li>New plugin: <em>Shorten Links</em> by Karol Będkowski</li>
+<li>Implemented <em>Ctrl+C</em> (and <em>Ctrl+X</em>) to copy (cut) selected object</li>
+<li>Fix bug LP #498542: restore window position code to c18</li>
+<li>Partial fix of bug LP #494237, window is sometimes blank</li>
+<li>Fix bug LP #500395, column order in <em>Top</em> plugin (Karol)</li>
+<li>Fix bug LP #500619, handle network errors in <em>Google Translate</em> plugin
+(Karol)</li>
+<li>Localization updates:<ul>
+<li>pl (Karol)</li>
+<li>sv</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c19">
+<h1>kupfer version c19</h1>
+<p>Released 18 December 2009</p>
+<ul class="simple">
+<li>New plugins:<ul>
+<li><em>Gnome Terminal Profiles</em> by Chmouel Boudjnah</li>
+<li><em>OpenOffice</em> recent documents in OpenOffice by Karol Będkowski</li>
+<li><em>Top</em> show and send signals to running tasks (Karol)</li>
+<li><em>Truecrypt</em> show volumes in truecrypt history and allow mounting them
+(Karol)</li>
+<li><em>Vinagre</em> Remote Desktop Viewer (Karol)</li>
+<li><em>XFCE Session Management</em> (Karol)</li>
+<li><em>Audacious</em> by Horia V. Corcalciuc</li>
+</ul>
+</li>
+<li>New Slovenian translation by Andrej Žnidaršič</li>
+<li>Some plugins will now explicitly require a D-Bus connection and fail to
+load if no connection was found.</li>
+<li>Add accelerators <em>Page Up</em>, <em>Page Down</em> and <em>Home</em> in the result list.
+(Karol)</li>
+<li>Use customized or localized desktop directory instead of hardcoding
+<tt class="docutils literal">~/Desktop</tt> by default. It will not affect users who already customized
+which directories Kupfer indexes.</li>
+<li>It now is possible to favorite shell commandlines</li>
+<li><em>Gajim</em> plugin now works with version 0.13 (Karol) (LP #489484)</li>
+<li>Basic support for Right-to-left (RTL) interface</li>
+<li>Fix bugs with &quot;loose&quot; Applications (not in system directories), reported
+by Chmouel.</li>
+<li>Add accelerator <em>Ctrl+Return</em> for <strong>Compose Command</strong>: You may compose a
+command object out of an (Object, Action) combination, to be used with the
+new action <em>Run After Delay...</em>.</li>
+<li>Added file action <em>Send by Email</em> to <em>Claws Mail</em> plugin (Karol)</li>
+<li>Added file action <em>Mount as TrueCrypt Volume</em> to <em>TrueCrypt</em> plugin (Karol)</li>
+<li>Many small bugfixes</li>
+</ul>
+<p>Localization updates:</p>
+<ul class="simple">
+<li>de: Mario Blättermann</li>
+<li>es: Jorge González</li>
+<li>it: Francesco Marella</li>
+<li>pl: Karol Będkowski</li>
+<li>sl: new (Andrej)</li>
+<li>sv: Ulrik Sverdrup</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c18-1">
+<h1>kupfer version c18.1</h1>
+<p>Released 20 November 2009</p>
+<ul class="simple">
+<li>Fix bug to toss out malfunctioning plugins properly (Reported by Jan)</li>
+<li>Fix bug in showing the shutdown dialog, reported by user sillyfofilly (LP
+484664)</li>
+<li>Fix bug in plugin <em>Document Templates</em>, reported by Francesco Marella
+(part of LP 471462)</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c18">
+<h1>kupfer version c18</h1>
+<p>Released 18 November 2009</p>
+<p>&quot;Mímisbrunnr&quot;</p>
+<ul class="simple">
+<li>New plugins:<ul>
+<li><em>Pidgin</em> by Chmouel Boudjnah</li>
+<li><em>Google Translate</em> by Karol Będkowski</li>
+<li><em>APT</em> (package manager APT) by Martin Koelewijn and Ulrik</li>
+<li><em>Document Templates</em></li>
+<li><em>Kupfer Plugins</em></li>
+<li><em>Show Text</em></li>
+</ul>
+</li>
+<li><em>Gajim</em> plugin matches contacts by jid as well as name, suggested by
+Stanislav G-E (LP 462866)</li>
+<li>Action <em>Rescan</em> on sources is now debug only (should not be needed)</li>
+<li>Kupfer installs its Python package into <tt class="docutils literal">$PREFIX/share</tt> by default,
+instead of installing as a system-wide Python module.</li>
+<li>Kupfer can take input on stdin and pass as text to an already running
+instance</li>
+<li>Fix bug in <em>Services</em> for Arch Linux, reported by lh (LP 463071)</li>
+<li>Changes for plugin authors:<ul>
+<li>May use <tt class="docutils literal">uiutils.show_text_result</tt> to show text</li>
+<li><tt class="docutils literal">kupfer.task.ThreadTask</tt> is now a reliable way to run actions
+asynchronously (in a thread)</li>
+<li>You can use item <em>Restart Kupfer</em> to restart (in debug mode)</li>
+<li>Plugins may be implemented as Python packages, as well as modules</li>
+</ul>
+</li>
+<li>Updated the dependencies in the README. pygobject 2.18 is required. Added
+gvfs as very recommended.</li>
+<li>Other bugfixes</li>
+</ul>
+<p>Localization updates:</p>
+<ul class="simple">
+<li>de (Mario Blättermann)</li>
+<li>es (Jorge González)</li>
+<li>nl (Martin Koelewijn)</li>
+<li>pl (Karol Będkowski)</li>
+<li>sv</li>
+<li>zh_CH (lh)</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c17">
+<h1>kupfer version c17</h1>
+<p>Released, 25 October 2009</p>
+<p>&quot;A fire lit by nine kinds of wood&quot;</p>
+<ul class="simple">
+<li>8 new plugins by Karol Będkowski:<ul>
+<li><em>Claws Mail</em>, Contacts and actions</li>
+<li><em>Gajim</em>, Access to gajim contacts</li>
+<li><em>Opera Bookmarks</em>, for the web browser Opera</li>
+<li><em>PuTTY Sessions</em>, access to PuTTY sessions</li>
+<li><em>System Services</em>, start, stop or restart system services</li>
+<li><em>Terminal Server Client</em>, access to TSClient sessions</li>
+<li><em>VirtualBox</em>, control virtual machines, Sun or OSE version</li>
+<li><em>Zim</em>, access pages in the desktop wiki</li>
+</ul>
+</li>
+<li>New plugin <em>Chromium Bookmarks</em> by Francesco Marella</li>
+<li>Plugins missing dependencies will be presented in the GUI with a clear
+error message.</li>
+<li><em>Firefox Bookmarks</em> plugin: Workaround Firefox 3.5 writing invalid JSON
+(Karol, Ulrik)</li>
+<li><em>Locate</em> plugin: Ignore case by default, add option to control this.
+(Karol)</li>
+<li>Kupfer is much more friendly and says &quot;Type to search in <em>Catalog</em>&quot; when
+it is ready to be used.</li>
+<li>Localization updates:<ul>
+<li>New Simplified Chinese localization (lh)</li>
+<li>New Dutch localization (Martin Koelewijn)</li>
+<li>New Portuguese localization (Carlos Pais)</li>
+<li>Updated pl (Karol)</li>
+<li>Updated es (Jesús Barbero Rodríguez)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c16">
+<h1>kupfer version c16</h1>
+<p>Released 5 October 2009</p>
+<ul class="simple">
+<li>Translation to German (Thibaud Roth)</li>
+<li>Polish translation updated (Maciej Kwiatkowski)</li>
+<li>Add search engine descriptions from <tt class="docutils literal"><span class="pre">firefox-addons</span></tt> (Francesco Marella)</li>
+<li>Speed up directory browsing by using much less system calls</li>
+<li>Improve documentation and put it together into a <cite>Manual</cite>.</li>
+<li>Generate man page from reStructuredText document <cite>Quickstart</cite>.</li>
+<li>Evaluate valid actions (per object) lazily to save work.</li>
+<li>Add accelerators <em>Ctrl+Q</em> (select quit) and <em>Alt+A</em> (activate)</li>
+<li>Parse even horribly wrong search engine descriptions (Bug reported by
+Martin Koelewijn)</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c15">
+<h1>kupfer version c15</h1>
+<ul class="simple">
+<li>Translation to Polish by Maciej Kwiatkowski</li>
+<li>Speed up the string ranker tremendously; 3x faster in common cases.</li>
+<li>All objects now have an alias in the basic latin alphabet (if possible) so
+that, for example, query <cite>wylacz</cite> matches item <em>Wyłącz</em>.</li>
+<li>Show notification icon by default</li>
+<li>Read XML with cElementTree (Faster.)</li>
+<li>Read Firefox 3's bookmarks (Python2.5 requires <cite>cjson</cite> module)</li>
+<li>New Plugin: Image Tools, with action <em>Scale...</em> and JPEG rotation actions
+(<em>Scale</em> requires ImageMagick (<cite>convert</cite>), JPEG actions <cite>jpegtran</cite> and
+<cite>jhead</cite>)</li>
+<li>Basic support for a Magic Keybinding: summon kupfer with current selection</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c14-1">
+<h1>kupfer version c14.1</h1>
+<ul class="simple">
+<li>Fix two bugs with new browisng mode (soft reset for text mode, backspace or
+left to erase a subcatalog search)</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c14">
+<h1>kupfer version c14</h1>
+<ul class="simple">
+<li>Rewrite and improve browsing mode:<ul>
+<li>Browsing the catalog or folders is much improved; it is easier to keep the
+overview and be oriented.</li>
+<li>Returning to kupfer after having performed an action, the old object is
+still available, but without locking the catalog to its location.
+When spawning kupfer again, the previous context is available if you
+immediately browse; if you search, you search the whole catalog.</li>
+<li>The search times out after 2 seconds if no key is typed. Now the highlight
+text will fade to show this.</li>
+</ul>
+</li>
+<li>Add accelerators <cite>Ctrl+G</cite> and <cite>Ctrl+T</cite> to get current selection in nautilus
+and currently selected text (if available).</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c13-1">
+<h1>kupfer version c13.1</h1>
+<ul class="simple">
+<li>Fix two bugs with <em>Rename To...</em></li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c13">
+<h1>kupfer version c13</h1>
+<ul class="simple">
+<li>New Plugin: Calculator</li>
+<li>New Action: <em>Rename To...</em> in File Actions Plugin</li>
+<li>Smaller changes (Stop learned mnemonics database from growing indefinitely,
+Catch SIGINT without python's handler, <em>Copy To...</em> requires pygobject 2.18
+now)</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c12">
+<h1>kupfer version c12</h1>
+<ul class="simple">
+<li>Translation to Spanish by Leandro Leites</li>
+<li>Preferences. Display plugin settings and options beside the plugin list,
+and allow configuring included (and watched) directories.</li>
+<li>Support the new Gnome session protocol to save state on log out.</li>
+<li>Improve embarassingly bad shell command quoting for <em>Execute</em> and Tracker tag
+actions.</li>
+<li>Specify user data locations with <cite>X-UserData</cite></li>
+<li>Fix an AttributeError in Notes plugin reported by Francesco Marella</li>
+<li>Smaller fixes (Add/remove favorite could cease to work, Track intantiated
+sources better)</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c11">
+<h1>kupfer version c11</h1>
+<p>The &quot;this one goes to 11&quot; release</p>
+<ul class="simple">
+<li>New plugin: Notes (Gnote and Tomboy support)<ul>
+<li>Access notes, Actions: <em>Create Note</em> and <em>Append to Note...</em></li>
+</ul>
+</li>
+<li>New plugin: Selected File<ul>
+<li>Kupfer ships with a Nautilus python extension that once installed,
+you can access the currently selected file in Nautilus from Kupfer,
+as the <em>Selected File</em> object</li>
+</ul>
+</li>
+</ul>
+<p>This release is localized in: Swedish (100%), Italian (90%)</p>
+</div>
+<div class="section" id="kupfer-version-c10-1">
+<h1>kupfer version c10.1</h1>
+<ul class="simple">
+<li>Spanish Translation by Leandro Leites</li>
+</ul>
+</div>
+<div class="section" id="kupfer-version-c10">
+<h1>kupfer version c10</h1>
+<ul class="simple">
+<li>Updated italian localization</li>
+<li>New plugins: Url Actions, Web Search (rewritten to use all Firefox' search
+engines)</li>
+<li>New actions: <em>Set Default Application</em>, <em>Create Archive In...</em>,
+<em>Restore</em> (Restore trashed file)</li>
+<li>Add accelerators <cite>Control+R</cite> for reset, <cite>Control+S</cite> for select first
+(source) pane and <cite>Control+.</cite> for untoggle text mode.</li>
+<li>Only the bookmarks plugins can toggle &quot;include in toplevel&quot; now.</li>
+<li>Other smaller changes (Refuse invalid Application objects from the
+cache)</li>
+</ul>
+<p>This release is localized in: Swedish (100%), Italian (93%)</p>
+</div>
+<div class="section" id="kupfer-version-c9-1">
+<h1>kupfer version c9.1</h1>
+<ul class="simple">
+<li>User interface consistency and behaviour improvements. UI is simpler and
+better.</li>
+<li>Other improvements.</li>
+</ul>
+<p>This release is localized in: Swedish (100%), Italian (60%)</p>
+</div>
+<div class="section" id="kupfer-version-c9">
+<h1>kupfer version c9</h1>
+<p>The &quot;c9&quot; release</p>
+<ul class="simple">
+<li>Search and browse perform better</li>
+<li>The interface is now modal. In command mode we can bind special keys to
+new functions. Type period <cite>.</cite> to enter free-text mode (just like in QS).</li>
+<li>Pressing kupfer's keybinding again will hide the window.</li>
+<li>Other smaller improvements</li>
+</ul>
+<p>This release is localized in: Swedish (100%), Italian (60%)</p>
+</div>
+<div class="section" id="kupfer-version-c8">
+<h1>kupfer version c8</h1>
+<ul class="simple">
+<li>Make the use of the indirect object pane much more fluid</li>
+<li>Apply interface polish (proper english capitalization of actions and
+other objects, other changes)</li>
+<li>Add <cite>Copy To...</cite> action</li>
+<li>Try <cite>xdg-terminal</cite> first in <em>Open Terminal Here</em> (non-Gnome users can
+either install <cite>xdg-terminal</cite> or symlink it to their terminal program)</li>
+<li>Allow unbinding the keybinding</li>
+<li>Fix a bug with tracker tags</li>
+</ul>
+<p>[Please file bug reports and feature requests.][lp]. Read the files in
+<cite>Documentation/</cite> and see how you can add new plugins with object and
+application knowledge to kupfer.</p>
+<p>This release is localized in: Swedish (100%), Italian (60%)</p>
+<p>[lp]: <a class="reference external" href="http://launchpad.net/kupfer">http://launchpad.net/kupfer</a></p>
+</div>
+<div class="section" id="kupfer-version-c7">
+<h1>kupfer version c7</h1>
+<p>The &quot;choice&quot; release</p>
+<p>This is a followup with some small changes after the c6 release, which
+introduced lots of major changes, including a preferences window and
+&quot;application content.&quot;</p>
+<ul class="simple">
+<li>Allow wnck to be optional. Kupfer needs wnck to do application matching
+and focusing of already running applications, but can now run without it if
+wnck is not available. Window List plugin also needs wnck</li>
+<li>Rhythmbox plugin should not crash even if library is not found, now kupfer
+can run even if rhythmbox's files are not there.</li>
+<li>Applications will match names as well as the executables, so that &quot;gedit&quot;
+matches Text Editor regardless of what the displayed localized name is.</li>
+</ul>
+<p>[Please file bug reports and feature requests.][lp]. Read the files in
+<cite>Documentation/</cite> and see how you can add new plugins with object and
+application knowledge to kupfer.</p>
+<p>This release is localized in: Swedish (100%), Italian (60%)</p>
+<p>[lp]: <a class="reference external" href="http://launchpad.net/kupfer">http://launchpad.net/kupfer</a></p>
+</div>
+<div class="section" id="kupfer-version-c6">
+<h1>kupfer version c6</h1>
+<p>The &quot;Sisyphus incremental improvements&quot; release</p>
+<ul class="simple">
+<li>Preferences window<ul>
+<li>Allows setting keybinding on the fly</li>
+<li>List and enable/disable plugins and set plugin options</li>
+</ul>
+</li>
+<li>Everything was improved slightly, but steadily</li>
+<li>Understands more applications, provides more files and objects,
+and actions with <strong>new plugins:</strong> <em>Rhythmbox, Abiword, Clipboards, Dictionary,
+Favorites, Selected Text, Wikipedia</em></li>
+<li>Connect applications with their related object sources and make it their
+content, such as Rhythmbox music for the Rhythmbox application.<ul>
+<li>Applications contain their recently used documents, if
+available.</li>
+<li>Firefox and Epiphany bookmarks are identified with each application</li>
+</ul>
+</li>
+<li>Miscellaneous improvements:<ul>
+<li>Kupfer object icon (&quot;blue box&quot;)</li>
+<li><em>Some</em> default application associations are installed (others
+are learned by launching applications).</li>
+<li>Experimental UI with two-line title+description in browse mode</li>
+<li>Thumbnails for files and albums in browse mode</li>
+<li>Allow sending files and queries to kupfer from the commandline
+using <cite>kupfer 'query'</cite> or <cite>kupfer docs/file.pdf</cite>.</li>
+<li>Even more plugins listen to change callbacks or filesystem monitors
+to be up to date to the instant.</li>
+<li>Do not display nonexisting files as results</li>
+<li>Fine-tune how sources are loaded and refreshed on load</li>
+</ul>
+</li>
+</ul>
+<p>This release deserves lots of testing. [File bug reports and feature
+requests.][bug] Read the files in <cite>Documentation/</cite> and see how you can add
+new plugins with object and application knowledge to kupfer.</p>
+<p>This release is localized in: Swedish (100%), Italian (60%)</p>
+<p>Future: part 2 of beautification is refactoring of the interface, so
+that the UI can be modularized and exchanged in plugins.</p>
+<p>[bug]: <a class="reference external" href="http://launchpad.net/kupfer">http://launchpad.net/kupfer</a></p>
+</div>
+<div class="section" id="kupfer-version-c5">
+<h1>kupfer version c5</h1>
+<p>The &quot;Beauty from the inside, part 1&quot; release</p>
+<ul class="simple">
+<li>Big refactorings of the whole data model<ul>
+<li>Move all of the data model to kupfer.data</li>
+<li>Allow actions with indirect objects &quot;threepane kupfer&quot; (with
+means to configure which objects to use for an action etc)</li>
+<li>Uses unicode internally, instead of UTF-8-encoded strings</li>
+</ul>
+</li>
+<li>Some new actions using new possibilities (Open with any, Move file
+to new location, Add/Remove tracker tags) but more is possible.</li>
+<li>Basic manual page included</li>
+<li>Fileactions plugin includes unpack archive/create archive</li>
+<li>Ship extra and demonstration plugins in contrib/ and interals
+documentation in Documentation/</li>
+<li>Change learning algorithm to recognize an item's type as well
+(so that two objects named &quot;project&quot; can be ranked differently)</li>
+<li>Small fixes (alphabethic sorting for applications, sources, check
+if objects still exist after an action, <tt class="docutils literal">rank_adjust</tt> default actions
+slightly)</li>
+</ul>
+<p>This release deserves lots of testing. File bug reports and feature
+requests. Read the files in Documentation/ and see how you can add
+new plugins with object and application knowledge to kupfer.</p>
+<p>This release is localized in: Swedish (100%), Italian (80%)</p>
+<p>Future: part 2 of beautification is refactoring of the interface, so
+that the UI can be exchanged. And preferences will hopefully be implemented</p>
+<!-- -*- encoding: UTF-8 -*- -->
+<!-- vim: tw=76 ft=rst -->
+</div>
+</div>
+</body>
+</html>

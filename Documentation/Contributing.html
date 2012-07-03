@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<title>Guidelines and Policy</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7056 2011-06-17 10:50:48Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="guidelines-and-policy">
+<h1 class="title">Guidelines and Policy</h1>
+
+<div class="section" id="contributing">
+<h1>Contributing</h1>
+<p>You can clone git from its official repository at git.gnome.org, see:</p>
+<blockquote>
+<a class="reference external" href="http://git.gnome.org/browse/kupfer/">http://git.gnome.org/browse/kupfer/</a></blockquote>
+<p>You can structure your changes into a series of commits in git. A series
+of well disposed changes is easy to review. Write a sufficient commit
+log message for each change. Do not fear writing down details about
+why the change is implemented as it is, if there are multiple
+alternatives. Also, if you forsee any future possibilites or problems,
+please describe them in the commit log.</p>
+<p>It is not easy to write good commit messgages, because writing is an
+art. It is however essensial, and only by trying it, can you improve.</p>
+<p>You may publish your changes by sending an email to the mailing list,
+&lt;<a class="reference external" href="mailto:kupfer-list&#64;gnome.org">kupfer-list&#64;gnome.org</a>&gt;. You can attach your changes as patches, or you
+may also just attach a link to your published git repository.</p>
+<p>You can find kupfer's <a class="reference external" href="http://github.com/engla/kupfer">git repository at github</a> and fork it there,
+for easy publication of your changes.</p>
+<p>If you suggest your changes for inclusion into Kupfer, make sure you
+have read the whole <em>Guidelines and Policy</em> chapter of this manual. And
+take care to structure your changes, do not fear asking for advice. Good
+Luck!</p>
+</div>
+<div class="section" id="icon-guidelines">
+<h1>Icon Guidelines</h1>
+<p>Consider the following:</p>
+<ul class="simple">
+<li>A Leaf is an object, a metaphor for a physical thing. It can have as
+detailed icon as is possible.</li>
+<li>An Action is a verb, a command that can be carried out. Choose its
+name with care. The icon should be simple, maybe assign the action
+to a category, rather than trying to illustrate the action itself.
+For example, all text display actions use the &quot;bold style&quot; icon, in
+some icon themes simply a bold &quot;A&quot;.</li>
+</ul>
+<div class="important">
+<p class="first admonition-title">Important</p>
+<p class="last">Actions should have stylized, simple icons. Leaves and Sources
+should have detailed, specific icons.</p>
+</div>
+</div>
+<div class="section" id="coding-style">
+<h1>Coding style</h1>
+<p>Kupfer python code is indented with tabs, which is a bit uncommon. (My
+editor is set to tabs of size four.) Otherwise, if you want to
+contribute to kupfer keep in mind that</p>
+<ul class="simple">
+<li>Python code should be clear</li>
+<li>Kupfer is a simple project. Do simple first. <a class="footnote-reference" href="#simple" id="id2">[1]</a></li>
+</ul>
+<p>Python's general style guideline is called <a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">PEP 8</a>, and you should
+programmers should read it. The advice given there is very useful when
+coding for Kupfer.</p>
+<table class="docutils footnote" frame="void" id="simple" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Writing simple code is more important than you think.
+Read your diff (changes) when you are finished writing a
+feature. Can you make it more simple to read? If you can
+make it simpler, often a more effective algorithm comes out
+of it at the same time. All optimizations have a price,
+and unless you measure the difference, abstain from
+optimizations.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="specific-points">
+<h1>Specific Points</h1>
+<div class="section" id="using-rank-adjust">
+<h2>Using <tt class="docutils literal">rank_adjust</tt></h2>
+<p>A declaration like this can modify the ranking of an object:</p>
+<pre class="literal-block">
+class MyAction (Action):
+    rank_adjust = -5
+    ...
+</pre>
+<ol class="arabic simple">
+<li>Often, this is useless. Don't use it, let Kupfer learn which actions
+are important.</li>
+<li>If the action is destructive, the adjust should be negative. Never
+positive. For example <em>Move to Trash</em> has a negative 10
+<tt class="docutils literal">rank_adjust</tt>.</li>
+<li>If the action is very general, and applies to almost everything but
+still should never be the default for anything, the adjust should be
+negative.</li>
+</ol>
+</div>
+<div class="section" id="using-super">
+<h2>Using <tt class="docutils literal"><span class="pre">super(..)</span></tt></h2>
+<p>Many of kupfer plugin code uses super statements such as:</p>
+<pre class="literal-block">
+super(RecentsSource, self).__init__(_(&quot;Recent items&quot;))
+</pre>
+<p>We have learnt that it is not so practical. Therefore, when writing new
+code, you should however use the following style:</p>
+<pre class="literal-block">
+Source.__init__(self, _(&quot;Recent items&quot;))
+</pre>
+<p>Why? Because the second version is easier to copy! If you copy the whole
+class and rename it, which you often do to create new plugins, the
+second version does not need to be updated -- you are probably using the
+same superclass.</p>
+</div>
+<div class="section" id="text-and-encodings">
+<h2>Text and Encodings</h2>
+<p>Care must be taken with all input and output text and its encoding!
+Internally, kupfer must use <tt class="docutils literal">unicode</tt> for all internal text.
+The module <tt class="docutils literal">kupfer.kupferstring</tt> has functions for the most important
+text conversions.</p>
+<p>Two good resources for unicode in Python are to be found here:</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://farmdev.com/talks/unicode/">http://farmdev.com/talks/unicode/</a></div>
+<div class="line"><a class="reference external" href="http://www.amk.ca/python/howto/unicode">http://www.amk.ca/python/howto/unicode</a></div>
+</div>
+<p><strong>Always</strong> find out what encoding you must expect for externally read
+text (from files or command output). If you must guess, use the locale
+encoding.
+Text received from PyGTK is either already unicode or in the UTF-8
+encoding, so this text can be passed to <tt class="docutils literal">kupferstring.tounicode</tt>.</p>
+<p>Note that the gettext function <tt class="docutils literal">_()</tt> always returns a unicode string.</p>
+<!-- vim: ft=rst tw=72 et sts=4 -->
+<!-- this document best viewed with rst2html -->
+</div>
+</div>
+</div>
+</body>
+</html>
