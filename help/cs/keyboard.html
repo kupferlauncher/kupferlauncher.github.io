@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Příkazové klávesy a klávesové zkratky</title>
+<style type="text/css">
+html { height: 100%; }
+body {
+  margin: 0px;
+  background-color: #f9f9f6;
+  padding: 12px;
+  min-height: 100%;
+  direction: ltr;
+}
+ul, ol, dl, dd { margin: 0; }
+div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
+.first-child { margin-top: 0; }
+li.condensed { margin-top: 0.2em; }
+a {
+  text-decoration: none;
+  color: #1f609f;
+}
+a:visited {
+  color: #9f1f6f;
+}
+a:hover { text-decoration: underline; }
+
+div.headbar {
+  margin: 0;
+  max-width: 48em;
+}
+div.footbar {
+  margin: 0;
+  max-width: 48em;
+}
+div.body {
+  margin: 0;
+  padding: 1em;
+  max-width: 48em;
+  min-height: 20em;
+  -moz-border-radius: 6px;
+  border: solid 1px #e0e0df;
+  background-color: #ffffff;
+}
+div.navbar {
+  margin: 0;
+  float: right;
+}
+a.navbar-prev::before {
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  content: '  ▶';
+  color: #3f3f3f;
+}
+div.copyrights {
+  text-align: center;
+  color: #3f3f3f;
+}
+div.section { margin-top: 2.4em; clear: both; }
+div.section div.section {
+  margin-top: 1.72em;
+  margin-left: 1.72em;
+}
+div.section div.section div.section { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1 {
+  font-size: 1.44em;
+  margin: 0;
+}
+h2, h3, h4, h5, h6, h7 {
+  font-size: 1.2em;
+  margin: 0;
+}
+table { border-collapse: collapse; }
+
+div.autolinks ul { margin: 0; padding: 0; }
+div.autolinks div.title { margin: 1em 0 0 1em; }
+div.autolinks div.title span {
+  border-bottom: solid 1px #e0e0df;
+}
+li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
+
+div.linktrails {
+  margin: 0;
+}
+div.linktrail {
+  font-size: 0.83em;
+  margin: 0 1px 0.2em 1px;
+  padding-left: 1.2em;
+  color: #3f3f3f;
+}
+
+table.twocolumn { width: 100%; }
+td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
+td.twocolumnright {
+  width: 52%; vertical-align: top;
+  margin: 0; padding: 0;
+  padding-left: 1em;
+}
+
+div.linkdiv div.title {
+  font-size: 1em;
+  color: inherit;
+}
+div.linkdiv {
+  margin: 0;
+  padding: 0.5em;
+  -moz-border-radius: 6px;
+  border: solid 1px #ffffff;
+}
+div.linkdiv:hover {
+  border-color: #c0c9ff;
+  background-color: #f0f9ff;
+}
+div.linkdivsep {
+  margin: 0.5em;
+  list-style-type: none;
+  max-width: 24em;
+  border-bottom: solid 1px #e0e0df;
+}
+
+div.title {
+  margin: 0 0 0.2em 0;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.desc { margin: 0 0 0.2em 0; }
+div.desc-listing, div.desc-synopsis { font-style: italic; }
+div.desc-figure { margin: 0.2em 0 0 0; }
+pre.code {
+  /* FIXME: In RTL locales, we really want to align this left, but the watermark
+   * we have is designed to fit in the top right corner.  Either we need a new
+   * watermark, or we need a separate RTL version.
+   */
+  background: url('watermark-code.png') no-repeat top right;
+  border: solid 2px #e0e0df;
+  padding: 0.5em 1em 0.5em 1em;
+}
+div.example {
+  border-left: solid 4px #e0e0df;
+  padding-left: 1em;
+}
+div.figure {
+  margin-left: 1.72em;
+  padding: 4px;
+  color: #3f3f3f;
+  border: solid 1px #e0e0df;
+  background-color: #f9f9f6;
+}
+div.figure-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: center;
+  color: #000000;
+  border: solid 1px #e0e0df;
+  background-color: #ffffff;
+}
+div.listing-contents { margin: 0; padding: 0; }
+div.note {
+  padding: 0.5em 6px 0.5em 6px;
+  border-top: solid 1px #ffc0c0;
+  border-bottom: solid 1px #ffc0c0;
+  background-color: #fffff0;
+}
+div.note-inner {
+  margin: 0;
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+  background-image: url("admon-note.png");
+}
+div.note-advanced div.note-inner {  }
+div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
+div.note-important div.note-inner { background-image: url("admon-important.png"); }
+div.note-tip div.note-inner { background-image: url("admon-tip.png"); }
+div.note-warning div.note-inner { background-image: url("admon-warning.png"); }
+div.note-contents { margin: 0; padding: 0; }
+div.quote-inner {
+  margin: 0;
+  background-image: url('watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.title-quote {
+  margin-left: 4em;
+}
+blockquote { margin: 0; padding: 0; }
+div.cite-comment {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.cite-quote {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.cite-quote::before {
+  
+  content: '― ';
+}
+pre.screen {
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f9f9f6;
+  border: solid 2px #e0e0df;
+}
+div.synopsis-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: #c0c9ff;
+  background-color: #f9f9f6;
+}
+div.synopsis pre.code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+div.list-contents { margin: 0; padding: 0; }
+div.title-list { margin-bottom: 0.5em; }
+ol.list, ul.list { margin: 0; padding: 0; }
+li.item-list { margin-left: 1.44em; }
+
+div.steps-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: #c0c9ff;
+  background-color: #fffff0;
+}
+div.steps-contents div.steps-contents {
+  padding: 0;
+  border: none;
+  background-color: none;
+}
+ol.steps, ul.steps { margin: 0; padding: 0; }
+li.item-steps { margin-left: 1.44em; }
+
+div.terms-contents { margin: 0; }
+dt.item-next { margin-top: 0; }
+dd.item-terms {
+  margin-top: 0.2em;
+  margin-left: 1.44em;
+}
+
+ul.tree {
+  margin: 0; padding: 0;
+  list-style-type: none;
+}
+li.item-tree { margin: 0; padding: 0; }
+div.item-tree { margin: 0; padding: 0; }
+ul.tree ul.tree { margin-left: 1.44em; }
+div.tree-lines ul.tree { margin-left: 0; }
+
+table.table {
+  border-collapse: collapse;
+  border-color: #555753;
+  border-width: 1px;
+}
+table.table td {
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  border-color: #888a85;
+  border-width: 1px;
+  vertical-align: top;
+}
+
+span.app { font-style: italic; }
+span.cmd {
+  font-family: monospace;
+  background-color: #f9f9f6;
+  padding: 0 0.2em 0 0.2em;
+}
+span.code { font-family: monospace; }
+span.em { font-style: italic; }
+span.email { color: red; }
+span.file { font-family: monospace; }
+span.gui, span.guiseq { color: #3f3f3f; }
+span.input { font-family: monospace; }
+span.hi {
+  background-color: #fffff0;
+}
+span.key {
+  color: #3f3f3f;
+  border: solid 1px #e0e0df;
+  padding: 0 0.2em 0 0.2em;
+}
+span.keyseq {
+  color: #3f3f3f;
+}
+span.output { font-family: monospace; }
+pre.screen span.output {
+  color: #3f3f3f;
+}
+pre.screen span.output-error {
+
+  color: #ff0000;
+}
+pre.screen span.output-prompt { font-weight: bold; }
+span.sys { font-family: monospace; }
+span.var { font-style: italic; }
+
+div.version {
+  position: absolute;
+  right: 12px;
+  opacity: 0.2;
+  margin-top: -1em;
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 24em;
+  -moz-border-radius: 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.version:hover { opacity: 0.8; }
+div.version p.version { margin-top: 0.2em; }
+div.linkdiv div.title span.status {
+  font-size: 0.83em;
+  font-weight: normal;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  color: #3f3f3f;
+  border: solid 1px #ffc0c0;
+}
+div.linkdiv div.title span.status-stub { background-color: #fff0f0; }
+div.linkdiv div.title span.status-draft { background-color: #fff0f0; }
+div.linkdiv div.title span.status-incomplete { background-color: #fff0f0; }
+div.linkdiv div.title span.status-review { background-color: #fffff0; }
+div.linkdiv div.desc {
+  margin-top: 0.2em;
+  color: #3f3f3f;
+}
+div.comment {
+  padding: 0.5em;
+  border: solid 2px #ffc0c0;
+  background-color: #fff0f0;
+}
+div.comment div.comment {
+  margin: 1em 1em 0 1em;
+}
+div.comment div.cite {
+  margin: 0 0 0.5em 0;
+  font-style: italic;
+}
+</style>
+</head>
+<body class="">
+<div class="headbar"><div class="linktrails"><div class="linktrail">
+<a class="linktrail" href="index.html">Příručka aplikace Kupfer</a> › <a class="linktrail" href="index.html#usage">Používání aplikace Kupfer</a> » </div></div></div>
+<div class="body">
+<div class="header"><h1 class="title">Příkazové klávesy a klávesové zkratky</h1></div>
+<div class="contents"></div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Obsluha z klávesnice</h2></div>
+<div class="contents">
+<p class="p first-child">V příkazovém režimu mají následující klávesy speciální význam:</p>
+<div class="table"><table class="table">
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">↓</span> nebo <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Mezerník</span></p></td>
+<td><p class="p first-child">Přejít na následující nalezenou shodu</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">↑</span> nebo <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Shift</span>+<span class=" key">Mezerník</span></span></p></td>
+<td><p class="p first-child">Přejít na předchozí nalezenou shodu</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">→</span> nebo<span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span></p></td>
+<td><p class="p first-child">Přejít do objektu s obsahem</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Backspace</span></p></td>
+<td><p class="p first-child">Smazat znak z dotazu. Pokud je dotaz prázdný, přejde o úroveň výš.</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">.</span></p></td>
+<td><p class="p first-child">Aktivovat volný textový režim</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span></p></td>
+<td><p class="p first-child">Vložit objekt do zásobníku (tzv. „trik s čárkou“, v originále „Comma Trick“)</p></td>
+</tr>
+</table></div>
+<p class="p">Klávesy pro rychlý přístup:</p>
+<div class="table"><table class="table">
+<tr>
+<td><p class="p first-child">
+          <span xmlns:e="http://projectmallard.org/experimental/" class=" key">=</span>
+        </p></td>
+<td><p class="p first-child">Aktivuje volný textový režim s předponou <span xmlns:e="http://projectmallard.org/experimental/" class=" code">=</span> (pro objekt <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-calculator.html" title="">
+        <span class=" app">Kalkulačka</span>
+      </a></span>)</p></td>
+</tr>
+<tr>
+<td><p class="p first-child">
+          <span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span>
+        </p></td>
+<td><p class="p first-child">Aktivuje volný textový režim (pokud není nic vybráno) s předponou <span xmlns:e="http://projectmallard.org/experimental/" class=" code">/</span> (pro zadání kořenové cesty)</p></td>
+</tr>
+</table></div>
+<p class="p">Navíc:</p>
+<div class="list"><div class="list-contents"><ul class="list">
+<li class="item-list first-child"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Enter</span> aktivuje aktuální výběr: příkaz je proveden.</p></li>
+<li class="item-list"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Esc</span> vymaže aktuální výběr.</p></li>
+<li class="item-list"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Tab</span> přepne mezi panelem objektu a akce.</p></li>
+</ul></div></div>
+<p class="p">Význam kláves <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Mezerník</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" key">.</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span> a <span xmlns:e="http://projectmallard.org/experimental/" class=" key">=</span> nelze změnit, ale můžete jejich speciální funkci deaktivovat pomocí zaškrtávacího políčka <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Použít jednoklávesové příkazy</span> v <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Předvolbách Kupfer</span>.</p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Klávesové zkratky aplikace Kupfer</h2></div>
+<div class="contents">
+<p class="p first-child">Tyto klávesové zkratky jsou použity v rozhraní aplikace <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>. Mají následující významy a výchozí klávesy:</p>
+<div class="table"><table class="table">
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">.</span></span></p></td>
+<td><p class="p first-child">Přepnout textový režim</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">,</span></span></p></td>
+<td><p class="p first-child">Vložit do zásobníku</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">;</span></span></p></td>
+<td><p class="p first-child">Zobrazit okno předvoleb</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">R</span></span></p></td>
+<td><p class="p first-child">Vše vynulovat</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Alt</span>+<span class=" key">A</span></span></p></td>
+<td><p class="p first-child">Přepnout aktivaci</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Enter</span></span></p></td>
+<td><p class="p first-child">Sestavit příkaz</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">S</span></span></p></td>
+<td><p class="p first-child">Přepnout na první panel</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Q</span></span></p></td>
+<td><p class="p first-child">Vybrat „Ukončit“</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">G</span></span></p></td>
+<td><p class="p first-child">Vybrat „Vybraný soubor“</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">T</span></span></p></td>
+<td><p class="p first-child">Vybrat „Vybraný text“</p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">F1</span></span></p></td>
+<td><p class="p first-child">Zobrazit nápovědu</p></td>
+</tr>
+</table></div>
+<div class="steps">
+<div class="title title-steps">Jak nastavit klávesové zkratky</div>
+<div class="steps-contents"><ol class="steps">
+<li class="item-steps first-child"><p class="p first-child">Otevřete <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Předvolby Kupfer</span> a přejděte na kartu <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Klávesnice</span>.</p></li>
+<li class="item-steps"><p class="p first-child">Dvojitě klikněte na řádek klávesové zkratky pod <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Klávesové zkratky prohlížeče</span>.</p></li>
+<li class="item-steps"><p class="p first-child">V okně, které se objeví, zmáčkněte klávesový modifikátor a klávesu s písmenem nebo číslem. Tím klávesovou zkratku nastavíte. Například zmáčknutím a držením modifikátoru <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Ctrl</span> a následným zmáčknutím a uvolněním <span xmlns:e="http://projectmallard.org/experimental/" class=" key">T</span> přiřadíte <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">T</span></span>.</p></li>
+</ol></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Globální klávesové zkratky</h2></div>
+<div class="contents">
+<p class="p first-child">Aplikace <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> naslouchá, jestli není zmáčknuta nějaká klávesová zkratka, vždy, i když zrovna není na popředí.</p>
+<p class="p">Mají následující význam a výchozí klávesy:</p>
+<div class="table"><table class="table">
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Mezerník</span></span></p></td>
+<td><p class="p first-child">Zobrazit/skrýt aplikaci <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span></p></td>
+</tr>
+<tr>
+<td><p class="p first-child">(ve výchozím stavu nenataveno)</p></td>
+<td><p class="p first-child">Zobrazit aplikaci <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> se zaměřeným objektem „Výběr“</p></td>
+</tr>
+</table></div>
+<div class="steps">
+<div class="title title-steps">Jak nastavit globální klávesové zkratky</div>
+<div class="steps-contents"><ol class="steps">
+<li class="item-steps first-child"><p class="p first-child">Otevřete <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Předvolby Kupfer</span> a přejděte na kartu <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Klávesnice</span>.</p></li>
+<li class="item-steps"><p class="p first-child">Dvojitě klikněte na řádek klávesové zkratky pod <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Globální klávesové zkratky</span>.</p></li>
+<li class="item-steps"><p class="p first-child">V okně, které se objeví, zmáčkněte klávesový modifikátor a klávesu s písmenem nebo číslem. Tím klávesovou zkratku nastavíte. Například zmáčknutím a držením modifikátoru <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Super</span> (obvykle klávesa s logem Windows) a následným zmáčknutím a uvolněním <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Mezerníku</span> přiřadíte <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Super</span>+<span class=" key">Mezerník</span></span>.</p></li>
+</ol></div>
+</div>
+<p class="p">Díky tomu, že jsou klávesové zkratky globální, můžete je použít v kterékoliv aplikaci. Vybírejte je ale obezřetně, aby nebyly v konfliktu s jinými funkcemi těchto aplikací.</p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Spouštěče</h2></div>
+<div class="contents">
+<p class="p first-child">Zásuvný modul <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Spouštěče</span> umožňuje aktivovat akce pomocí globálních klávesových zkratek. Spouštěcí zkratky se neobjeví v <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Předvoblách Kupfer</span>.</p>
+<p class="p">Více informací viz <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-triggers.html" title="">
+        <span class=" app">Spouštěče</span>
+      </a></span>.</p>
+</div>
+</div>
+<div class="section autolinkssection">
+<div class="header"><h2 class="title">Further Reading</h2></div>
+<div class="autolinks">
+<div class="title"><span>More About</span></div>
+<ul><li class="autolink"><a href="index.html#usage">Používání aplikace Kupfer</a></li></ul>
+</div>
+</div>
+</div>
+<div class="footbar"><div class="copyrights"></div></div>
+</body>
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Command Keys and Accelerator Keys</title>
+<style type="text/css">
+html { height: 100%; }
+body {
+  margin: 0px;
+  background-color: #f9f9f6;
+  padding: 12px;
+  min-height: 100%;
+  direction: ltr;
+}
+ul, ol, dl, dd { margin: 0; }
+div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
+.first-child { margin-top: 0; }
+li.condensed { margin-top: 0.2em; }
+a {
+  text-decoration: none;
+  color: #1f609f;
+}
+a:visited {
+  color: #9f1f6f;
+}
+a:hover { text-decoration: underline; }
+
+div.headbar {
+  margin: 0;
+  max-width: 48em;
+}
+div.footbar {
+  margin: 0;
+  max-width: 48em;
+}
+div.body {
+  margin: 0;
+  padding: 1em;
+  max-width: 48em;
+  min-height: 20em;
+  -moz-border-radius: 6px;
+  border: solid 1px #e0e0df;
+  background-color: #ffffff;
+}
+div.navbar {
+  margin: 0;
+  float: right;
+}
+a.navbar-prev::before {
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  content: '  ▶';
+  color: #3f3f3f;
+}
+div.copyrights {
+  text-align: center;
+  color: #3f3f3f;
+}
+div.section { margin-top: 2.4em; clear: both; }
+div.section div.section {
+  margin-top: 1.72em;
+  margin-left: 1.72em;
+}
+div.section div.section div.section { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1 {
+  font-size: 1.44em;
+  margin: 0;
+}
+h2, h3, h4, h5, h6, h7 {
+  font-size: 1.2em;
+  margin: 0;
+}
+table { border-collapse: collapse; }
+
+div.autolinks ul { margin: 0; padding: 0; }
+div.autolinks div.title { margin: 1em 0 0 1em; }
+div.autolinks div.title span {
+  border-bottom: solid 1px #e0e0df;
+}
+li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
+
+div.linktrails {
+  margin: 0;
+}
+div.linktrail {
+  font-size: 0.83em;
+  margin: 0 1px 0.2em 1px;
+  padding-left: 1.2em;
+  color: #3f3f3f;
+}
+
+table.twocolumn { width: 100%; }
+td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
+td.twocolumnright {
+  width: 52%; vertical-align: top;
+  margin: 0; padding: 0;
+  padding-left: 1em;
+}
+
+div.linkdiv div.title {
+  font-size: 1em;
+  color: inherit;
+}
+div.linkdiv {
+  margin: 0;
+  padding: 0.5em;
+  -moz-border-radius: 6px;
+  border: solid 1px #ffffff;
+}
+div.linkdiv:hover {
+  border-color: #c0c9ff;
+  background-color: #f0f9ff;
+}
+div.linkdivsep {
+  margin: 0.5em;
+  list-style-type: none;
+  max-width: 24em;
+  border-bottom: solid 1px #e0e0df;
+}
+
+div.title {
+  margin: 0 0 0.2em 0;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.desc { margin: 0 0 0.2em 0; }
+div.desc-listing, div.desc-synopsis { font-style: italic; }
+div.desc-figure { margin: 0.2em 0 0 0; }
+pre.code {
+  /* FIXME: In RTL locales, we really want to align this left, but the watermark
+   * we have is designed to fit in the top right corner.  Either we need a new
+   * watermark, or we need a separate RTL version.
+   */
+  background: url('watermark-code.png') no-repeat top right;
+  border: solid 2px #e0e0df;
+  padding: 0.5em 1em 0.5em 1em;
+}
+div.example {
+  border-left: solid 4px #e0e0df;
+  padding-left: 1em;
+}
+div.figure {
+  margin-left: 1.72em;
+  padding: 4px;
+  color: #3f3f3f;
+  border: solid 1px #e0e0df;
+  background-color: #f9f9f6;
+}
+div.figure-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: center;
+  color: #000000;
+  border: solid 1px #e0e0df;
+  background-color: #ffffff;
+}
+div.listing-contents { margin: 0; padding: 0; }
+div.note {
+  padding: 0.5em 6px 0.5em 6px;
+  border-top: solid 1px #ffc0c0;
+  border-bottom: solid 1px #ffc0c0;
+  background-color: #fffff0;
+}
+div.note-inner {
+  margin: 0;
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+  background-image: url("admon-note.png");
+}
+div.note-advanced div.note-inner {  }
+div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
+div.note-important div.note-inner { background-image: url("admon-important.png"); }
+div.note-tip div.note-inner { background-image: url("admon-tip.png"); }
+div.note-warning div.note-inner { background-image: url("admon-warning.png"); }
+div.note-contents { margin: 0; padding: 0; }
+div.quote-inner {
+  margin: 0;
+  background-image: url('watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.title-quote {
+  margin-left: 4em;
+}
+blockquote { margin: 0; padding: 0; }
+div.cite-comment {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.cite-quote {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.cite-quote::before {
+  
+  content: '― ';
+}
+pre.screen {
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f9f9f6;
+  border: solid 2px #e0e0df;
+}
+div.synopsis-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: #c0c9ff;
+  background-color: #f9f9f6;
+}
+div.synopsis pre.code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+div.list-contents { margin: 0; padding: 0; }
+div.title-list { margin-bottom: 0.5em; }
+ol.list, ul.list { margin: 0; padding: 0; }
+li.item-list { margin-left: 1.44em; }
+
+div.steps-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: #c0c9ff;
+  background-color: #fffff0;
+}
+div.steps-contents div.steps-contents {
+  padding: 0;
+  border: none;
+  background-color: none;
+}
+ol.steps, ul.steps { margin: 0; padding: 0; }
+li.item-steps { margin-left: 1.44em; }
+
+div.terms-contents { margin: 0; }
+dt.item-next { margin-top: 0; }
+dd.item-terms {
+  margin-top: 0.2em;
+  margin-left: 1.44em;
+}
+
+ul.tree {
+  margin: 0; padding: 0;
+  list-style-type: none;
+}
+li.item-tree { margin: 0; padding: 0; }
+div.item-tree { margin: 0; padding: 0; }
+ul.tree ul.tree { margin-left: 1.44em; }
+div.tree-lines ul.tree { margin-left: 0; }
+
+table.table {
+  border-collapse: collapse;
+  border-color: #555753;
+  border-width: 1px;
+}
+table.table td {
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  border-color: #888a85;
+  border-width: 1px;
+  vertical-align: top;
+}
+
+span.app { font-style: italic; }
+span.cmd {
+  font-family: monospace;
+  background-color: #f9f9f6;
+  padding: 0 0.2em 0 0.2em;
+}
+span.code { font-family: monospace; }
+span.em { font-style: italic; }
+span.email { color: red; }
+span.file { font-family: monospace; }
+span.gui, span.guiseq { color: #3f3f3f; }
+span.input { font-family: monospace; }
+span.hi {
+  background-color: #fffff0;
+}
+span.key {
+  color: #3f3f3f;
+  border: solid 1px #e0e0df;
+  padding: 0 0.2em 0 0.2em;
+}
+span.keyseq {
+  color: #3f3f3f;
+}
+span.output { font-family: monospace; }
+pre.screen span.output {
+  color: #3f3f3f;
+}
+pre.screen span.output-error {
+
+  color: #ff0000;
+}
+pre.screen span.output-prompt { font-weight: bold; }
+span.sys { font-family: monospace; }
+span.var { font-style: italic; }
+
+div.version {
+  position: absolute;
+  right: 12px;
+  opacity: 0.2;
+  margin-top: -1em;
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 24em;
+  -moz-border-radius: 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.version:hover { opacity: 0.8; }
+div.version p.version { margin-top: 0.2em; }
+div.linkdiv div.title span.status {
+  font-size: 0.83em;
+  font-weight: normal;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  color: #3f3f3f;
+  border: solid 1px #ffc0c0;
+}
+div.linkdiv div.title span.status-stub { background-color: #fff0f0; }
+div.linkdiv div.title span.status-draft { background-color: #fff0f0; }
+div.linkdiv div.title span.status-incomplete { background-color: #fff0f0; }
+div.linkdiv div.title span.status-review { background-color: #fffff0; }
+div.linkdiv div.desc {
+  margin-top: 0.2em;
+  color: #3f3f3f;
+}
+div.comment {
+  padding: 0.5em;
+  border: solid 2px #ffc0c0;
+  background-color: #fff0f0;
+}
+div.comment div.comment {
+  margin: 1em 1em 0 1em;
+}
+div.comment div.cite {
+  margin: 0 0 0.5em 0;
+  font-style: italic;
+}
+</style>
+</head>
+<body class="">
+<div class="headbar"><div class="linktrails"><div class="linktrail">
+<a class="linktrail" href="index.html">Kupfer Manual</a> › <a class="linktrail" href="index.html#usage">Using Kupfer</a> » </div></div></div>
+<div class="body">
+<div class="header"><h1 class="title">Command Keys and Accelerator Keys</h1></div>
+<div class="contents"></div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Keyboard Interface</h2></div>
+<div class="contents">
+<p class="p first-child">
+    In command mode, the following keystrokes have special meanings: 
+  </p>
+<div class="table"><table class="table">
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">↓</span> or <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Space</span></p></td>
+<td><p class="p first-child"> Go to the next match </p></td>
+</tr>
+<tr>
+<td><p class="p first-child">
+        <span xmlns:e="http://projectmallard.org/experimental/" class=" key">↑</span> or <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Shift</span>+<span class=" key">Space</span></span>
+      </p></td>
+<td><p class="p first-child"> Go to the previous match </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">→</span> or <span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span>  </p></td>
+<td><p class="p first-child"> Descend into an object with content </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Backspace</span></p></td>
+<td><p class="p first-child"> Erase a character from the query. If the
+       query is empty, go up a level 
+   </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">.</span></p></td>
+<td><p class="p first-child"> Activate free-text mode </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span></p></td>
+<td><p class="p first-child"> Put selected object on the stack ("Comma Trick") </p></td>
+</tr>
+</table></div>
+<p class="p">
+    Quick access keys:
+  </p>
+<div class="table"><table class="table">
+<tr>
+<td><p class="p first-child">
+          <span xmlns:e="http://projectmallard.org/experimental/" class=" key">=</span>
+        </p></td>
+<td><p class="p first-child"> Activate free-text mode with =
+          prefix (for <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-calculator.html" title="">
+        <span class=" app">Calculator</span>
+      </a></span>)
+      </p></td>
+</tr>
+<tr>
+<td><p class="p first-child">
+          <span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span>
+        </p></td>
+<td><p class="p first-child"> Activate free-text mode (when nothing is selected) with
+            <span xmlns:e="http://projectmallard.org/experimental/" class=" code">/</span> prefix (to input a rooted path) 
+        </p></td>
+</tr>
+</table></div>
+<p class="p">
+    Additionally:
+  </p>
+<div class="list"><div class="list-contents"><ul class="list">
+<li class="item-list first-child"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Return</span> activates the current selection: the command is executed.
+    </p></li>
+<li class="item-list"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Escape</span> clears the current selection.</p></li>
+<li class="item-list"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Tab</span> switches between the object and the action pane. </p></li>
+</ul></div></div>
+<p class="p">
+    The meaning of the keys <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Space</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" key">.</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span>,
+    <span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span> and <span xmlns:e="http://projectmallard.org/experimental/" class=" key">=</span> can not be changed, but you can deactivate
+    their special meaning with the checkbox <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Use single keystroke
+    commands</span> in <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer Preferences</span>.
+  </p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Kupfer's Keyboard Shortcuts</h2></div>
+<div class="contents">
+<p class="p first-child">
+      These keyboard shortcuts are used in <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>'s interface.
+      They have the following meanings and default shortcuts:
+    </p>
+<div class="table"><table class="table">
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">.</span></span></p></td>
+<td><p class="p first-child"> Toggle text mode </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">,</span></span></p></td>
+<td><p class="p first-child"> The comma trick </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">;</span></span></p></td>
+<td><p class="p first-child"> Show preferences window </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">R</span></span></p></td>
+<td><p class="p first-child"> Reset all </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Alt</span>+<span class=" key">A</span></span></p></td>
+<td><p class="p first-child"> Alternate activate </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Return</span></span></p></td>
+<td><p class="p first-child"> Compose command </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">S</span></span></p></td>
+<td><p class="p first-child"> Switch to first pane </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Q</span></span></p></td>
+<td><p class="p first-child"> Select 'Quit' </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">G</span></span></p></td>
+<td><p class="p first-child"> Select 'Selected File' </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">T</span></span></p></td>
+<td><p class="p first-child"> Select 'Selected Text' </p></td>
+</tr>
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">F1</span></span></p></td>
+<td><p class="p first-child"> Show Help </p></td>
+</tr>
+</table></div>
+<div class="steps">
+<div class="title title-steps">How to configure a keyboard shortcut</div>
+<div class="steps-contents"><ol class="steps">
+<li class="item-steps first-child"><p class="p first-child">
+        Open <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer Preferences</span> and go to the
+        <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Keyboard</span> tab.
+      </p></li>
+<li class="item-steps"><p class="p first-child">
+        Double-click the shorcut's row under <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Browser Keyboard
+          Shortcuts</span>.
+      </p></li>
+<li class="item-steps"><p class="p first-child">
+        Using the window that appears, press modifier keys and a letter or
+        number key to set a shortcut. An example is pressing and holding
+        <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Ctrl</span> and then pressing and releasing <span xmlns:e="http://projectmallard.org/experimental/" class=" key">T</span> to bind
+        <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">T</span></span>.
+      </p></li>
+</ol></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Global Keyboard Shortcuts</h2></div>
+<div class="contents">
+<p class="p first-child">
+      <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> always listens to global shortcuts, even if it is not
+      currently in the foreground.
+    </p>
+<p class="p">
+      They have the following meanings and default shortcuts:
+    </p>
+<div class="table"><table class="table">
+<tr>
+<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Space</span></span></p></td>
+<td><p class="p first-child"> Show/hide <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span></p></td>
+</tr>
+<tr>
+<td><p class="p first-child">(not configured by default)</p></td>
+<td><p class="p first-child"> Show <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> with 'Selection' object focused</p></td>
+</tr>
+</table></div>
+<div class="steps">
+<div class="title title-steps">How to configure a global keyboard shortcut</div>
+<div class="steps-contents"><ol class="steps">
+<li class="item-steps first-child"><p class="p first-child">
+        Open <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer Preferences</span> and go to the
+        <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Keyboard</span> tab.
+      </p></li>
+<li class="item-steps"><p class="p first-child">
+        Double-click the shorcut's row under <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Global Keyboard
+          Shortcuts</span>.
+      </p></li>
+<li class="item-steps"><p class="p first-child">
+        Using the window that appears, press modifier keys and a letter or
+        number key to set a global shortcut. An example is pressing and
+        holding <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Super</span> and then pressing and releasing
+        <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Space</span> to bind
+        <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Super</span>+<span class=" key">Space</span></span>.
+      </p></li>
+</ol></div>
+</div>
+<p class="p">
+      Since these keyboard shortcuts are global, they can be used from any
+      application. Select shortcuts with care so that they do not
+      conflict with other functions. 
+    </p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Triggers</h2></div>
+<div class="contents">
+<p class="p first-child">
+      The plugin <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Triggers</span> allows to activate actions with
+      global keyboard shortcuts. Trigger shortcuts do not appear in
+      <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer Preferences</span>.
+    </p>
+<p class="p">
+      See <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-triggers.html" title="">
+        <span class=" app">Triggers</span>
+      </a></span> for more information.
+    </p>
+</div>
+</div>
+<div class="section autolinkssection">
+<div class="header"><h2 class="title">Further Reading</h2></div>
+<div class="autolinks">
+<div class="title"><span>More About</span></div>
+<ul><li class="autolink"><a href="index.html#usage">Using Kupfer</a></li></ul>
+</div>
+</div>
+</div>
+<div class="footbar"><div class="copyrights"></div></div>
+</body>
+</html>

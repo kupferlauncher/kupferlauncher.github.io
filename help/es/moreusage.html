@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Usar Kupfer en profundidad</title>
+<style type="text/css">
+html { height: 100%; }
+body {
+  margin: 0px;
+  background-color: #f9f9f6;
+  padding: 12px;
+  min-height: 100%;
+  direction: ltr;
+}
+ul, ol, dl, dd { margin: 0; }
+div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
+.first-child { margin-top: 0; }
+li.condensed { margin-top: 0.2em; }
+a {
+  text-decoration: none;
+  color: #1f609f;
+}
+a:visited {
+  color: #9f1f6f;
+}
+a:hover { text-decoration: underline; }
+
+div.headbar {
+  margin: 0;
+  max-width: 48em;
+}
+div.footbar {
+  margin: 0;
+  max-width: 48em;
+}
+div.body {
+  margin: 0;
+  padding: 1em;
+  max-width: 48em;
+  min-height: 20em;
+  -moz-border-radius: 6px;
+  border: solid 1px #e0e0df;
+  background-color: #ffffff;
+}
+div.navbar {
+  margin: 0;
+  float: right;
+}
+a.navbar-prev::before {
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  content: '  ▶';
+  color: #3f3f3f;
+}
+div.copyrights {
+  text-align: center;
+  color: #3f3f3f;
+}
+div.section { margin-top: 2.4em; clear: both; }
+div.section div.section {
+  margin-top: 1.72em;
+  margin-left: 1.72em;
+}
+div.section div.section div.section { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1 {
+  font-size: 1.44em;
+  margin: 0;
+}
+h2, h3, h4, h5, h6, h7 {
+  font-size: 1.2em;
+  margin: 0;
+}
+table { border-collapse: collapse; }
+
+div.autolinks ul { margin: 0; padding: 0; }
+div.autolinks div.title { margin: 1em 0 0 1em; }
+div.autolinks div.title span {
+  border-bottom: solid 1px #e0e0df;
+}
+li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
+
+div.linktrails {
+  margin: 0;
+}
+div.linktrail {
+  font-size: 0.83em;
+  margin: 0 1px 0.2em 1px;
+  padding-left: 1.2em;
+  color: #3f3f3f;
+}
+
+table.twocolumn { width: 100%; }
+td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
+td.twocolumnright {
+  width: 52%; vertical-align: top;
+  margin: 0; padding: 0;
+  padding-left: 1em;
+}
+
+div.linkdiv div.title {
+  font-size: 1em;
+  color: inherit;
+}
+div.linkdiv {
+  margin: 0;
+  padding: 0.5em;
+  -moz-border-radius: 6px;
+  border: solid 1px #ffffff;
+}
+div.linkdiv:hover {
+  border-color: #c0c9ff;
+  background-color: #f0f9ff;
+}
+div.linkdivsep {
+  margin: 0.5em;
+  list-style-type: none;
+  max-width: 24em;
+  border-bottom: solid 1px #e0e0df;
+}
+
+div.title {
+  margin: 0 0 0.2em 0;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.desc { margin: 0 0 0.2em 0; }
+div.desc-listing, div.desc-synopsis { font-style: italic; }
+div.desc-figure { margin: 0.2em 0 0 0; }
+pre.code {
+  /* FIXME: In RTL locales, we really want to align this left, but the watermark
+   * we have is designed to fit in the top right corner.  Either we need a new
+   * watermark, or we need a separate RTL version.
+   */
+  background: url('watermark-code.png') no-repeat top right;
+  border: solid 2px #e0e0df;
+  padding: 0.5em 1em 0.5em 1em;
+}
+div.example {
+  border-left: solid 4px #e0e0df;
+  padding-left: 1em;
+}
+div.figure {
+  margin-left: 1.72em;
+  padding: 4px;
+  color: #3f3f3f;
+  border: solid 1px #e0e0df;
+  background-color: #f9f9f6;
+}
+div.figure-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: center;
+  color: #000000;
+  border: solid 1px #e0e0df;
+  background-color: #ffffff;
+}
+div.listing-contents { margin: 0; padding: 0; }
+div.note {
+  padding: 0.5em 6px 0.5em 6px;
+  border-top: solid 1px #ffc0c0;
+  border-bottom: solid 1px #ffc0c0;
+  background-color: #fffff0;
+}
+div.note-inner {
+  margin: 0;
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+  background-image: url("admon-note.png");
+}
+div.note-advanced div.note-inner {  }
+div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
+div.note-important div.note-inner { background-image: url("admon-important.png"); }
+div.note-tip div.note-inner { background-image: url("admon-tip.png"); }
+div.note-warning div.note-inner { background-image: url("admon-warning.png"); }
+div.note-contents { margin: 0; padding: 0; }
+div.quote-inner {
+  margin: 0;
+  background-image: url('watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.title-quote {
+  margin-left: 4em;
+}
+blockquote { margin: 0; padding: 0; }
+div.cite-comment {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.cite-quote {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.cite-quote::before {
+  
+  content: '― ';
+}
+pre.screen {
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f9f9f6;
+  border: solid 2px #e0e0df;
+}
+div.synopsis-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: #c0c9ff;
+  background-color: #f9f9f6;
+}
+div.synopsis pre.code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+div.list-contents { margin: 0; padding: 0; }
+div.title-list { margin-bottom: 0.5em; }
+ol.list, ul.list { margin: 0; padding: 0; }
+li.item-list { margin-left: 1.44em; }
+
+div.steps-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: #c0c9ff;
+  background-color: #fffff0;
+}
+div.steps-contents div.steps-contents {
+  padding: 0;
+  border: none;
+  background-color: none;
+}
+ol.steps, ul.steps { margin: 0; padding: 0; }
+li.item-steps { margin-left: 1.44em; }
+
+div.terms-contents { margin: 0; }
+dt.item-next { margin-top: 0; }
+dd.item-terms {
+  margin-top: 0.2em;
+  margin-left: 1.44em;
+}
+
+ul.tree {
+  margin: 0; padding: 0;
+  list-style-type: none;
+}
+li.item-tree { margin: 0; padding: 0; }
+div.item-tree { margin: 0; padding: 0; }
+ul.tree ul.tree { margin-left: 1.44em; }
+div.tree-lines ul.tree { margin-left: 0; }
+
+table.table {
+  border-collapse: collapse;
+  border-color: #555753;
+  border-width: 1px;
+}
+table.table td {
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  border-color: #888a85;
+  border-width: 1px;
+  vertical-align: top;
+}
+
+span.app { font-style: italic; }
+span.cmd {
+  font-family: monospace;
+  background-color: #f9f9f6;
+  padding: 0 0.2em 0 0.2em;
+}
+span.code { font-family: monospace; }
+span.em { font-style: italic; }
+span.email { color: red; }
+span.file { font-family: monospace; }
+span.gui, span.guiseq { color: #3f3f3f; }
+span.input { font-family: monospace; }
+span.hi {
+  background-color: #fffff0;
+}
+span.key {
+  color: #3f3f3f;
+  border: solid 1px #e0e0df;
+  padding: 0 0.2em 0 0.2em;
+}
+span.keyseq {
+  color: #3f3f3f;
+}
+span.output { font-family: monospace; }
+pre.screen span.output {
+  color: #3f3f3f;
+}
+pre.screen span.output-error {
+
+  color: #ff0000;
+}
+pre.screen span.output-prompt { font-weight: bold; }
+span.sys { font-family: monospace; }
+span.var { font-style: italic; }
+
+div.version {
+  position: absolute;
+  right: 12px;
+  opacity: 0.2;
+  margin-top: -1em;
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 24em;
+  -moz-border-radius: 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.version:hover { opacity: 0.8; }
+div.version p.version { margin-top: 0.2em; }
+div.linkdiv div.title span.status {
+  font-size: 0.83em;
+  font-weight: normal;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  color: #3f3f3f;
+  border: solid 1px #ffc0c0;
+}
+div.linkdiv div.title span.status-stub { background-color: #fff0f0; }
+div.linkdiv div.title span.status-draft { background-color: #fff0f0; }
+div.linkdiv div.title span.status-incomplete { background-color: #fff0f0; }
+div.linkdiv div.title span.status-review { background-color: #fffff0; }
+div.linkdiv div.desc {
+  margin-top: 0.2em;
+  color: #3f3f3f;
+}
+div.comment {
+  padding: 0.5em;
+  border: solid 2px #ffc0c0;
+  background-color: #fff0f0;
+}
+div.comment div.comment {
+  margin: 1em 1em 0 1em;
+}
+div.comment div.cite {
+  margin: 0 0 0.5em 0;
+  font-style: italic;
+}
+</style>
+</head>
+<body class="">
+<div class="headbar"><div class="linktrails"><div class="linktrail">
+<a class="linktrail" href="index.html">Manual de Kupfer</a> › <a class="linktrail" href="index.html#usage">Usar Kupfer</a> » </div></div></div>
+<div class="body">
+<div class="header"><h1 class="title">Usar <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> en profundidad</h1></div>
+<div class="contents"></div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Añadir aplicaciones y scripts</h2></div>
+<div class="contents">
+<p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> mostrará todas las aplicaciones que están configuradas como visibles en su editor del menú.</p>
+<p class="p">Si quiere añadir una aplicación manualmente, puede crear un archivo <span xmlns:e="http://projectmallard.org/experimental/" class=" code">.desktop</span> nuevo y colocarlo en uno de las carpetas estándar para aplicaciones, por ejemplo <span xmlns:e="http://projectmallard.org/experimental/" class=" file">~/.local/share/applications</span>, donde <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> lo encontrará.</p>
+<p class="p">Si tiene una colección de scripts a los que quiere llamar desde <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>, puede añadir la carpeta de los scripts como un catálogo de carpeta a <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> en las preferencias. Los scripts que añada al catálogo <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> de esta manera se puede ejecutar directamente en la terminal, siempre y cuando sean ejecutables.</p>
+<p class="p">También puede guardar líneas de comandos usando la acción <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Añadir a favoritos</span>.</p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Abrir archivos y carpetas</h2></div>
+<div class="contents"><p class="p first-child">Al usar la acción <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Abrir</span>, los archivos y carpetas se abren con su aplicación preferida. Las asociaciones de archivos se pueden cambiar, consulte la <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-applications.html" title="">
+        <span class=" app">Aplicaciones</span>
+      </a></span>.</p></div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">El <span xmlns:e="http://projectmallard.org/experimental/" class=" em">truco de la coma</span>
+</h2></div>
+<div class="contents">
+<p class="p first-child">El «truco de la coma» permite al usuario utilizar acciones en varios objetos a la vez.</p>
+<p class="p">Simplemente pulse <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span> (coma) cuando un objeto esté seleccionado. El objeto se pone en una «pila», y puede encontrar otro archivo u objeto y pulsar la coma para añadirlo a la pila. Cuando posteriormente invoca una acción, la acción se realiza en todos los objetos al mismo tiempo.</p>
+<p class="p">Algunas acciones sólo se «multiplican» cuando se utilizan con muchos objetos, otras son más inteligentes que eso:</p>
+<div class="list"><div class="list-contents"><ul class="list">
+<li class="item-list first-child"><p class="p first-child">Al seleccionar varios archivos usando la acción «Crear archivador», todos los archivos se empaquetarán en el mismo archivo.</p></li>
+<li class="item-list"><p class="p first-child">Si selecciona varios contactos y usa la acción «Enviar correo-e», se crea un único correo-e dirigido a todos los contactos.</p></li>
+<li class="item-list"><p class="p first-child">Si selecciona varios catálogos (por ejemplo, «Marcadores de Firefox» y «Marcadores de Epiphany») y usa «Buscar contenido...», obtiene una búsqueda de subcatálogo restringida a los objetos de estos dos catálogos. También puede asociar un disparador a este comando.</p></li>
+</ul></div></div>
+<p class="p">El «truco de la coma» se ha <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick" title="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick">tomado directamente de Quicksilver</a></span> (el ejemplo dado en el artículo interno debería funcionar idénticamente en Kupfer).</p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Capturar la selección actual</h2></div>
+<div class="contents">
+<p class="p first-child">Para usar el texto seleccionado actualmente desde cualquier aplicación con <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>, puede configurar un atajo de teclado global para la acción <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Mostrar con selección</span> en las <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Preferencias de Kupfer</span>.</p>
+<p class="p">Si está configurado, al pulsar el atajo de teclado global invocará a <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> con la selección actual como el objeto con el foco.</p>
+<p class="p">Consulte la <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="keyboard.html" title="">Teclas de comandos y teclas aceleradoras</a></span></p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Conexión con la línea de comandos</h2></div>
+<div class="contents">
+<p class="p first-child">El comando <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span> en la línea de comandos dará el foco a <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> si ya está en ejecución, y si no lo está lo iniciará.</p>
+<p class="p">El comando <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span> se puede usar para enviar archivos o texto desde la línea de comandos a <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>. Por ejemplo, si está usando la terminal en una carpeta donde tiene un archivo llamado «informe.pdf» puede dar el foco a este archivo en <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> ejecutando <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer report.pdf</span>.</p>
+<p class="p">También puede enviar texto si redirige la salida de un comando hacia <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span>.</p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Gestionar el contexto y la selección actual</h2></div>
+<div class="contents">
+<p class="p first-child">Si encuentra el objeto que quiere usar, y ejecuta una acción, <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> realizará la acción (por ejemplo, ejecutar un programa o reproducir una canción). Cuando regrese a <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>, todavía mantendrá seleccionado el mismo objeto y la misma acción. Algunas acciones tienden a repetirse (como omitir la siguiente canción) y puede ser útil realizar diferentes acciones sobre un mismo objeto.</p>
+<p class="p">Sin embargo, siempre tiene el catálogo de nivel superior disponible cuando «regresa» a <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>: por ejemplo, va al subcatálogo «Álbumes» para explorar sólo sus álbumes; selecciona un álbum que reproducir y lo reproduce. Vuelve con el álbum seleccionado; pero su siguiente búsqueda volverá a ser sobre el nivel superior del catálogo, no sólo sobre los álbumes.</p>
+<p class="p">¿Cómo volver al subcatálogo en el que estaba? Puede hacer simplemente navegando, sin buscar la primera cosa que hizo cuando abrió <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> otra vez. Una forma rápida es pulsar ↓ o espacio para abrir la ventana del navegador; piense en esto diciendo «quiero estar en esta subcarpeta». Mientras se abre la ventana del navegador, su siguiente consulta buscará el subcatálogo actual.</p>
+<p class="p">De este modo, puede trabajar de ambas maneras; puede descender rápidamente por las carpetas para encontrar un archivo, y cuando vuelve para la siguiente acción con <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> también puede llamar a un objeto normal del nivel superior (simplemente empiece a escribir), o mantenerse donde está, en esa carpeta (pulse espacio y escriba una consulta).</p>
+</div>
+</div>
+<div class="section" id="">
+<div class="header"><h2 class="title">Guardar comandos como archivos</h2></div>
+<div class="contents"><p class="p first-child">Puede usar un atajo de teclado para <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Editar comando</span> (el predeterminado es <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Intro</span></span>) para crear un objeto de comando fuera del comando que actualmente tiene el foco en Kupfer. Este objeto se puede guardar como un archivo ejecutable si usa la acción <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Guardar como...</span>. El archivo resultante se puede ejecutar cuando se abra con el gestor de archivos (necesita que Kupfer esté en ejecución).</p></div>
+</div>
+<div class="section autolinkssection">
+<div class="header"><h2 class="title">Further Reading</h2></div>
+<div class="autolinks">
+<div class="title"><span>More About</span></div>
+<ul><li class="autolink"><a href="index.html#usage">Usar Kupfer</a></li></ul>
+</div>
+</div>
+</div>
+<div class="footbar"><div class="copyrights"></div></div>
+</body>
+</html>
