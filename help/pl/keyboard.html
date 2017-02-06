@@ -1,527 +1,176 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:str="http://exslt.org/strings">
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Klawisze poleceń oraz klawisze akceleratorów</title>
-<style type="text/css">
-html { height: 100%; }
-body {
-  margin: 0px;
-  background-color: #f9f9f6;
-  padding: 12px;
-  min-height: 100%;
-  direction: ltr;
-}
-ul, ol, dl, dd { margin: 0; }
-div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
-.first-child { margin-top: 0; }
-li.condensed { margin-top: 0.2em; }
-a {
-  text-decoration: none;
-  color: #1f609f;
-}
-a:visited {
-  color: #9f1f6f;
-}
-a:hover { text-decoration: underline; }
-
-div.headbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.footbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.body {
-  margin: 0;
-  padding: 1em;
-  max-width: 48em;
-  min-height: 20em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.navbar {
-  margin: 0;
-  float: right;
-}
-a.navbar-prev::before {
-  content: '◀  ';
-  color: #3f3f3f;
-}
-a.navbar-next::after {
-  content: '  ▶';
-  color: #3f3f3f;
-}
-div.copyrights {
-  text-align: center;
-  color: #3f3f3f;
-}
-div.section { margin-top: 2.4em; clear: both; }
-div.section div.section {
-  margin-top: 1.72em;
-  margin-left: 1.72em;
-}
-div.section div.section div.section { margin-top: 1.44em; }
-div.header {
-  margin: 0;
-  color: #3f3f3f;
-  border-bottom: solid 1px #e0e0df;
-}
-h1 {
-  font-size: 1.44em;
-  margin: 0;
-}
-h2, h3, h4, h5, h6, h7 {
-  font-size: 1.2em;
-  margin: 0;
-}
-table { border-collapse: collapse; }
-
-div.autolinks ul { margin: 0; padding: 0; }
-div.autolinks div.title { margin: 1em 0 0 1em; }
-div.autolinks div.title span {
-  border-bottom: solid 1px #e0e0df;
-}
-li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
-
-div.linktrails {
-  margin: 0;
-}
-div.linktrail {
-  font-size: 0.83em;
-  margin: 0 1px 0.2em 1px;
-  padding-left: 1.2em;
-  color: #3f3f3f;
-}
-
-table.twocolumn { width: 100%; }
-td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
-td.twocolumnright {
-  width: 52%; vertical-align: top;
-  margin: 0; padding: 0;
-  padding-left: 1em;
-}
-
-div.linkdiv div.title {
-  font-size: 1em;
-  color: inherit;
-}
-div.linkdiv {
-  margin: 0;
-  padding: 0.5em;
-  -moz-border-radius: 6px;
-  border: solid 1px #ffffff;
-}
-div.linkdiv:hover {
-  border-color: #c0c9ff;
-  background-color: #f0f9ff;
-}
-div.linkdivsep {
-  margin: 0.5em;
-  list-style-type: none;
-  max-width: 24em;
-  border-bottom: solid 1px #e0e0df;
-}
-
-div.title {
-  margin: 0 0 0.2em 0;
-  font-weight: bold;
-  color: #3f3f3f;
-}
-div.desc { margin: 0 0 0.2em 0; }
-div.desc-listing, div.desc-synopsis { font-style: italic; }
-div.desc-figure { margin: 0.2em 0 0 0; }
-pre.code {
-  /* FIXME: In RTL locales, we really want to align this left, but the watermark
-   * we have is designed to fit in the top right corner.  Either we need a new
-   * watermark, or we need a separate RTL version.
-   */
-  background: url('watermark-code.png') no-repeat top right;
-  border: solid 2px #e0e0df;
-  padding: 0.5em 1em 0.5em 1em;
-}
-div.example {
-  border-left: solid 4px #e0e0df;
-  padding-left: 1em;
-}
-div.figure {
-  margin-left: 1.72em;
-  padding: 4px;
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  background-color: #f9f9f6;
-}
-div.figure-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  text-align: center;
-  color: #000000;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.listing-contents { margin: 0; padding: 0; }
-div.note {
-  padding: 0.5em 6px 0.5em 6px;
-  border-top: solid 1px #ffc0c0;
-  border-bottom: solid 1px #ffc0c0;
-  background-color: #fffff0;
-}
-div.note-inner {
-  margin: 0;
-  padding-left: 60px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  min-height: 48px;
-  background-image: url("admon-note.png");
-}
-div.note-advanced div.note-inner {  }
-div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
-div.note-important div.note-inner { background-image: url("admon-important.png"); }
-div.note-tip div.note-inner { background-image: url("admon-tip.png"); }
-div.note-warning div.note-inner { background-image: url("admon-warning.png"); }
-div.note-contents { margin: 0; padding: 0; }
-div.quote-inner {
-  margin: 0;
-  background-image: url('watermark-blockquote-201C.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  padding: 0.5em;
-  padding-left: 4em;
-}
-div.title-quote {
-  margin-left: 4em;
-}
-blockquote { margin: 0; padding: 0; }
-div.cite-comment {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote::before {
-  
-  content: '― ';
-}
-pre.screen {
-  padding: 0.5em 1em 0.5em 1em;
-  background-color: #f9f9f6;
-  border: solid 2px #e0e0df;
-}
-div.synopsis-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #f9f9f6;
-}
-div.synopsis pre.code {
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-div.list-contents { margin: 0; padding: 0; }
-div.title-list { margin-bottom: 0.5em; }
-ol.list, ul.list { margin: 0; padding: 0; }
-li.item-list { margin-left: 1.44em; }
-
-div.steps-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #fffff0;
-}
-div.steps-contents div.steps-contents {
-  padding: 0;
-  border: none;
-  background-color: none;
-}
-ol.steps, ul.steps { margin: 0; padding: 0; }
-li.item-steps { margin-left: 1.44em; }
-
-div.terms-contents { margin: 0; }
-dt.item-next { margin-top: 0; }
-dd.item-terms {
-  margin-top: 0.2em;
-  margin-left: 1.44em;
-}
-
-ul.tree {
-  margin: 0; padding: 0;
-  list-style-type: none;
-}
-li.item-tree { margin: 0; padding: 0; }
-div.item-tree { margin: 0; padding: 0; }
-ul.tree ul.tree { margin-left: 1.44em; }
-div.tree-lines ul.tree { margin-left: 0; }
-
-table.table {
-  border-collapse: collapse;
-  border-color: #555753;
-  border-width: 1px;
-}
-table.table td {
-  padding: 0.1em 0.5em 0.1em 0.5em;
-  border-color: #888a85;
-  border-width: 1px;
-  vertical-align: top;
-}
-
-span.app { font-style: italic; }
-span.cmd {
-  font-family: monospace;
-  background-color: #f9f9f6;
-  padding: 0 0.2em 0 0.2em;
-}
-span.code { font-family: monospace; }
-span.em { font-style: italic; }
-span.email { color: red; }
-span.file { font-family: monospace; }
-span.gui, span.guiseq { color: #3f3f3f; }
-span.input { font-family: monospace; }
-span.hi {
-  background-color: #fffff0;
-}
-span.key {
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  padding: 0 0.2em 0 0.2em;
-}
-span.keyseq {
-  color: #3f3f3f;
-}
-span.output { font-family: monospace; }
-pre.screen span.output {
-  color: #3f3f3f;
-}
-pre.screen span.output-error {
-
-  color: #ff0000;
-}
-pre.screen span.output-prompt { font-weight: bold; }
-span.sys { font-family: monospace; }
-span.var { font-style: italic; }
-
-div.version {
-  position: absolute;
-  right: 12px;
-  opacity: 0.2;
-  margin-top: -1em;
-  padding: 0.5em 1em 0.5em 1em;
-  max-width: 24em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #fffff0;
-}
-div.version:hover { opacity: 0.8; }
-div.version p.version { margin-top: 0.2em; }
-div.linkdiv div.title span.status {
-  font-size: 0.83em;
-  font-weight: normal;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  color: #3f3f3f;
-  border: solid 1px #ffc0c0;
-}
-div.linkdiv div.title span.status-stub { background-color: #fff0f0; }
-div.linkdiv div.title span.status-draft { background-color: #fff0f0; }
-div.linkdiv div.title span.status-incomplete { background-color: #fff0f0; }
-div.linkdiv div.title span.status-review { background-color: #fffff0; }
-div.linkdiv div.desc {
-  margin-top: 0.2em;
-  color: #3f3f3f;
-}
-div.comment {
-  padding: 0.5em;
-  border: solid 2px #ffc0c0;
-  background-color: #fff0f0;
-}
-div.comment div.comment {
-  margin: 1em 1em 0 1em;
-}
-div.comment div.cite {
-  margin: 0 0 0.5em 0;
-  font-style: italic;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="pl.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body class="">
-<div class="headbar"><div class="linktrails"><div class="linktrail">
-<a class="linktrail" href="index.html">Podręcznik Kupfera</a> › <a class="linktrail" href="index.html#usage">Używanie Kupfera</a> » </div></div></div>
+<body lang="pl" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Podręcznik Kupfera">Podręcznik Kupfera</a> › <a class="trail" href="index.html#usage" title="Używanie Kupfera">Używanie Kupfera</a> » </div></div></div>
 <div class="body">
-<div class="header"><h1 class="title">Klawisze poleceń oraz klawisze akceleratorów</h1></div>
+<div class="hgroup"><h1 class="title"><span class="title">Klawisze poleceń oraz klawisze akceleratorów</span></h1></div>
+<div class="region">
 <div class="contents"></div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Klawiatura</h2></div>
-<div class="contents">
-<p class="p first-child">W trybie komend następujące klawisze posiadają specjalne znaczenie:</p>
-<div class="table"><table class="table">
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Klawiatura</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">W trybie poleceń następujące klawisze posiadają specjalne znaczenie:</p>
+<div class="table"><div class="inner"><div class="region"><table class="table">
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">↓</span> lub <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Spacja</span></p></td>
-<td><p class="p first-child">Przejście do następnego znalezionego obiektu</p></td>
+<td><p class="p"><span class="key"><kbd>↓</kbd></span> lub <span class="key"><kbd>Spacja</kbd></span></p></td>
+<td><p class="p">Przejście do następnego znalezionego obiektu</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">↑</span> lub <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Shift</span>+<span class=" key">Spacja</span></span></p></td>
-<td><p class="p first-child">Przejście do poprzedniego znalezionego elementu</p></td>
+<td><p class="p"><span class="key"><kbd>↑</kbd></span> lub <span class="keyseq"><span class="key"><kbd>Shift</kbd></span>+<span class="key"><kbd>Spacja</kbd></span></span></p></td>
+<td><p class="p">Przejście do poprzedniego znalezionego elementu</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">→</span> lub <span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span></p></td>
-<td><p class="p first-child">Wejście do obiektu posiadającego zawartość</p></td>
+<td><p class="p"><span class="key"><kbd>→</kbd></span> lub <span class="key"><kbd>/</kbd></span></p></td>
+<td><p class="p">Wejście do obiektu posiadającego zawartość</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Backspace</span></p></td>
-<td><p class="p first-child">Usunięcie znaku z zapytania. Jeżeli zapytanie jest puste - przejście na wyższy poziom.</p></td>
+<td><p class="p"> <span class="key"><kbd>Backspace</kbd></span></p></td>
+<td><p class="p">Usunięcie znaku z zapytania. Jeżeli zapytanie jest puste - przejście na wyższy poziom.</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">.</span></p></td>
-<td><p class="p first-child">Aktywacja trybu "tekstowego"</p></td>
+<td><p class="p"> <span class="key"><kbd>.</kbd></span></p></td>
+<td><p class="p">Aktywacja trybu "tekstowego"</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"> <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span></p></td>
-<td><p class="p first-child">Odłożenie zaznaczonego obiektu na stosie ("trik z przecinkiem")</p></td>
+<td><p class="p"> <span class="key"><kbd>,</kbd></span></p></td>
+<td><p class="p">Odłożenie zaznaczonego obiektu na stosie ("trik z przecinkiem")</p></td>
 </tr>
-</table></div>
+</table></div></div></div>
 <p class="p">Klawisze szybkiego dostępu:</p>
-<div class="table"><table class="table">
+<div class="table"><div class="inner"><div class="region"><table class="table">
 <tr>
-<td><p class="p first-child">
-          <span xmlns:e="http://projectmallard.org/experimental/" class=" key">=</span>
+<td><p class="p">
+          <span class="key"><kbd>=</kbd></span>
         </p></td>
-<td><p class="p first-child">Aktywacja trybu tekstowego z prefiksem = (dla <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-calculator.html" title="">
-        <span class=" app">Kalkulator</span>
-      </a></span>)</p></td>
+<td><p class="p">Aktywacja trybu tekstowego z przedrostkiem = (dla <span class="link"><a href="plugin-calculator.html" title="Kalkulator"><span class="app">Kalkulator</span></a></span>)</p></td>
 </tr>
 <tr>
-<td><p class="p first-child">
-          <span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span>
+<td><p class="p">
+          <span class="key"><kbd>/</kbd></span>
         </p></td>
-<td><p class="p first-child">Aktywacja trybu tekstowego (gdy nic nie jest zaznaczone) z prefiksem <span xmlns:e="http://projectmallard.org/experimental/" class=" code">/</span> (dla wprowadzania ścieżki względem korzenia /).</p></td>
+<td><p class="p">Aktywacja trybu tekstowego (gdy nic nie jest zaznaczone) z prefiksem <span class="code">/</span> (dla wprowadzania ścieżki względem korzenia /).</p></td>
 </tr>
-</table></div>
+</table></div></div></div>
 <p class="p">Dodatkowo:</p>
-<div class="list"><div class="list-contents"><ul class="list">
-<li class="item-list first-child"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Return</span> aktywuje zaznaczony obiekt - polecenie jest wykonywane.</p></li>
-<li class="item-list"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Escape</span> usuwa aktualne zaznaczenie.</p></li>
-<li class="item-list"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" key">Tab</span> przełącza między obiektem i panelem akcji.</p></li>
-</ul></div></div>
-<p class="p">Znaczenie klawiszy <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Spacja</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" key">.</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" key">/</span> oraz <span xmlns:e="http://projectmallard.org/experimental/" class=" key">=</span> może być zmienione, ale w tym celu należy najpierw wyłączyć ich specjalne działanie przez odznaczenie pola <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Włączenie jedno-klawiszowych poleceń</span> w <span xmlns:e="http://projectmallard.org/experimental/" class=" app">ustawieniach Kupfera</span>.</p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Skróty klawiszowe Kupfera</h2></div>
-<div class="contents">
-<p class="p first-child">Poniższe skróty klawiszowe są użyte w interfejsie <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera<span class=" app"> i posiadają one domyślnie następujące znaczenie:</span></span></p>
-<div class="table"><table class="table">
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"><span class="key"><kbd>Return</kbd></span> aktywuje zaznaczony obiekt - polecenie jest wykonywane.</p></li>
+<li class="list"><p class="p"><span class="key"><kbd>Escape</kbd></span> usuwa aktualne zaznaczenie.</p></li>
+<li class="list"><p class="p"><span class="key"><kbd>Tab</kbd></span> przełącza między obiektem i panelem akcji.</p></li>
+</ul></div></div></div>
+<p class="p">Znaczenie klawiszy <span class="key"><kbd>Spacja</kbd></span>, <span class="key"><kbd>.</kbd></span>, <span class="key"><kbd>,</kbd></span>, <span class="key"><kbd>/</kbd></span> oraz <span class="key"><kbd>=</kbd></span> może być zmienione, ale w tym celu należy najpierw wyłączyć ich specjalne działanie przez odznaczenie pola <span class="app">Włączenie jedno-klawiszowych poleceń</span> w <span class="app">Preferencjach Kupfera</span>.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Skróty klawiszowe Kupfera</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Poniższe skróty klawiszowe są użyte w interfejsie <span class="app">Kupfera</span> i posiadają one domyślnie następujące znaczenie:</p>
+<div class="table"><div class="inner"><div class="region"><table class="table">
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">.</span></span></p></td>
-<td><p class="p first-child">Przełączenie trybu tekstowego</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>.</kbd></span></span></p></td>
+<td><p class="p">Przełączenie trybu tekstowego</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">,</span></span></p></td>
-<td><p class="p first-child">Trik z przecinkiem</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>,</kbd></span></span></p></td>
+<td><p class="p">Trik z przecinkiem</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">;</span></span></p></td>
-<td><p class="p first-child">Wyświetlenie okna ustawień</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>;</kbd></span></span></p></td>
+<td><p class="p">Wyświetlenie okna preferencji</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">R</span></span></p></td>
-<td><p class="p first-child">Resetuj wszystko</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>R</kbd></span></span></p></td>
+<td><p class="p">Resetuj wszystko</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Alt</span>+<span class=" key">A</span></span></p></td>
-<td><p class="p first-child">Alternatywna aktywacja</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>A</kbd></span></span></p></td>
+<td><p class="p">Alternatywna aktywacja</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Return</span></span></p></td>
-<td><p class="p first-child">Polecenie "komponuj"</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Return</kbd></span></span></p></td>
+<td><p class="p">Polecenie "komponuj"</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">S</span></span></p></td>
-<td><p class="p first-child">Przełączenie do pierwszego panelu</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>S</kbd></span></span></p></td>
+<td><p class="p">Przełączenie do pierwszego panelu</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Q</span></span></p></td>
-<td><p class="p first-child">Wybranie "Zakończ"</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Q</kbd></span></span></p></td>
+<td><p class="p">Wybranie "Zakończ"</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">G</span></span></p></td>
-<td><p class="p first-child">Wybranie "Wybrany plik"</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>G</kbd></span></span></p></td>
+<td><p class="p">Wybranie "Wybrany plik"</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">T</span></span></p></td>
-<td><p class="p first-child">Wybranie "Zaznaczony tekst"</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>T</kbd></span></span></p></td>
+<td><p class="p">Wybranie "Zaznaczony tekst"</p></td>
 </tr>
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">F1</span></span></p></td>
-<td><p class="p first-child">Wyświetlenie pomocy</p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>F1</kbd></span></span></p></td>
+<td><p class="p">Wyświetlenie pomocy</p></td>
 </tr>
-</table></div>
-<div class="steps">
-<div class="title title-steps">Konfiguracja skrótów klawiszowych</div>
-<div class="steps-contents"><ol class="steps">
-<li class="item-steps first-child"><p class="p first-child">Otwarcie <span xmlns:e="http://projectmallard.org/experimental/" class=" app">ustawień Kupfera</span> i przejście do zakładki <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Klawiatura</span>.</p></li>
-<li class="item-steps"><p class="p first-child">Dwukrotne kliknięcie wiersza ze skrótem pod <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Skróty klawiszowe listy elementów</span>.</p></li>
-<li class="item-steps"><p class="p first-child">
-        Using the window that appears, press modifier keys and a letter or
-        number key to set a shortcut. An example is pressing and holding
-        <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Ctrl</span> and then pressing and releasing <span xmlns:e="http://projectmallard.org/experimental/" class=" key">T</span> to bind
-        <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">T</span></span>.
-      </p></li>
+</table></div></div></div>
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Konfiguracja skrótów klawiszowych</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">Otwarcie <span class="app">Preferencji Kupfera</span> i przejście do karty <span class="em">Klawiatura</span>.</p></li>
+<li class="steps"><p class="p">Dwukrotne kliknięcie wiersza ze skrótem pod <span class="em">Skróty klawiszowe listy elementów</span>.</p></li>
+<li class="steps"><p class="p">Za pomocą okna, które zostanie wyświetlone, nacisnąć klawisz modyfikatora i klawisz litery lub cyfry w celu ustawienia skrótu. Przykładowo naciskając i przytrzymując klawisz <span class="key"><kbd>Ctrl</kbd></span> oraz naciskając i puszczając klawisz <span class="key"><kbd>T</kbd></span> zostanie przypisany skrót <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>T</kbd></span></span>.</p></li>
 </ol></div>
-</div>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Globalne skróty klawiszowe</h2></div>
-<div class="contents">
-<p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> zawsze reaguje na globalne skróty klawiszowe, nawet gdy nie jest w danej chwili aktywny.</p>
+</div></div>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Globalne skróty klawiszowe</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"><span class="app">Kupfer</span> zawsze reaguje na globalne skróty klawiszowe, nawet gdy nie jest w danej chwili aktywny.</p>
 <p class="p">Globalne skróty klawiszowe obejmują następujące akcje i posiadają domyślne przypisania:</p>
-<div class="table"><table class="table">
+<div class="table"><div class="inner"><div class="region"><table class="table">
 <tr>
-<td><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Spacja</span></span></p></td>
-<td><p class="p first-child">Pokaż / ukryj <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span></p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Spacja</kbd></span></span></p></td>
+<td><p class="p">Pokaż / ukryj <span class="app">Kupfera</span></p></td>
 </tr>
 <tr>
-<td><p class="p first-child">(domyślnie nieskonfigurowane)</p></td>
-<td><p class="p first-child">Pokazanie <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> z wybranym obiektem "Zaznaczenie".</p></td>
+<td><p class="p">(domyślnie nieskonfigurowane)</p></td>
+<td><p class="p">Pokazanie <span class="app">Kupfera</span> z wybranym obiektem "Zaznaczenie".</p></td>
 </tr>
-</table></div>
-<div class="steps">
-<div class="title title-steps">Konfiguracja globalnych skrótów klawiszowych</div>
-<div class="steps-contents"><ol class="steps">
-<li class="item-steps first-child"><p class="p first-child">Otwarcie <span xmlns:e="http://projectmallard.org/experimental/" class=" app">ustawień Kupfera</span> i przejście do zakładki <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Klawiatura</span>.</p></li>
-<li class="item-steps"><p class="p first-child">Dwukrotne kliknięcie wiersza skrótu pod <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Globalne skróty klawiszowe</span>.</p></li>
-<li class="item-steps"><p class="p first-child">Za pomocą okna, które zostanie wyświetlone, nacisnąć klawisz modyfikatora i klawisz litery lub cyfry w celu ustawienia skrótu. Przykładowo naciskając i przytrzymując klawisz <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Super</span> oraz naciskając i puszczając klawisz <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Spacja</span> zostanie przypisany skrót <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Super</span>+<span class=" key">Spacja</span></span>.</p></li>
+</table></div></div></div>
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Konfiguracja globalnych skrótów klawiszowych</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">Otwarcie <span class="app">Preferencji Kupfera</span> i przejście do karty <span class="em">Klawiatura</span>.</p></li>
+<li class="steps"><p class="p">Dwukrotne kliknięcie wiersza skrótu pod <span class="em">Globalne skróty klawiszowe</span>.</p></li>
+<li class="steps"><p class="p">Za pomocą okna, które zostanie wyświetlone, nacisnąć klawisz modyfikatora i klawisz litery lub cyfry w celu ustawienia skrótu. Przykładowo naciskając i przytrzymując klawisz <span class="key"><kbd>Super</kbd></span> oraz naciskając i puszczając klawisz <span class="key"><kbd>Spacja</kbd></span> zostanie przypisany skrót <span class="keyseq"><span class="key"><kbd>Super</kbd></span>+<span class="key"><kbd>Spacja</kbd></span></span>.</p></li>
 </ol></div>
-</div>
+</div></div>
 <p class="p">Skróty klawiszowe są globalne co oznacza, że mogą być użyte z dowolnego programu. Należy uważnie wybierać skróty klawiszowe, tak aby nie spowodowały one problemów z innymi funkcjami.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Wyzwalacze</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Wtyczka <span class="em">Wyzwalacze</span> pozwala na aktywację akcji za pomocą globalnych skrótów klawiszowych. Skróty klawiszowe wtyczki wyzwalaczy nie są wyświetlane w oknie <span class="app">Preferencji Kupfera</span>.</p>
+<p class="p">Więcej informacji można znaleźć w <span class="link"><a href="plugin-triggers.html" title="Wyzwalacze"><span class="app">Wyzwalacze</span></a></span>.</p>
+</div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Więcej informacji</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Używanie Kupfera">Używanie Kupfera</a></li></ul></div>
+</div></div></div>
 </div>
 </div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Wyzwalacze</h2></div>
-<div class="contents">
-<p class="p first-child">Wtyczka <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Wyzwalacze</span> pozwala na aktywację akcji za pomocą globalnych skrótów klawiszowych. Skróty klawiszowe wtyczki wyzwalaczy nie są wyświetlane w oknie <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Ustawienia Kupfera</span>.</p>
-<p class="p">Więcej informacji można znaleźć w <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-triggers.html" title="">
-        <span class=" app">Wyzwalacze</span>
-      </a></span>.</p>
+<div class="clear"></div>
 </div>
-</div>
-<div class="section autolinkssection">
-<div class="header"><h2 class="title">Further Reading</h2></div>
-<div class="autolinks">
-<div class="title"><span>More About</span></div>
-<ul><li class="autolink"><a href="index.html#usage">Używanie Kupfera</a></li></ul>
-</div>
-</div>
-</div>
-<div class="footbar"><div class="copyrights"></div></div>
-</body>
+<div class="footer"></div>
+</div></body>
 </html>

@@ -1,434 +1,89 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:str="http://exslt.org/strings">
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Zaawansowane używanie Kupfera&gt;</title>
-<style type="text/css">
-html { height: 100%; }
-body {
-  margin: 0px;
-  background-color: #f9f9f6;
-  padding: 12px;
-  min-height: 100%;
-  direction: ltr;
-}
-ul, ol, dl, dd { margin: 0; }
-div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
-.first-child { margin-top: 0; }
-li.condensed { margin-top: 0.2em; }
-a {
-  text-decoration: none;
-  color: #1f609f;
-}
-a:visited {
-  color: #9f1f6f;
-}
-a:hover { text-decoration: underline; }
-
-div.headbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.footbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.body {
-  margin: 0;
-  padding: 1em;
-  max-width: 48em;
-  min-height: 20em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.navbar {
-  margin: 0;
-  float: right;
-}
-a.navbar-prev::before {
-  content: '◀  ';
-  color: #3f3f3f;
-}
-a.navbar-next::after {
-  content: '  ▶';
-  color: #3f3f3f;
-}
-div.copyrights {
-  text-align: center;
-  color: #3f3f3f;
-}
-div.section { margin-top: 2.4em; clear: both; }
-div.section div.section {
-  margin-top: 1.72em;
-  margin-left: 1.72em;
-}
-div.section div.section div.section { margin-top: 1.44em; }
-div.header {
-  margin: 0;
-  color: #3f3f3f;
-  border-bottom: solid 1px #e0e0df;
-}
-h1 {
-  font-size: 1.44em;
-  margin: 0;
-}
-h2, h3, h4, h5, h6, h7 {
-  font-size: 1.2em;
-  margin: 0;
-}
-table { border-collapse: collapse; }
-
-div.autolinks ul { margin: 0; padding: 0; }
-div.autolinks div.title { margin: 1em 0 0 1em; }
-div.autolinks div.title span {
-  border-bottom: solid 1px #e0e0df;
-}
-li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
-
-div.linktrails {
-  margin: 0;
-}
-div.linktrail {
-  font-size: 0.83em;
-  margin: 0 1px 0.2em 1px;
-  padding-left: 1.2em;
-  color: #3f3f3f;
-}
-
-table.twocolumn { width: 100%; }
-td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
-td.twocolumnright {
-  width: 52%; vertical-align: top;
-  margin: 0; padding: 0;
-  padding-left: 1em;
-}
-
-div.linkdiv div.title {
-  font-size: 1em;
-  color: inherit;
-}
-div.linkdiv {
-  margin: 0;
-  padding: 0.5em;
-  -moz-border-radius: 6px;
-  border: solid 1px #ffffff;
-}
-div.linkdiv:hover {
-  border-color: #c0c9ff;
-  background-color: #f0f9ff;
-}
-div.linkdivsep {
-  margin: 0.5em;
-  list-style-type: none;
-  max-width: 24em;
-  border-bottom: solid 1px #e0e0df;
-}
-
-div.title {
-  margin: 0 0 0.2em 0;
-  font-weight: bold;
-  color: #3f3f3f;
-}
-div.desc { margin: 0 0 0.2em 0; }
-div.desc-listing, div.desc-synopsis { font-style: italic; }
-div.desc-figure { margin: 0.2em 0 0 0; }
-pre.code {
-  /* FIXME: In RTL locales, we really want to align this left, but the watermark
-   * we have is designed to fit in the top right corner.  Either we need a new
-   * watermark, or we need a separate RTL version.
-   */
-  background: url('watermark-code.png') no-repeat top right;
-  border: solid 2px #e0e0df;
-  padding: 0.5em 1em 0.5em 1em;
-}
-div.example {
-  border-left: solid 4px #e0e0df;
-  padding-left: 1em;
-}
-div.figure {
-  margin-left: 1.72em;
-  padding: 4px;
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  background-color: #f9f9f6;
-}
-div.figure-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  text-align: center;
-  color: #000000;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.listing-contents { margin: 0; padding: 0; }
-div.note {
-  padding: 0.5em 6px 0.5em 6px;
-  border-top: solid 1px #ffc0c0;
-  border-bottom: solid 1px #ffc0c0;
-  background-color: #fffff0;
-}
-div.note-inner {
-  margin: 0;
-  padding-left: 60px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  min-height: 48px;
-  background-image: url("admon-note.png");
-}
-div.note-advanced div.note-inner {  }
-div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
-div.note-important div.note-inner { background-image: url("admon-important.png"); }
-div.note-tip div.note-inner { background-image: url("admon-tip.png"); }
-div.note-warning div.note-inner { background-image: url("admon-warning.png"); }
-div.note-contents { margin: 0; padding: 0; }
-div.quote-inner {
-  margin: 0;
-  background-image: url('watermark-blockquote-201C.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  padding: 0.5em;
-  padding-left: 4em;
-}
-div.title-quote {
-  margin-left: 4em;
-}
-blockquote { margin: 0; padding: 0; }
-div.cite-comment {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote::before {
-  
-  content: '― ';
-}
-pre.screen {
-  padding: 0.5em 1em 0.5em 1em;
-  background-color: #f9f9f6;
-  border: solid 2px #e0e0df;
-}
-div.synopsis-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #f9f9f6;
-}
-div.synopsis pre.code {
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-div.list-contents { margin: 0; padding: 0; }
-div.title-list { margin-bottom: 0.5em; }
-ol.list, ul.list { margin: 0; padding: 0; }
-li.item-list { margin-left: 1.44em; }
-
-div.steps-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #fffff0;
-}
-div.steps-contents div.steps-contents {
-  padding: 0;
-  border: none;
-  background-color: none;
-}
-ol.steps, ul.steps { margin: 0; padding: 0; }
-li.item-steps { margin-left: 1.44em; }
-
-div.terms-contents { margin: 0; }
-dt.item-next { margin-top: 0; }
-dd.item-terms {
-  margin-top: 0.2em;
-  margin-left: 1.44em;
-}
-
-ul.tree {
-  margin: 0; padding: 0;
-  list-style-type: none;
-}
-li.item-tree { margin: 0; padding: 0; }
-div.item-tree { margin: 0; padding: 0; }
-ul.tree ul.tree { margin-left: 1.44em; }
-div.tree-lines ul.tree { margin-left: 0; }
-
-table.table {
-  border-collapse: collapse;
-  border-color: #555753;
-  border-width: 1px;
-}
-table.table td {
-  padding: 0.1em 0.5em 0.1em 0.5em;
-  border-color: #888a85;
-  border-width: 1px;
-  vertical-align: top;
-}
-
-span.app { font-style: italic; }
-span.cmd {
-  font-family: monospace;
-  background-color: #f9f9f6;
-  padding: 0 0.2em 0 0.2em;
-}
-span.code { font-family: monospace; }
-span.em { font-style: italic; }
-span.email { color: red; }
-span.file { font-family: monospace; }
-span.gui, span.guiseq { color: #3f3f3f; }
-span.input { font-family: monospace; }
-span.hi {
-  background-color: #fffff0;
-}
-span.key {
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  padding: 0 0.2em 0 0.2em;
-}
-span.keyseq {
-  color: #3f3f3f;
-}
-span.output { font-family: monospace; }
-pre.screen span.output {
-  color: #3f3f3f;
-}
-pre.screen span.output-error {
-
-  color: #ff0000;
-}
-pre.screen span.output-prompt { font-weight: bold; }
-span.sys { font-family: monospace; }
-span.var { font-style: italic; }
-
-div.version {
-  position: absolute;
-  right: 12px;
-  opacity: 0.2;
-  margin-top: -1em;
-  padding: 0.5em 1em 0.5em 1em;
-  max-width: 24em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #fffff0;
-}
-div.version:hover { opacity: 0.8; }
-div.version p.version { margin-top: 0.2em; }
-div.linkdiv div.title span.status {
-  font-size: 0.83em;
-  font-weight: normal;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  color: #3f3f3f;
-  border: solid 1px #ffc0c0;
-}
-div.linkdiv div.title span.status-stub { background-color: #fff0f0; }
-div.linkdiv div.title span.status-draft { background-color: #fff0f0; }
-div.linkdiv div.title span.status-incomplete { background-color: #fff0f0; }
-div.linkdiv div.title span.status-review { background-color: #fffff0; }
-div.linkdiv div.desc {
-  margin-top: 0.2em;
-  color: #3f3f3f;
-}
-div.comment {
-  padding: 0.5em;
-  border: solid 2px #ffc0c0;
-  background-color: #fff0f0;
-}
-div.comment div.comment {
-  margin: 1em 1em 0 1em;
-}
-div.comment div.cite {
-  margin: 0 0 0.5em 0;
-  font-style: italic;
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Zaawansowane używanie Kupfera</title>
+<link rel="stylesheet" type="text/css" href="pl.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body class="">
-<div class="headbar"><div class="linktrails"><div class="linktrail">
-<a class="linktrail" href="index.html">Podręcznik Kupfera</a> › <a class="linktrail" href="index.html#usage">Używanie Kupfera</a> » </div></div></div>
+<body lang="pl" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Podręcznik Kupfera">Podręcznik Kupfera</a> › <a class="trail" href="index.html#usage" title="Używanie Kupfera">Używanie Kupfera</a> » </div></div></div>
 <div class="body">
-<div class="header"><h1 class="title">Zaawansowane używanie <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera&gt;</span>
-</h1></div>
+<div class="hgroup"><h1 class="title"><span class="title">Zaawansowane używanie <span class="app">Kupfera</span></span></h1></div>
+<div class="region">
 <div class="contents"></div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Dodawanie programów i skryptów</h2></div>
-<div class="contents">
-<p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> będzie pokazywał wszystkie programy, które są oznaczone jako widoczne w edytorze menu.</p>
-<p class="p">W przypadku potrzeby ręcznego dodania programu użytkownik może utworzyć nowy plik <span xmlns:e="http://projectmallard.org/experimental/" class=" code">.desktop</span> i umieścić go w jednym ze standardowych miejsc dla programów, np w <span xmlns:e="http://projectmallard.org/experimental/" class=" file">~/.local/share/applications</span>. </p>
-<p class="p">Jeżeli użytkownik posiada kolekcję skryptów, które mają być uruchamiane poprzez <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span>, katalog ze skryptami może zostać dodany bezpośrednio do <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> w oknie ustawień. Skrypty dodane w ten sposób do <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> mogą być uruchamiana bezpośrednio lub w terminalu pod warunkiem, że są one wykonywalne.</p>
-<p class="p">Istnieje także możliwość zapisania poleceń linii komend używając akcji <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Dodaj do ulubionych</span>.</p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Opening Files and Folders</h2></div>
-<div class="contents"><p class="p first-child">
-      Using the action <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Open</span>, files and folders are opened in their
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Dodawanie programów i skryptów</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"><span class="app">Kupfera</span> będzie pokazywał wszystkie programy, które są oznaczone jako widoczne w edytorze menu.</p>
+<p class="p">W przypadku potrzeby ręcznego dodania programu użytkownik może utworzyć nowy plik <span class="code">.desktop</span> i umieścić go w jednym ze standardowych miejsc dla programów, np w <span class="file">~/.local/share/applications</span>. </p>
+<p class="p">Jeżeli użytkownik posiada kolekcję skryptów, które mają być uruchamiane poprzez <span class="app">Kupfera</span>, katalog ze skryptami może zostać dodany bezpośrednio do <span class="app">Kupfera</span> w oknie preferencji. Skrypty dodane w ten sposób do <span class="app">Kupfera</span> mogą być uruchamiana bezpośrednio lub w terminalu pod warunkiem, że są one wykonywalne.</p>
+<p class="p">Istnieje także możliwość zapisania poleceń wiersza poleceń używając akcji <span class="em">Dodaj do ulubionych</span>.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Opening Files and Folders</span></h2></div>
+<div class="region"><div class="contents"><p class="p">
+      Using the action <span class="em">Open</span>, files and folders are opened in their
       preferred application. The application associations can be changed,
-      see <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-applications.html" title="">
-        <span class=" app">Programy</span>
-      </a></span>.
-    </p></div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Trik z przecinkiem</span></h2></div>
-<div class="contents">
-<p class="p first-child">Trik z przecinkiem umożliwia użytkownikowi użycie akcji od razu dla wielu obiektów.</p>
-<p class="p">Naciśnięcie przecinka <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span> spowoduje umieszczenie zaznaczonego obiektu na "stosie". Kupfer umożliwia znalezienie kolejnego obiektu i dodanie go na stos przez ponowne naciśnięcie przecinka. Późniejsze wywołanie akcji uwzględni wszystkie obiekty umieszczone na stosie.</p>
-<p class="p">Niektóre akcje są jedynie wywoływane wielokrotnie gdy są uruchomione dla wielu obiektów. Inne są sprytniejsze:</p>
-<div class="list"><div class="list-contents"><ul class="list">
-<li class="item-list first-child"><p class="p first-child">Zaznaczenie wielu plików i użycie akcji "Utwórz archiwum" spowoduje dodanie wszystkich plików do jednego archiwum.</p></li>
-<li class="item-list"><p class="p first-child">Zaznaczenie wielu kontaktów i użycie akcji "Wyślij Email" utworzy jeden email do wszystkich wybranych kontaktów.</p></li>
-<li class="item-list"><p class="p first-child">Zaznaczenie wielu podkatalogów (np. Zakładki Firefox i Zakładki Epiphany) i użycie akcji "Przeszukaj zawartość" spowoduje umożliwi przeszukanie podkatalogu zbudowanego z obiektów pochodzących z tych dwóch katalogów. Kupfer umożliwia także przypisanie wyzwalacza do takiej komendy.</p></li>
-</ul></div></div>
-<p class="p">Trik z kropką jest wzorowany bezpośrednio na  <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick" title="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick">programie Quicksilver</a></span> (przykłady podane w zewnętrznym artykule powinny działać identycznie w Kupferze).</p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Przechwyć aktualne zaznaczenie</h2></div>
-<div class="contents">
-<p class="p first-child">W celu użycia aktualnie zaznaczonego tekstu z dowolnego programu <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> umożliwia skonfigurowanie globalnego skrótu klawiszowego dla akcji <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Wyświetlenie zaznaczenia</span> w <span xmlns:e="http://projectmallard.org/experimental/" class=" app">ustawieniach Kupfera</span>.</p>
-<p class="p">Po skonfigurowaniu, naciśnięcie globalnego skrótu klawiszowego wywoła <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> z zaznaczeniem jako wybranym obiektem.</p>
-<p class="p">Więcej informacji: <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="keyboard.html" title="">Klawisze poleceń oraz klawisze akceleratorów</a></span></p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Powiązania z linią komend</h2></div>
-<div class="contents">
-<p class="p first-child">Komenda <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span> wykonana w linii poleceń wyświetli <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> jeżeli jest już uruchomi. W przeciwnym wypadku - <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> zostanie uruchomiony.</p>
-<p class="p">Komenda <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span> może być użyta do przesyłania plików lub tekstu z programów uruchamianych z linii komend do <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span>. Dla przykładu, jeżeli podczas pracy w powłoce w katalogu znajduje się plik "raport.pdf", możliwe jest wybranie tego pliku w <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupferze</span> przez uruchomienie <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer raport.pdf</span>.</p>
-<p class="p">Istnieje możliwość przesłania wyniku wywołania programu do polecenia <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span>.</p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Zarządzanie kontekstem i aktualnym zaznaczeniem</h2></div>
-<div class="contents">
-<p class="p first-child">Po znalezieniu obiektu do użycia i wywołaniu akcji <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> znika w celu jej przeprowadzania (na przykład uruchomienie programu lub odtworzenie utworu). Po powrocie do <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> poprzednio wybrany obiekt i akcja nadal pozostają wybrane. Pozwala to na szybkie powtórzenie ostatnich akcji (dla akcji dla których to ma sens - na przykład przeskoczenie do kolejnego utworu muzycznego) a także może być użyteczne przy przeprowadzaniu innej akcji na tym samym obiekcie.</p>
-<p class="p">Jednakże, kiedy użytkownik powraca do <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> ma zawsze dostępny najwyższy poziom katalogu. Przykładowo po wejściu do podkatalogu "Albumy" w celu przejrzenia albumów, użytkownik może wybrać album i włączyć jego odtwarzanie. Kiedy powróci do <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfera</span> album pozostanie wybrany, ale wyszukiwanie będzie odbywało się na najwyższym poziomie katalogu a nie albumu.</p>
+      see <span class="link"><a href="plugin-applications.html" title="Programy"><span class="app">Programy</span></a></span>.
+    </p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title"><span class="em">Trik z przecinkiem</span></span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Trik z przecinkiem umożliwia użytkownikowi użycie akcji od razu dla wielu obiektów.</p>
+<p class="p">Naciśnięcie przecinka <span class="key"><kbd>,</kbd></span> spowoduje umieszczenie zaznaczonego obiektu na "stosie". Kupfer umożliwia znalezienie kolejnego obiektu i dodanie go na stos przez ponowne naciśnięcie przecinka. Późniejsze wywołanie akcji uwzględni wszystkie obiekty umieszczone na stosie.</p>
+<p class="p">Niektóre akcje są jedynie wywoływane wielokrotnie, gdy są uruchomione dla wielu obiektów. Inne są sprytniejsze:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Zaznaczenie wielu plików i użycie akcji "Utwórz archiwum" spowoduje dodanie wszystkich plików do jednego archiwum.</p></li>
+<li class="list"><p class="p">Zaznaczenie wielu kontaktów i użycie akcji "Wyślij e-mail" utworzy jeden e-mail do wszystkich wybranych kontaktów.</p></li>
+<li class="list"><p class="p">Zaznaczenie wielu podkatalogów (np. Zakładki Firefoksa i Zakładki Epiphany) i użycie akcji "Przeszukaj zawartość" spowoduje umożliwi przeszukanie podkatalogu zbudowanego z obiektów pochodzących z tych dwóch katalogów. Kupfer umożliwia także przypisanie wyzwalacza do takiego polecenia.</p></li>
+</ul></div></div></div>
+<p class="p">Trik z kropką jest wzorowany bezpośrednio na <span class="link"><a href="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick" title="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick">programie Quicksilver</a></span> (przykłady podane w zewnętrznym artykule powinny działać identycznie w Kupferze).</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Przechwyć aktualne zaznaczenie</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">W celu użycia aktualnie zaznaczonego tekstu z dowolnego programu <span class="app">Kupfer</span> umożliwia skonfigurowanie globalnego skrótu klawiszowego dla akcji <span class="em">Wyświetlenie zaznaczenia</span> w <span class="app">Preferencjach Kupfera</span>.</p>
+<p class="p">Po skonfigurowaniu, naciśnięcie globalnego skrótu klawiszowego wywoła <span class="app">Kupfera</span> z zaznaczeniem jako wybranym obiektem.</p>
+<p class="p">Więcej informacji: <span class="link"><a href="keyboard.html" title="Klawisze poleceń oraz klawisze akceleratorów">Klawisze poleceń oraz klawisze akceleratorów</a></span></p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Powiązania z wierszem poleceń</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Polecenie <span class="cmd">kupfer</span> wykonana w wierszu poleceń wyświetli <span class="app">Kupfera</span>, jeżeli jest już uruchomiony. W przeciwnym wypadku - <span class="app">Kupfer</span> zostanie uruchomiony.</p>
+<p class="p">Polecenie <span class="cmd">kupfer</span> może być użyta do przesyłania plików lub tekstu z programów uruchamianych z wiersza poleceń do <span class="app">Kupfera</span>. Dla przykładu, jeżeli podczas pracy w powłoce w katalogu znajduje się plik "raport.pdf", możliwe jest wybranie tego pliku w <span class="app">Kupferze</span> przez uruchomienie <span class="cmd">kupfer raport.pdf</span>.</p>
+<p class="p">Istnieje możliwość przesłania wyniku wywołania programu do polecenia <span class="cmd">kupfer</span>.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Zarządzanie kontekstem i aktualnym zaznaczeniem</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Po znalezieniu obiektu do użycia i wywołaniu akcji <span class="app">Kupfer</span> znika w celu jej przeprowadzania (na przykład uruchomienie programu lub odtworzenie utworu). Po powrocie do <span class="app">Kupfera</span> poprzednio wybrany obiekt i akcja nadal pozostają wybrane. Pozwala to na szybkie powtórzenie ostatnich akcji (dla akcji dla których to ma sens - na przykład przeskoczenie do kolejnego utworu muzycznego) a także może być użyteczne przy przeprowadzaniu innej akcji na tym samym obiekcie.</p>
+<p class="p">Jednakże, kiedy użytkownik powraca do <span class="app">Kupfera</span> ma zawsze dostępny najwyższy poziom katalogu. Przykładowo po wejściu do podkatalogu "Albumy" w celu przejrzenia albumów, użytkownik może wybrać album i włączyć jego odtwarzanie. Kiedy powróci do <span class="app">Kupfera</span> album pozostanie wybrany, ale wyszukiwanie będzie odbywało się na najwyższym poziomie katalogu a nie albumu.</p>
 <p class="p">Aby powrócić do podkatalogu, który został poprzednio wybrany, należy wykonać najpierw przeglądanie katalogu (nie rozpoczynać od wyszukiwania). Najszybszym sposobem jest naciśniecie klawisza strzałki w dół lub spacji w celu otwarcia okna przeglądarki. Gdy okno przeglądarki zostanie otwarte, kolejne wyszukiwanie będzie odbywało się w aktualnym podkatalogu.</p>
 <p class="p">Tym sposobem istnieje możliwość pracy na oba sposoby - można szybko zagłębić się w katalogi w celu znalezienia pliku, a po wykonaniu akcji i powrocie można albo dotrzeć do każdego, pierwszopoziomowego obiektów (przez rozpoczęcie pisania) lub pozostać w miejscu gdzie się było poprzednio, w zagnieżdżonym katalogu (przez naciśnięcie spacji, a później pisanie).</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Zapisywanie poleceń jako pliki</span></h2></div>
+<div class="region"><div class="contents"><p class="p"><span class="app">Kupfer</span> umożliwia użycie skrótu klawiszowego dla polecenia <span class="em">komponuj</span> (domyślnie <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Return</kbd></span></span>) w celu utworzenia obiektu polecenia na podstawie aktualnie podświetlonego polecenia w Kupferze. Obiekt taki może być zapisany jako uruchamialny plik przez użycie akcji <span class="em">Zapisz jako...</span>. Plik, który w rezultacie zostanie utworzony, może zostać otwarty przez menadżer plików (wymaga uruchomionego Kupfera).</p></div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Więcej informacji</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Używanie Kupfera">Używanie Kupfera</a></li></ul></div>
+</div></div></div>
 </div>
 </div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Zapisywanie poleceń jako pliki</h2></div>
-<div class="contents"><p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> umożliwia użycie skrótu klawiszowego dla komendy <span xmlns:e="http://projectmallard.org/experimental/" class=" em">komponuj</span> (domyślnie <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Return</span></span>) w celu utworzenia obiektu komendy na podstawie aktualnie podświetlonego polecenia w Kupferze. Obiekt taki może być zapisany jako uruchamialny plik przez użycie akcji <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Zapisz jako...</span>. Plik, który w rezultacie zostanie utworzony, może zostać otwarty przez menadżer plików (wymaga uruchomionego Kupfera).</p></div>
+<div class="clear"></div>
 </div>
-<div class="section autolinkssection">
-<div class="header"><h2 class="title">Further Reading</h2></div>
-<div class="autolinks">
-<div class="title"><span>More About</span></div>
-<ul><li class="autolink"><a href="index.html#usage">Używanie Kupfera</a></li></ul>
-</div>
-</div>
-</div>
-<div class="footbar"><div class="copyrights"></div></div>
-</body>
+<div class="footer"></div>
+</div></body>
 </html>

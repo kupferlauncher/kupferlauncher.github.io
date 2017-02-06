@@ -1,423 +1,81 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:str="http://exslt.org/strings">
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Cómo configurar los complementos</title>
-<style type="text/css">
-html { height: 100%; }
-body {
-  margin: 0px;
-  background-color: #f9f9f6;
-  padding: 12px;
-  min-height: 100%;
-  direction: ltr;
-}
-ul, ol, dl, dd { margin: 0; }
-div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
-.first-child { margin-top: 0; }
-li.condensed { margin-top: 0.2em; }
-a {
-  text-decoration: none;
-  color: #1f609f;
-}
-a:visited {
-  color: #9f1f6f;
-}
-a:hover { text-decoration: underline; }
-
-div.headbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.footbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.body {
-  margin: 0;
-  padding: 1em;
-  max-width: 48em;
-  min-height: 20em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.navbar {
-  margin: 0;
-  float: right;
-}
-a.navbar-prev::before {
-  content: '◀  ';
-  color: #3f3f3f;
-}
-a.navbar-next::after {
-  content: '  ▶';
-  color: #3f3f3f;
-}
-div.copyrights {
-  text-align: center;
-  color: #3f3f3f;
-}
-div.section { margin-top: 2.4em; clear: both; }
-div.section div.section {
-  margin-top: 1.72em;
-  margin-left: 1.72em;
-}
-div.section div.section div.section { margin-top: 1.44em; }
-div.header {
-  margin: 0;
-  color: #3f3f3f;
-  border-bottom: solid 1px #e0e0df;
-}
-h1 {
-  font-size: 1.44em;
-  margin: 0;
-}
-h2, h3, h4, h5, h6, h7 {
-  font-size: 1.2em;
-  margin: 0;
-}
-table { border-collapse: collapse; }
-
-div.autolinks ul { margin: 0; padding: 0; }
-div.autolinks div.title { margin: 1em 0 0 1em; }
-div.autolinks div.title span {
-  border-bottom: solid 1px #e0e0df;
-}
-li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
-
-div.linktrails {
-  margin: 0;
-}
-div.linktrail {
-  font-size: 0.83em;
-  margin: 0 1px 0.2em 1px;
-  padding-left: 1.2em;
-  color: #3f3f3f;
-}
-
-table.twocolumn { width: 100%; }
-td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
-td.twocolumnright {
-  width: 52%; vertical-align: top;
-  margin: 0; padding: 0;
-  padding-left: 1em;
-}
-
-div.linkdiv div.title {
-  font-size: 1em;
-  color: inherit;
-}
-div.linkdiv {
-  margin: 0;
-  padding: 0.5em;
-  -moz-border-radius: 6px;
-  border: solid 1px #ffffff;
-}
-div.linkdiv:hover {
-  border-color: #c0c9ff;
-  background-color: #f0f9ff;
-}
-div.linkdivsep {
-  margin: 0.5em;
-  list-style-type: none;
-  max-width: 24em;
-  border-bottom: solid 1px #e0e0df;
-}
-
-div.title {
-  margin: 0 0 0.2em 0;
-  font-weight: bold;
-  color: #3f3f3f;
-}
-div.desc { margin: 0 0 0.2em 0; }
-div.desc-listing, div.desc-synopsis { font-style: italic; }
-div.desc-figure { margin: 0.2em 0 0 0; }
-pre.code {
-  /* FIXME: In RTL locales, we really want to align this left, but the watermark
-   * we have is designed to fit in the top right corner.  Either we need a new
-   * watermark, or we need a separate RTL version.
-   */
-  background: url('watermark-code.png') no-repeat top right;
-  border: solid 2px #e0e0df;
-  padding: 0.5em 1em 0.5em 1em;
-}
-div.example {
-  border-left: solid 4px #e0e0df;
-  padding-left: 1em;
-}
-div.figure {
-  margin-left: 1.72em;
-  padding: 4px;
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  background-color: #f9f9f6;
-}
-div.figure-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  text-align: center;
-  color: #000000;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.listing-contents { margin: 0; padding: 0; }
-div.note {
-  padding: 0.5em 6px 0.5em 6px;
-  border-top: solid 1px #ffc0c0;
-  border-bottom: solid 1px #ffc0c0;
-  background-color: #fffff0;
-}
-div.note-inner {
-  margin: 0;
-  padding-left: 60px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  min-height: 48px;
-  background-image: url("admon-note.png");
-}
-div.note-advanced div.note-inner {  }
-div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
-div.note-important div.note-inner { background-image: url("admon-important.png"); }
-div.note-tip div.note-inner { background-image: url("admon-tip.png"); }
-div.note-warning div.note-inner { background-image: url("admon-warning.png"); }
-div.note-contents { margin: 0; padding: 0; }
-div.quote-inner {
-  margin: 0;
-  background-image: url('watermark-blockquote-201C.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  padding: 0.5em;
-  padding-left: 4em;
-}
-div.title-quote {
-  margin-left: 4em;
-}
-blockquote { margin: 0; padding: 0; }
-div.cite-comment {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote::before {
-  
-  content: '― ';
-}
-pre.screen {
-  padding: 0.5em 1em 0.5em 1em;
-  background-color: #f9f9f6;
-  border: solid 2px #e0e0df;
-}
-div.synopsis-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #f9f9f6;
-}
-div.synopsis pre.code {
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-div.list-contents { margin: 0; padding: 0; }
-div.title-list { margin-bottom: 0.5em; }
-ol.list, ul.list { margin: 0; padding: 0; }
-li.item-list { margin-left: 1.44em; }
-
-div.steps-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #fffff0;
-}
-div.steps-contents div.steps-contents {
-  padding: 0;
-  border: none;
-  background-color: none;
-}
-ol.steps, ul.steps { margin: 0; padding: 0; }
-li.item-steps { margin-left: 1.44em; }
-
-div.terms-contents { margin: 0; }
-dt.item-next { margin-top: 0; }
-dd.item-terms {
-  margin-top: 0.2em;
-  margin-left: 1.44em;
-}
-
-ul.tree {
-  margin: 0; padding: 0;
-  list-style-type: none;
-}
-li.item-tree { margin: 0; padding: 0; }
-div.item-tree { margin: 0; padding: 0; }
-ul.tree ul.tree { margin-left: 1.44em; }
-div.tree-lines ul.tree { margin-left: 0; }
-
-table.table {
-  border-collapse: collapse;
-  border-color: #555753;
-  border-width: 1px;
-}
-table.table td {
-  padding: 0.1em 0.5em 0.1em 0.5em;
-  border-color: #888a85;
-  border-width: 1px;
-  vertical-align: top;
-}
-
-span.app { font-style: italic; }
-span.cmd {
-  font-family: monospace;
-  background-color: #f9f9f6;
-  padding: 0 0.2em 0 0.2em;
-}
-span.code { font-family: monospace; }
-span.em { font-style: italic; }
-span.email { color: red; }
-span.file { font-family: monospace; }
-span.gui, span.guiseq { color: #3f3f3f; }
-span.input { font-family: monospace; }
-span.hi {
-  background-color: #fffff0;
-}
-span.key {
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  padding: 0 0.2em 0 0.2em;
-}
-span.keyseq {
-  color: #3f3f3f;
-}
-span.output { font-family: monospace; }
-pre.screen span.output {
-  color: #3f3f3f;
-}
-pre.screen span.output-error {
-
-  color: #ff0000;
-}
-pre.screen span.output-prompt { font-weight: bold; }
-span.sys { font-family: monospace; }
-span.var { font-style: italic; }
-
-div.version {
-  position: absolute;
-  right: 12px;
-  opacity: 0.2;
-  margin-top: -1em;
-  padding: 0.5em 1em 0.5em 1em;
-  max-width: 24em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #fffff0;
-}
-div.version:hover { opacity: 0.8; }
-div.version p.version { margin-top: 0.2em; }
-div.linkdiv div.title span.status {
-  font-size: 0.83em;
-  font-weight: normal;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  color: #3f3f3f;
-  border: solid 1px #ffc0c0;
-}
-div.linkdiv div.title span.status-stub { background-color: #fff0f0; }
-div.linkdiv div.title span.status-draft { background-color: #fff0f0; }
-div.linkdiv div.title span.status-incomplete { background-color: #fff0f0; }
-div.linkdiv div.title span.status-review { background-color: #fffff0; }
-div.linkdiv div.desc {
-  margin-top: 0.2em;
-  color: #3f3f3f;
-}
-div.comment {
-  padding: 0.5em;
-  border: solid 2px #ffc0c0;
-  background-color: #fff0f0;
-}
-div.comment div.comment {
-  margin: 1em 1em 0 1em;
-}
-div.comment div.cite {
-  margin: 0 0 0.5em 0;
-  font-style: italic;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="es.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body class="">
-<div class="headbar"><div class="linktrails"><div class="linktrail">
-<a class="linktrail" href="index.html">Manual de Kupfer</a> › <a class="linktrail" href="index.html#usage">Usar Kupfer</a> » </div></div></div>
+<body lang="es" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Manual de Kupfer">Manual de Kupfer</a> › <a class="trail" href="index.html#usage" title="Usar Kupfer">Usar Kupfer</a> » </div></div></div>
 <div class="body">
-<div class="header"><h1 class="title">Cómo configurar los complementos</h1></div>
+<div class="hgroup"><h1 class="title"><span class="title">Cómo configurar los complementos</span></h1></div>
+<div class="region">
 <div class="contents"><p class="p">La funcionalidad en Kupfer está organizada por módulos de extensiones llamados «complementos». Cada complemento proporciona funcionalidad adicional, por ejemplo, integración con una aplicación externa.</p></div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Configurar complementos</h2></div>
-<div class="contents">
-<div class="steps first-child">
-<div class="title title-steps">Abra las <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Preferencias de Kupfer</span> y vaya a la pestaña <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Complementos</span>.</div>
-<div class="steps-contents"><ol class="steps">
-<li class="item-steps first-child">
-<p class="p first-child">Use uno de los siguientes métodos:</p>
-<div class="list"><div class="list-contents"><ul class="list">
-<li class="item-list first-child"><p class="p first-child">Pulse en el icono de Kupfer en el área de notificación y seleccione el elemento <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Preferencias</span>.</p></li>
-<li class="item-list"><p class="p first-child">Busque el objeto<span xmlns:e="http://projectmallard.org/experimental/" class=" app">Preferencias de Kupfer</span> en el propio Kupfer. Pulse <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Intro</span> para abrirlo.</p></li>
-<li class="item-list"><p class="p first-child">Use el atajo de teclado <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">;</span></span></p></li>
-</ul></div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Configurar complementos</span></h2></div>
+<div class="region"><div class="contents">
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Abra las <span class="app">Preferencias de Kupfer</span> y vaya a la pestaña <span class="em">Complementos</span>.</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps">
+<p class="p">Use uno de los siguientes métodos:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Pulse en el icono de Kupfer en el área de notificación y seleccione el elemento <span class="em">Preferencias</span>.</p></li>
+<li class="list"><p class="p">Busque el objeto<span class="app">Preferencias de Kupfer</span> en el propio Kupfer. Pulse <span class="key"><kbd>Intro</kbd></span> para abrirlo.</p></li>
+<li class="list"><p class="p">Use el atajo de teclado <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>;</kbd></span></span></p></li>
+</ul></div></div></div>
 </li>
-<li class="item-steps"><p class="p first-child">Seleccione la solapa <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Complementos</span>.</p></li>
+<li class="steps"><p class="p">Seleccione la solapa <span class="em">Complementos</span>.</p></li>
 </ol></div>
-</div>
+</div></div>
 <p class="p">Seleccione complementos en la lista para leer sobre ellos, y marque la casilla junto al nombre para activar el complemento, o desmárquela para desactivarlo.</p>
 <p class="p">Si el complemento tiene parámetros configurables, estarán visibles debajo de la información del complemento.</p>
-<p class="p">El complemento <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Complementos de Kupfer</span> permite un acceso rápido a la información de cada complemento así como la opción «Mostrar código fuente», que muestra su implementación.</p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Si no se puede activar un complemento</h2></div>
-<div class="contents">
-<p class="p first-child">Si un complemento falla al activarlo porque requiere un módulo de software que no está disponible, la información del complemento mostrará un mensaje como este:</p>
-<p class="p"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">No se pudo leer el complemento debido a un error:</span>
+<p class="p">El complemento <span class="app">Complementos de Kupfer</span> permite un acceso rápido a la información de cada complemento así como la opción «Mostrar código fuente», que muestra su implementación.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Si no se puede activar un complemento</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Si un complemento falla al activarlo porque requiere un módulo de software que no está disponible, la información del complemento mostrará un mensaje como este:</p>
+<p class="p"><span class="em">No se pudo leer el complemento debido a un error:</span>
       </p>
-<p class="p"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Se necesita el módulo de Python «gdata»</span></p>
+<p class="p"><span class="em">Se necesita el módulo de Python «gdata»</span></p>
 <p class="p">Esto significa que debe instalar el módulo de Python requerido para su distribución; y posiblemente la documentación del complemento le diga cómo hacerlo.</p>
-<p class="p">El complemento también puede fallar inesperadamente al cargarse, y mostrar un mensaje de error diferente. Puede ser un error de programación, tanto en el complemento como en <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>.</p>
+<p class="p">El complemento también puede fallar inesperadamente al cargarse, y mostrar un mensaje de error diferente. Puede ser un error de programación, tanto en el complemento como en <span class="app">Kupfer</span>.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Instalar más complementos</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Puede instalar complementos personalizados en la carpeta <span class="code">~/.local/share/kupfer/plugins</span>. Cada complemento puede ser un único archivo <span class="code">.py</span> o un paquete de Python (una carpeta que directamente contiene un archivo llamado <span class="code">__init__.py</span>). Los complementos en forma de paquete pueden incluir archivos de iconos. Los paquetes de Python también se pueden instalar como archivos <span class="code">.zip</span>.</p>
+<p class="p"><span class="em">Precaución:</span> considere los complementos como programas. No instale complementos que no sean de confianza.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Crear complementos</span></h2></div>
+<div class="region"><div class="contents"><p class="p">La documentación para creadores de complementos está disponible en el archivo <span class="code">Documentation/Manual.rst</span> en la distribución fuente o en la página web <span class="link"><a href="http://kaizer.se/wiki/kupfer/Manual/" title="http://kaizer.se/wiki/kupfer/Manual/">Manual de Kupfer</a></span>. Una manera sencilla de empezar es copiar un complemento existente y experimentar con él.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">La pestaña <span class="em">Catálogo</span> en «Preferencias»</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Cada complemento puede exportar un número de fuentes que contienen objetos. Normalmente, todos estos objetos son accesibles directamente desde un nivel de búsqueda superior. Algunos complementos exportan muchos objetos o muy especializados que sus catálogos no debería exportar al nivel superior. Para alcanzar esos objetos, primero debe encontrar el catálogo por nombre, y entrar en el catálogo usando la acción <span class="em">Buscar contenido</span>.</p>
+<p class="p">En la pestaña <span class="em">Catálogo</span> en las <span class="app">Preferencias de Kupfer</span>, una casilla marcada junto a cada fuente indica que ese objeto está exportado. Una casilla desmarcada indica que su contenido está oculto desde el nivel superior.</p>
+<p class="p"><span class="em">Nota:</span> Kupfer puede ralentizarse si se exportar muchos catálogos grandes al nivel superior.</p>
+</div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Más información</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Usar Kupfer">Usar Kupfer</a></li></ul></div>
+</div></div></div>
 </div>
 </div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Instalar más complementos</h2></div>
-<div class="contents">
-<p class="p first-child">Puede instalar complementos personalizados en la carpeta <span xmlns:e="http://projectmallard.org/experimental/" class=" code">~/.local/share/kupfer/plugins</span>. Cada complemento puede ser un único archivo <span xmlns:e="http://projectmallard.org/experimental/" class=" code">.py</span> o un paquete de Python (una carpeta que directamente contiene un archivo llamado <span xmlns:e="http://projectmallard.org/experimental/" class=" code">__init__.py</span>). Los complementos en forma de paquete pueden incluir archivos de iconos. Los paquetes de Python también se pueden instalar como archivos <span xmlns:e="http://projectmallard.org/experimental/" class=" code">.zip</span>.</p>
-<p class="p"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Precaución:</span> considere los complementos como programas. No instale complementos que no sean de confianza.</p>
+<div class="clear"></div>
 </div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Crear complementos</h2></div>
-<div class="contents"><p class="p first-child">La documentación para creadores de complementos está disponible en el archivo <span xmlns:e="http://projectmallard.org/experimental/" class=" code">Documentation/Manual.rst</span> en la distribución fuente o en la página web <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="http://kaizer.se/wiki/kupfer/Manual/" title="http://kaizer.se/wiki/kupfer/Manual/">Manual de Kupfer</a></span>. Una manera sencilla de empezar es copiar un complemento existente y experimentar con él.</p></div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">La pestaña <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Catálogo</span> en «Preferencias»</h2></div>
-<div class="contents">
-<p class="p first-child">Cada complemento puede exportar un número de fuentes que contienen objetos. Normalmente, todos estos objetos son accesibles directamente desde un nivel de búsqueda superior. Algunos complementos exportan muchos objetos o muy especializados que sus catálogos no debería exportar al nivel superior. Para alcanzar esos objetos, primero debe encontrar el catálogo por nombre, y entrar en el catálogo usando la acción <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Buscar contenido</span>.</p>
-<p class="p">En la pestaña <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Catálogo</span> en las <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Preferencias de Kupfer</span>, una casilla marcada junto a cada fuente indica que ese objeto está exportado. Una casilla desmarcada indica que su contenido está oculto desde el nivel superior.</p>
-<p class="p"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Nota:</span> Kupfer puede ralentizarse si se exportar muchos catálogos grandes al nivel superior.</p>
-</div>
-</div>
-<div class="section autolinkssection">
-<div class="header"><h2 class="title">Further Reading</h2></div>
-<div class="autolinks">
-<div class="title"><span>More About</span></div>
-<ul><li class="autolink"><a href="index.html#usage">Usar Kupfer</a></li></ul>
-</div>
-</div>
-</div>
-<div class="footbar"><div class="copyrights"></div></div>
-</body>
+<div class="footer"></div>
+</div></body>
 </html>

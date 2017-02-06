@@ -1,0 +1,145 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>How to Configure Plugins</title>
+<link rel="stylesheet" type="text/css" href="ro.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="ro" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Kupfer Manual">Kupfer Manual</a> › <a class="trail" href="index.html#usage" title="Folosirea Kupfer">Folosirea Kupfer</a> » </div></div></div>
+<div class="body">
+<div class="hgroup"><h1 class="title"><span class="title">How to Configure Plugins</span></h1></div>
+<div class="region">
+<div class="contents"><p class="p">
+    Functionality in Kupfer is organized by extentsion modules called
+    "plugins". Each plugin provides additional functionality, for example
+    integration with an external application.
+  </p></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Configuring Plugins</span></h2></div>
+<div class="region"><div class="contents">
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Open <span class="app">Kupfer Preferences</span> to the Plugins tab</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps">
+<p class="p"> Use one of the following methods:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Click the Kupfer icon in the notification area and select
+              the item <span class="em">Preferences</span></p></li>
+<li class="list"><p class="p">Search for the object <span class="app">Kupfer Preferences</span> in Kupfer
+              itself.  Press <span class="key"><kbd>Return</kbd></span> to open it.
+            </p></li>
+<li class="list"><p class="p">Use the keyboard shortcut
+              <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>;</kbd></span></span></p></li>
+</ul></div></div></div>
+</li>
+<li class="steps"><p class="p">
+          Select the tab <span class="em">Plugins</span>
+        </p></li>
+</ol></div>
+</div></div>
+<p class="p">
+      Select plugins in the list to read about them, and tick the box
+      next to its name to activate the plugin, or untick to deactivate.
+    </p>
+<p class="p">
+      If the plugin has any configurable parameters, they will be
+      visible below the plugin information.
+    </p>
+<p class="p">The plugin <span class="app">Kupfer Plugins</span> allows fast access to each plugin's
+      information page as well as the action "Show Source Code" which
+      reveals the implementation.
+    </p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">If a Plugin can not be Activated</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+        If a plugin fails to activate because it requires a software
+        module that is not available, its plugin information will display a
+        message like this:
+      </p>
+<p class="p"><span class="em">Plugin could not be read due to an error:</span>
+      </p>
+<p class="p"><span class="em">Python module 'gdata' is needed</span></p>
+<p class="p">
+        This means that you need to install a needed python module
+        from your distribution—and possibly the plugin documentation can
+        tell you how. 
+      </p>
+<p class="p">The plugin may also unexpectedly fail to load, and display a
+        different error message. It may then be a program error in either
+        the plugin or <span class="app">Kupfer</span>.
+      </p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Installing more Plugins</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+      You can install custom plugins into the folder
+      <span class="code">~/.local/share/kupfer/plugins</span>. Each plugin is either a
+      single <span class="code">.py</span> file or a python package (a folder directly
+      containing a file called <span class="code">__init__.py</span>). Plugins
+      in the package format can include icon files. Python packages can even
+      be installed as <span class="code">.zip</span> files.
+    </p>
+<p class="p">
+      <span class="em">Caution:</span> Treat a plugin as a computer program.
+      Do not install untrusted plugins.
+    </p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Creating Plugins</span></h2></div>
+<div class="region"><div class="contents"><p class="p">
+      Documentation for plugin creators is available in the file
+      <span class="code">Documentation/Manual.rst</span> in the source distribution on
+      the webpage at
+      <span class="link"><a href="http://kaizer.se/wiki/kupfer/Manual/" title="http://kaizer.se/wiki/kupfer/Manual/">Kupfer Manual</a></span>.
+
+      An easy way to start is to copy an existing plugin and experimenting
+      with it.
+    </p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">The <span class="em">Catalog</span> Tab in Preferences</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+      Each plugin can export a number of sources which contain objects.
+      Normally, all these objects are directly accessible from a top-level
+      search.
+      Some plugins export so specialized or so many objects that their
+      catalogs should better not have their objects exported to the top
+      level. To reach those objects, you have to first find the catalog by
+      name, then enter the catalog using the action <span class="em">Search
+        Contents</span>.
+    </p>
+<p class="p">
+      In the tab <span class="em">Catalog</span> in <span class="app">Kupfer Preferences</span>, 
+      a ticked box next to each source means that its objects are exported.
+      An unticked box means that its contents are hidden from the top level.
+    </p>
+<p class="p">
+      <span class="em">Note:</span> Kupfer may become slow if large enough subcatalogs are
+      exported to the top level.
+    </p>
+</div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Mai multe informații</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Folosirea Kupfer">Folosirea Kupfer</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>

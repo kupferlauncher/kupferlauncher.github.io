@@ -1,520 +1,175 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:str="http://exslt.org/strings">
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Using Kupfer in Depth</title>
-<style type="text/css">
-html { height: 100%; }
-body {
-  margin: 0px;
-  background-color: #f9f9f6;
-  padding: 12px;
-  min-height: 100%;
-  direction: ltr;
-}
-ul, ol, dl, dd { margin: 0; }
-div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
-.first-child { margin-top: 0; }
-li.condensed { margin-top: 0.2em; }
-a {
-  text-decoration: none;
-  color: #1f609f;
-}
-a:visited {
-  color: #9f1f6f;
-}
-a:hover { text-decoration: underline; }
-
-div.headbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.footbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.body {
-  margin: 0;
-  padding: 1em;
-  max-width: 48em;
-  min-height: 20em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.navbar {
-  margin: 0;
-  float: right;
-}
-a.navbar-prev::before {
-  content: '◀  ';
-  color: #3f3f3f;
-}
-a.navbar-next::after {
-  content: '  ▶';
-  color: #3f3f3f;
-}
-div.copyrights {
-  text-align: center;
-  color: #3f3f3f;
-}
-div.section { margin-top: 2.4em; clear: both; }
-div.section div.section {
-  margin-top: 1.72em;
-  margin-left: 1.72em;
-}
-div.section div.section div.section { margin-top: 1.44em; }
-div.header {
-  margin: 0;
-  color: #3f3f3f;
-  border-bottom: solid 1px #e0e0df;
-}
-h1 {
-  font-size: 1.44em;
-  margin: 0;
-}
-h2, h3, h4, h5, h6, h7 {
-  font-size: 1.2em;
-  margin: 0;
-}
-table { border-collapse: collapse; }
-
-div.autolinks ul { margin: 0; padding: 0; }
-div.autolinks div.title { margin: 1em 0 0 1em; }
-div.autolinks div.title span {
-  border-bottom: solid 1px #e0e0df;
-}
-li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
-
-div.linktrails {
-  margin: 0;
-}
-div.linktrail {
-  font-size: 0.83em;
-  margin: 0 1px 0.2em 1px;
-  padding-left: 1.2em;
-  color: #3f3f3f;
-}
-
-table.twocolumn { width: 100%; }
-td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
-td.twocolumnright {
-  width: 52%; vertical-align: top;
-  margin: 0; padding: 0;
-  padding-left: 1em;
-}
-
-div.linkdiv div.title {
-  font-size: 1em;
-  color: inherit;
-}
-div.linkdiv {
-  margin: 0;
-  padding: 0.5em;
-  -moz-border-radius: 6px;
-  border: solid 1px #ffffff;
-}
-div.linkdiv:hover {
-  border-color: #c0c9ff;
-  background-color: #f0f9ff;
-}
-div.linkdivsep {
-  margin: 0.5em;
-  list-style-type: none;
-  max-width: 24em;
-  border-bottom: solid 1px #e0e0df;
-}
-
-div.title {
-  margin: 0 0 0.2em 0;
-  font-weight: bold;
-  color: #3f3f3f;
-}
-div.desc { margin: 0 0 0.2em 0; }
-div.desc-listing, div.desc-synopsis { font-style: italic; }
-div.desc-figure { margin: 0.2em 0 0 0; }
-pre.code {
-  /* FIXME: In RTL locales, we really want to align this left, but the watermark
-   * we have is designed to fit in the top right corner.  Either we need a new
-   * watermark, or we need a separate RTL version.
-   */
-  background: url('watermark-code.png') no-repeat top right;
-  border: solid 2px #e0e0df;
-  padding: 0.5em 1em 0.5em 1em;
-}
-div.example {
-  border-left: solid 4px #e0e0df;
-  padding-left: 1em;
-}
-div.figure {
-  margin-left: 1.72em;
-  padding: 4px;
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  background-color: #f9f9f6;
-}
-div.figure-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  text-align: center;
-  color: #000000;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.listing-contents { margin: 0; padding: 0; }
-div.note {
-  padding: 0.5em 6px 0.5em 6px;
-  border-top: solid 1px #ffc0c0;
-  border-bottom: solid 1px #ffc0c0;
-  background-color: #fffff0;
-}
-div.note-inner {
-  margin: 0;
-  padding-left: 60px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  min-height: 48px;
-  background-image: url("admon-note.png");
-}
-div.note-advanced div.note-inner {  }
-div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
-div.note-important div.note-inner { background-image: url("admon-important.png"); }
-div.note-tip div.note-inner { background-image: url("admon-tip.png"); }
-div.note-warning div.note-inner { background-image: url("admon-warning.png"); }
-div.note-contents { margin: 0; padding: 0; }
-div.quote-inner {
-  margin: 0;
-  background-image: url('watermark-blockquote-201C.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  padding: 0.5em;
-  padding-left: 4em;
-}
-div.title-quote {
-  margin-left: 4em;
-}
-blockquote { margin: 0; padding: 0; }
-div.cite-comment {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote::before {
-  
-  content: '― ';
-}
-pre.screen {
-  padding: 0.5em 1em 0.5em 1em;
-  background-color: #f9f9f6;
-  border: solid 2px #e0e0df;
-}
-div.synopsis-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #f9f9f6;
-}
-div.synopsis pre.code {
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-div.list-contents { margin: 0; padding: 0; }
-div.title-list { margin-bottom: 0.5em; }
-ol.list, ul.list { margin: 0; padding: 0; }
-li.item-list { margin-left: 1.44em; }
-
-div.steps-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #fffff0;
-}
-div.steps-contents div.steps-contents {
-  padding: 0;
-  border: none;
-  background-color: none;
-}
-ol.steps, ul.steps { margin: 0; padding: 0; }
-li.item-steps { margin-left: 1.44em; }
-
-div.terms-contents { margin: 0; }
-dt.item-next { margin-top: 0; }
-dd.item-terms {
-  margin-top: 0.2em;
-  margin-left: 1.44em;
-}
-
-ul.tree {
-  margin: 0; padding: 0;
-  list-style-type: none;
-}
-li.item-tree { margin: 0; padding: 0; }
-div.item-tree { margin: 0; padding: 0; }
-ul.tree ul.tree { margin-left: 1.44em; }
-div.tree-lines ul.tree { margin-left: 0; }
-
-table.table {
-  border-collapse: collapse;
-  border-color: #555753;
-  border-width: 1px;
-}
-table.table td {
-  padding: 0.1em 0.5em 0.1em 0.5em;
-  border-color: #888a85;
-  border-width: 1px;
-  vertical-align: top;
-}
-
-span.app { font-style: italic; }
-span.cmd {
-  font-family: monospace;
-  background-color: #f9f9f6;
-  padding: 0 0.2em 0 0.2em;
-}
-span.code { font-family: monospace; }
-span.em { font-style: italic; }
-span.email { color: red; }
-span.file { font-family: monospace; }
-span.gui, span.guiseq { color: #3f3f3f; }
-span.input { font-family: monospace; }
-span.hi {
-  background-color: #fffff0;
-}
-span.key {
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  padding: 0 0.2em 0 0.2em;
-}
-span.keyseq {
-  color: #3f3f3f;
-}
-span.output { font-family: monospace; }
-pre.screen span.output {
-  color: #3f3f3f;
-}
-pre.screen span.output-error {
-
-  color: #ff0000;
-}
-pre.screen span.output-prompt { font-weight: bold; }
-span.sys { font-family: monospace; }
-span.var { font-style: italic; }
-
-div.version {
-  position: absolute;
-  right: 12px;
-  opacity: 0.2;
-  margin-top: -1em;
-  padding: 0.5em 1em 0.5em 1em;
-  max-width: 24em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #fffff0;
-}
-div.version:hover { opacity: 0.8; }
-div.version p.version { margin-top: 0.2em; }
-div.linkdiv div.title span.status {
-  font-size: 0.83em;
-  font-weight: normal;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  color: #3f3f3f;
-  border: solid 1px #ffc0c0;
-}
-div.linkdiv div.title span.status-stub { background-color: #fff0f0; }
-div.linkdiv div.title span.status-draft { background-color: #fff0f0; }
-div.linkdiv div.title span.status-incomplete { background-color: #fff0f0; }
-div.linkdiv div.title span.status-review { background-color: #fffff0; }
-div.linkdiv div.desc {
-  margin-top: 0.2em;
-  color: #3f3f3f;
-}
-div.comment {
-  padding: 0.5em;
-  border: solid 2px #ffc0c0;
-  background-color: #fff0f0;
-}
-div.comment div.comment {
-  margin: 1em 1em 0 1em;
-}
-div.comment div.cite {
-  margin: 0 0 0.5em 0;
-  font-style: italic;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="C.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body class="">
-<div class="headbar"><div class="linktrails"><div class="linktrail">
-<a class="linktrail" href="index.html">Kupfer Manual</a> › <a class="linktrail" href="index.html#usage">Using Kupfer</a> » </div></div></div>
+<body><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Kupfer Manual">Kupfer Manual</a> › <a class="trail" href="index.html#usage" title="Using Kupfer">Using Kupfer</a> » </div></div></div>
 <div class="body">
-<div class="header"><h1 class="title">Using <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> in Depth</h1></div>
+<div class="hgroup"><h1 class="title"><span class="title">Using <span class="app">Kupfer</span> in Depth</span></h1></div>
+<div class="region">
 <div class="contents"></div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Adding Applications and Scripts</h2></div>
-<div class="contents">
-<p class="p first-child">
-   <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> will show all applications that are configured visible
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Adding Applications and Scripts</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+   <span class="app">Kupfer</span> will show all applications that are configured visible
    in your menu editor.
  </p>
 <p class="p">
    If you want to add an application manually, you can create a new
-   <span xmlns:e="http://projectmallard.org/experimental/" class=" code">.desktop</span> file and place it in one of the standard directories
-   for applications, for example <span xmlns:e="http://projectmallard.org/experimental/" class=" file">~/.local/share/applications</span>,
-   where <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> will find it. 
+   <span class="code">.desktop</span> file and place it in one of the standard directories
+   for applications, for example <span class="file">~/.local/share/applications</span>,
+   where <span class="app">Kupfer</span> will find it. 
   </p>
 <p class="p">
    If you have a collection of scripts that you want to call from
-   <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>, you can add the scripts folder as a catalog directory
-   to <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> in the preferences. Scripts that you add to
-   <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>'s catalog this way can be run directly or in the
+   <span class="app">Kupfer</span>, you can add the scripts folder as a catalog directory
+   to <span class="app">Kupfer</span> in the preferences. Scripts that you add to
+   <span class="app">Kupfer</span>'s catalog this way can be run directly or in the
    terminal as long as they are executable.
   </p>
 <p class="p">
-    You can also save command-lines by using the action <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Add to
+    You can also save command-lines by using the action <span class="em">Add to
       Favorites</span>.
   </p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Opening Files and Folders</h2></div>
-<div class="contents"><p class="p first-child">
-      Using the action <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Open</span>, files and folders are opened in their
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Opening Files and Folders</span></h2></div>
+<div class="region"><div class="contents"><p class="p">
+      Using the action <span class="em">Open</span>, files and folders are opened in their
       preferred application. The application associations can be changed,
-      see <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="plugin-applications.html" title="">
-        <span class=" app">Applications</span>
-      </a></span>.
-    </p></div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">The <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Comma Trick</span>
-</h2></div>
-<div class="contents">
-<p class="p first-child"> The comma trick allows the user to use actions on many objects at
+      see <span class="link"><a href="plugin-applications.html" title="Applications"><span class="app">Applications</span></a></span>.
+    </p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">The <span class="em">Comma Trick</span></span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"> The comma trick allows the user to use actions on many objects at
        the same time.
     </p>
-<p class="p">Simply press comma <span xmlns:e="http://projectmallard.org/experimental/" class=" key">,</span> when an object is selected. The object
+<p class="p">Simply press comma <span class="key"><kbd>,</kbd></span> when an object is selected. The object
       is put on a "stack", and you can find yet another file or object, press
       comma to put it on the stack. When you subsequently invoke an action, the
       action is carried out on all of the objects at the same time.
     </p>
 <p class="p">Some actions are only "multiplied" when used with many objects, other
       are smarter than that:</p>
-<div class="list"><div class="list-contents"><ul class="list">
-<li class="item-list first-child"><p class="p first-child"> Selecting many files and using the Create Archive action, all
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"> Selecting many files and using the Create Archive action, all
           files will be packed into the same archive.</p></li>
-<li class="item-list"><p class="p first-child">If you select multiple contacts and use a Send Email action, it
+<li class="list"><p class="p">If you select multiple contacts and use a Send Email action, it
           creates one email directed at all the contacts.</p></li>
-<li class="item-list"><p class="p first-child">If you select multiple subcatalogs (For example Firefox
+<li class="list"><p class="p">If you select multiple subcatalogs (For example Firefox
           Bookmarks and Epiphany Bookmarks) and use Search Contents.., you get
           a subcatalog search restricted to the objects of those two catalogs!
           You can even bind a trigger to this command(!) 
       </p></li>
-</ul></div></div>
+</ul></div></div></div>
 <p class="p">The comma trick is 
-      <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick" title="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick">
+      <span class="link"><a href="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick" title="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick">
         directly taken from Quicksilver</a></span>
       (the example given in the external article should work identically in
       Kupfer).
     </p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Grab Current Selection</h2></div>
-<div class="contents">
-<p class="p first-child"> To use the current selected text, from any application, with
-    <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>, you can configure a global keyboard shortcut for the
-    action <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Show with Selection</span> in <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer Preferences</span>.
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Grab Current Selection</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"> To use the current selected text, from any application, with
+    <span class="app">Kupfer</span>, you can configure a global keyboard shortcut for the
+    action <span class="em">Show with Selection</span> in <span class="app">Kupfer Preferences</span>.
   </p>
 <p class="p">
    If configured, pressing the global keyboard shortcut
-   will summon <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> with the current selection as the focused
+   will summon <span class="app">Kupfer</span> with the current selection as the focused
    object.
   </p>
-<p class="p">See <span xmlns:e="http://projectmallard.org/experimental/" class=" link"><a href="keyboard.html" title="">Command Keys and Accelerator Keys</a></span></p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Command-line Connection</h2></div>
-<div class="contents">
-<p class="p first-child">
-    The command <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span> on the command-line will focus
-    <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> if it's already running, otherwise it will start it.
+<p class="p">See <span class="link"><a href="keyboard.html" title="Command Keys and Accelerator Keys">Command Keys and Accelerator Keys</a></span></p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Command-line Connection</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+    The command <span class="cmd">kupfer</span> on the command-line will focus
+    <span class="app">Kupfer</span> if it's already running, otherwise it will start it.
   </p>
 <p class="p">
-    The command <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span> can be used to send files or text from
-    the command-line to <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>.
+    The command <span class="cmd">kupfer</span> can be used to send files or text from
+    the command-line to <span class="app">Kupfer</span>.
 
     For example, if you are using the shell in a directory where you have 
-    a file called "report.pdf", you can focus this file in <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> by 
-    running <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer report.pdf</span>. 
+    a file called "report.pdf", you can focus this file in <span class="app">Kupfer</span> by 
+    running <span class="cmd">kupfer report.pdf</span>. 
   </p>
 <p class="p">
     You can also send text if you pipe the output of a command into
-    <span xmlns:e="http://projectmallard.org/experimental/" class=" cmd">kupfer</span>.
+    <span class="cmd">kupfer</span>.
   </p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Managing Context and Current Selection</h2></div>
-<div class="contents">
-<p class="p first-child">
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Managing Context and Current Selection</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
     If you find the object you want to use, then invoke an action, 
-    <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> goes away to perform the action (for example start a program 
-    or play a song). When you come back to <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span>, it will still keep the 
+    <span class="app">Kupfer</span> goes away to perform the action (for example start a program 
+    or play a song). When you come back to <span class="app">Kupfer</span>, it will still keep the 
     same object and action selected. Some actions make sense to be 
     repeated (like skipping to the next song) and it can be useful to 
     perform different actions on the same object.
   </p>
 <p class="p">
     However, you always have the top level catalog reachable when you 
-    "come back" to <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> -- say you went into the subcatalog "Albums" 
+    "come back" to <span class="app">Kupfer</span> -- say you went into the subcatalog "Albums" 
     to browse your albums only; you select an album to play, and play it. 
     You come back with the album selected -- but your next search will still 
     go over the top level catalog, not just albums.
   </p>
 <p class="p">
     How to come back into the subcatalog you were in? You do that by simply 
-    browsing, not searching the first thing you do when you focus <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> again. 
+    browsing, not searching the first thing you do when you focus <span class="app">Kupfer</span> again. 
     A quick way is to press down-arrow or space to open the browse window; 
     think of it as saying "I want to stay in this subfolder". With the browse 
     window open, your next query will search the current subcatalog. 
   </p>
 <p class="p">
     This way you can work both ways -- you can quickly drill down into folders 
-    to find a file, and when you come back for the next action with <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> you 
+    to find a file, and when you come back for the next action with <span class="app">Kupfer</span> you 
     can either summon any normal toplevel object (just start typing), or stay 
     around where you were, deep in that folder (press space, then type a query).
   </p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Saving Commands as Files</h2></div>
-<div class="contents"><p class="p first-child">You can use keyboard shortcut for <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Compose Command</span> (by
-      default it is <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Return</span></span>) to
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Saving Commands as Files</span></h2></div>
+<div class="region"><div class="contents"><p class="p">You can use keyboard shortcut for <span class="em">Compose Command</span> (by
+      default it is <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Return</kbd></span></span>) to
       create a command object out of the currently focused command in
       Kupfer.  This object can be saved as a runnable file if you use the
-      <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Save As...</span> action.  The resulting file will can be executed
+      <span class="em">Save As...</span> action.  The resulting file will can be executed
       when opened from the file manager (it requires that Kupfer is already
       running).
-    </p></div>
+    </p></div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">More Information</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Using Kupfer">Using Kupfer</a></li></ul></div>
+</div></div></div>
 </div>
-<div class="section autolinkssection">
-<div class="header"><h2 class="title">Further Reading</h2></div>
-<div class="autolinks">
-<div class="title"><span>More About</span></div>
-<ul><li class="autolink"><a href="index.html#usage">Using Kupfer</a></li></ul>
 </div>
+<div class="clear"></div>
 </div>
-</div>
-<div class="footbar"><div class="copyrights"></div></div>
-</body>
+<div class="footer"></div>
+</div></body>
 </html>

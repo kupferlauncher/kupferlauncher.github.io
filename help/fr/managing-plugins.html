@@ -1,0 +1,81 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Configuration des greffons</title>
+<link rel="stylesheet" type="text/css" href="fr.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="fr" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Manuel de Kupfer">Manuel de Kupfer</a> › <a class="trail" href="index.html#usage" title="Utilisation de Kupfer">Utilisation de Kupfer</a> » </div></div></div>
+<div class="body">
+<div class="hgroup"><h1 class="title"><span class="title">Configuration des greffons</span></h1></div>
+<div class="region">
+<div class="contents"><p class="p">Les fonctions de Kupfer sont organisées en modules d'extensions appelés « greffons » ou « extensions » ou encore « plugins ». Chaque greffon fournit une fonction supplémentaire, par exemple l'intégration dans une application externe.</p></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Configuration des greffons</span></h2></div>
+<div class="region"><div class="contents">
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Ouverture des <span class="app">Préférences de Kupfer</span> à l'onglet « Greffons ».</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps">
+<p class="p">Utilisez l'une des méthodes suivantes :</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Cliquez sur l'icône « Kupfer » dans la zone de notification et sélectionnez l'élément <span class="em">Préférences</span></p></li>
+<li class="list"><p class="p">Recherchez l'objet <span class="app">Préférences de Kupfer</span> dans Kupfer lui-même. Appuyez sur <span class="key"><kbd>Entrée</kbd></span> pour l'ouvrir.</p></li>
+<li class="list"><p class="p">Utilisez le raccourci clavier <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>;</kbd></span></span></p></li>
+</ul></div></div></div>
+</li>
+<li class="steps"><p class="p">Sélectionnez l'onglet <span class="em">Extensions</span></p></li>
+</ol></div>
+</div></div>
+<p class="p">Sélectionnez un greffon dans la liste pour afficher les informations le concernant et cochez la case adjacente pour l'activer. Décochez la case pour le désactiver.</p>
+<p class="p">Si le greffon possède des paramètres, ils sont visibles en dessous des informations concernant le greffon.</p>
+<p class="p">Le greffon <span class="app">Greffons Kupfer</span> permet un accès rapide à chaque page d'informations sur les greffons ainsi qu'à l'action « Afficher le code source » qui laisse voir la mise en œuvre.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Impossibilité d'activer un greffon</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Si l'activation d'un greffon échoue à cause de l'absence d'un module logiciel, les informations du greffon affichent un message de ce type :</p>
+<p class="p"><span class="em">Le greffon n'a pas pu être lu à cause d'une erreur :</span>
+      </p>
+<p class="p"><span class="em">Le module Python « gdata » est requis</span></p>
+<p class="p">Cela signifie que vous devez installer un module python indispensable en fonction de votre distribution. La documentation du greffon vous indiquera probablement comment procéder.</p>
+<p class="p">Le chargement du greffon peut aussi échouer de façon inattendue et afficher un message d'erreur différent. Il peut s'agir d'une erreur de programme dans le greffon ou dans <span class="app">Kupfer</span>.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Installation de greffons supplémentaires</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Vous pouvez installer des greffons personnalisés dans le dossier <span class="code">~/.local/share/kupfer/plugins</span>. Chaque greffon est soit un simple fichier <span class="code">.py</span>, soit un paquet Python (un dossier contenant un fichier appelé <span class="code">__init__.py</span>). Les greffons sous forme de paquet peuvent inclure des fichiers d'icônes. Les paquets Python peuvent même être installés en tant que fichiers <span class="code">.zip</span>.</p>
+<p class="p"><span class="em">Attention :</span> traitez les greffons comme des programmes d'ordinateur. N'installez pas de greffons d'origine douteuse.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Création de greffons</span></h2></div>
+<div class="region"><div class="contents"><p class="p">La documentation pour les créateurs de greffons se trouve dans le fichier <span class="code">Documentation/Manual.rst</span> de la distribution source sur la page Web du <span class="link"><a href="http://kaizer.se/wiki/kupfer/Manual/" title="http://kaizer.se/wiki/kupfer/Manual/">Manuel de Kupfer</a></span>. Une manière facile de démarrer est de copier un greffon existant et de s'entraîner avec.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">L'onglet <span class="em">Catalogue</span> dans les Préférences</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Chaque greffon peut exporter de nombreuses sources contenant des objets. Normalement, tous ces objets sont directement accessibles par une recherche dans le haut du catalogue. Certains greffons exportent des objets si spécialisés ou si nombreux qu'il vaut mieux qu'ils ne soient pas exportés vers le haut du catalogue. Dès lors, pour atteindre ces objets, vous devez d'abord rechercher le catalogue par son nom, puis l'ouvrir par l'action <span class="em">Recherche de contenu</span>.</p>
+<p class="p">Dans l'onglet <span class="em">Catalogue</span> des <span class="app">Préférences de Kupfer</span>, une case cochée à côté de chaque source signifie que ses objets sont exportés. Une case non cochée signifie que son contenu est masqué dans le haut du catalogue.</p>
+<p class="p"><span class="em">Note :</span> Kupfer peut ralentir si de trop gros sous-catalogues sont exportés vers le haut du catalogue.</p>
+</div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Plus d'informations</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Utilisation de Kupfer">Utilisation de Kupfer</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>

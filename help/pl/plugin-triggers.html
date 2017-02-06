@@ -1,417 +1,75 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:str="http://exslt.org/strings">
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Wyzwalacze</title>
-<style type="text/css">
-html { height: 100%; }
-body {
-  margin: 0px;
-  background-color: #f9f9f6;
-  padding: 12px;
-  min-height: 100%;
-  direction: ltr;
-}
-ul, ol, dl, dd { margin: 0; }
-div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
-.first-child { margin-top: 0; }
-li.condensed { margin-top: 0.2em; }
-a {
-  text-decoration: none;
-  color: #1f609f;
-}
-a:visited {
-  color: #9f1f6f;
-}
-a:hover { text-decoration: underline; }
-
-div.headbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.footbar {
-  margin: 0;
-  max-width: 48em;
-}
-div.body {
-  margin: 0;
-  padding: 1em;
-  max-width: 48em;
-  min-height: 20em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.navbar {
-  margin: 0;
-  float: right;
-}
-a.navbar-prev::before {
-  content: '◀  ';
-  color: #3f3f3f;
-}
-a.navbar-next::after {
-  content: '  ▶';
-  color: #3f3f3f;
-}
-div.copyrights {
-  text-align: center;
-  color: #3f3f3f;
-}
-div.section { margin-top: 2.4em; clear: both; }
-div.section div.section {
-  margin-top: 1.72em;
-  margin-left: 1.72em;
-}
-div.section div.section div.section { margin-top: 1.44em; }
-div.header {
-  margin: 0;
-  color: #3f3f3f;
-  border-bottom: solid 1px #e0e0df;
-}
-h1 {
-  font-size: 1.44em;
-  margin: 0;
-}
-h2, h3, h4, h5, h6, h7 {
-  font-size: 1.2em;
-  margin: 0;
-}
-table { border-collapse: collapse; }
-
-div.autolinks ul { margin: 0; padding: 0; }
-div.autolinks div.title { margin: 1em 0 0 1em; }
-div.autolinks div.title span {
-  border-bottom: solid 1px #e0e0df;
-}
-li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
-
-div.linktrails {
-  margin: 0;
-}
-div.linktrail {
-  font-size: 0.83em;
-  margin: 0 1px 0.2em 1px;
-  padding-left: 1.2em;
-  color: #3f3f3f;
-}
-
-table.twocolumn { width: 100%; }
-td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
-td.twocolumnright {
-  width: 52%; vertical-align: top;
-  margin: 0; padding: 0;
-  padding-left: 1em;
-}
-
-div.linkdiv div.title {
-  font-size: 1em;
-  color: inherit;
-}
-div.linkdiv {
-  margin: 0;
-  padding: 0.5em;
-  -moz-border-radius: 6px;
-  border: solid 1px #ffffff;
-}
-div.linkdiv:hover {
-  border-color: #c0c9ff;
-  background-color: #f0f9ff;
-}
-div.linkdivsep {
-  margin: 0.5em;
-  list-style-type: none;
-  max-width: 24em;
-  border-bottom: solid 1px #e0e0df;
-}
-
-div.title {
-  margin: 0 0 0.2em 0;
-  font-weight: bold;
-  color: #3f3f3f;
-}
-div.desc { margin: 0 0 0.2em 0; }
-div.desc-listing, div.desc-synopsis { font-style: italic; }
-div.desc-figure { margin: 0.2em 0 0 0; }
-pre.code {
-  /* FIXME: In RTL locales, we really want to align this left, but the watermark
-   * we have is designed to fit in the top right corner.  Either we need a new
-   * watermark, or we need a separate RTL version.
-   */
-  background: url('watermark-code.png') no-repeat top right;
-  border: solid 2px #e0e0df;
-  padding: 0.5em 1em 0.5em 1em;
-}
-div.example {
-  border-left: solid 4px #e0e0df;
-  padding-left: 1em;
-}
-div.figure {
-  margin-left: 1.72em;
-  padding: 4px;
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  background-color: #f9f9f6;
-}
-div.figure-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  text-align: center;
-  color: #000000;
-  border: solid 1px #e0e0df;
-  background-color: #ffffff;
-}
-div.listing-contents { margin: 0; padding: 0; }
-div.note {
-  padding: 0.5em 6px 0.5em 6px;
-  border-top: solid 1px #ffc0c0;
-  border-bottom: solid 1px #ffc0c0;
-  background-color: #fffff0;
-}
-div.note-inner {
-  margin: 0;
-  padding-left: 60px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  min-height: 48px;
-  background-image: url("admon-note.png");
-}
-div.note-advanced div.note-inner {  }
-div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
-div.note-important div.note-inner { background-image: url("admon-important.png"); }
-div.note-tip div.note-inner { background-image: url("admon-tip.png"); }
-div.note-warning div.note-inner { background-image: url("admon-warning.png"); }
-div.note-contents { margin: 0; padding: 0; }
-div.quote-inner {
-  margin: 0;
-  background-image: url('watermark-blockquote-201C.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  padding: 0.5em;
-  padding-left: 4em;
-}
-div.title-quote {
-  margin-left: 4em;
-}
-blockquote { margin: 0; padding: 0; }
-div.cite-comment {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote {
-  margin-top: 0.5em;
-  color: #3f3f3f;
-}
-div.cite-quote::before {
-  
-  content: '― ';
-}
-pre.screen {
-  padding: 0.5em 1em 0.5em 1em;
-  background-color: #f9f9f6;
-  border: solid 2px #e0e0df;
-}
-div.synopsis-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #f9f9f6;
-}
-div.synopsis pre.code {
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-div.list-contents { margin: 0; padding: 0; }
-div.title-list { margin-bottom: 0.5em; }
-ol.list, ul.list { margin: 0; padding: 0; }
-li.item-list { margin-left: 1.44em; }
-
-div.steps-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: #c0c9ff;
-  background-color: #fffff0;
-}
-div.steps-contents div.steps-contents {
-  padding: 0;
-  border: none;
-  background-color: none;
-}
-ol.steps, ul.steps { margin: 0; padding: 0; }
-li.item-steps { margin-left: 1.44em; }
-
-div.terms-contents { margin: 0; }
-dt.item-next { margin-top: 0; }
-dd.item-terms {
-  margin-top: 0.2em;
-  margin-left: 1.44em;
-}
-
-ul.tree {
-  margin: 0; padding: 0;
-  list-style-type: none;
-}
-li.item-tree { margin: 0; padding: 0; }
-div.item-tree { margin: 0; padding: 0; }
-ul.tree ul.tree { margin-left: 1.44em; }
-div.tree-lines ul.tree { margin-left: 0; }
-
-table.table {
-  border-collapse: collapse;
-  border-color: #555753;
-  border-width: 1px;
-}
-table.table td {
-  padding: 0.1em 0.5em 0.1em 0.5em;
-  border-color: #888a85;
-  border-width: 1px;
-  vertical-align: top;
-}
-
-span.app { font-style: italic; }
-span.cmd {
-  font-family: monospace;
-  background-color: #f9f9f6;
-  padding: 0 0.2em 0 0.2em;
-}
-span.code { font-family: monospace; }
-span.em { font-style: italic; }
-span.email { color: red; }
-span.file { font-family: monospace; }
-span.gui, span.guiseq { color: #3f3f3f; }
-span.input { font-family: monospace; }
-span.hi {
-  background-color: #fffff0;
-}
-span.key {
-  color: #3f3f3f;
-  border: solid 1px #e0e0df;
-  padding: 0 0.2em 0 0.2em;
-}
-span.keyseq {
-  color: #3f3f3f;
-}
-span.output { font-family: monospace; }
-pre.screen span.output {
-  color: #3f3f3f;
-}
-pre.screen span.output-error {
-
-  color: #ff0000;
-}
-pre.screen span.output-prompt { font-weight: bold; }
-span.sys { font-family: monospace; }
-span.var { font-style: italic; }
-
-div.version {
-  position: absolute;
-  right: 12px;
-  opacity: 0.2;
-  margin-top: -1em;
-  padding: 0.5em 1em 0.5em 1em;
-  max-width: 24em;
-  -moz-border-radius: 6px;
-  border: solid 1px #e0e0df;
-  background-color: #fffff0;
-}
-div.version:hover { opacity: 0.8; }
-div.version p.version { margin-top: 0.2em; }
-div.linkdiv div.title span.status {
-  font-size: 0.83em;
-  font-weight: normal;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  color: #3f3f3f;
-  border: solid 1px #ffc0c0;
-}
-div.linkdiv div.title span.status-stub { background-color: #fff0f0; }
-div.linkdiv div.title span.status-draft { background-color: #fff0f0; }
-div.linkdiv div.title span.status-incomplete { background-color: #fff0f0; }
-div.linkdiv div.title span.status-review { background-color: #fffff0; }
-div.linkdiv div.desc {
-  margin-top: 0.2em;
-  color: #3f3f3f;
-}
-div.comment {
-  padding: 0.5em;
-  border: solid 2px #ffc0c0;
-  background-color: #fff0f0;
-}
-div.comment div.comment {
-  margin: 1em 1em 0 1em;
-}
-div.comment div.cite {
-  margin: 0 0 0.5em 0;
-  font-style: italic;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="pl.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body class="">
-<div class="headbar"><div class="linktrails"><div class="linktrail">
-<a class="linktrail" href="index.html">Podręcznik Kupfera</a> › <a class="linktrail" href="index.html#plugins">Informacje o niektórych wtyczkach</a> » </div></div></div>
+<body lang="pl" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Podręcznik Kupfera">Podręcznik Kupfera</a> › <a class="trail" href="index.html#plugins" title="Informacje o niektórych wtyczkach">Informacje o niektórych wtyczkach</a> » </div></div></div>
 <div class="body">
-<div class="header"><h1 class="title"><span xmlns:e="http://projectmallard.org/experimental/" class=" app">Wyzwalacze</span></h1></div>
+<div class="hgroup"><h1 class="title"><span class="title"><span class="app">Wyzwalacze</span></span></h1></div>
+<div class="region">
 <div class="contents"></div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Wtyczka wyzwalaczy</h2></div>
-<div class="contents"><p class="p first-child">Za pomocą <span xmlns:e="http://projectmallard.org/experimental/" class=" app">wyzwalaczy</span> możliwe jest wywoływanie poleceń normalnie uruchamianych w <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupferze</span>, takich jak uruchamianie programów lub otwieranie dokumentów, za pomocą zdefiniowanych, globalnych skrótów klawiszowych. Jak długo <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> jest uruchomiony, wyzwalacze będą działać niezależnie od aktualnie aktywnej aplikacji.</p></div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Podstawy obsługi</h2></div>
-<div class="contents">
-<div class="steps first-child">
-<div class="title title-steps">Tworzenie nowego wyzwalacza</div>
-<div class="steps-contents"><ol class="steps">
-<li class="item-steps first-child"><p class="p first-child">Wskazanie polecenia w <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupferze</span> które ma być uruchamiane</p></li>
-<li class="item-steps"><p class="p first-child">Naciśnięcie <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Return</span></span> w celu stworzenia <span xmlns:e="http://projectmallard.org/experimental/" class=" em">skomponowanego polecenia</span></p></li>
-<li class="item-steps"><p class="p first-child">Naciśnięcie <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Tab</span>, wybór akcji <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Dodaj wyzwalacz...</span> i naciśnięcie <span xmlns:e="http://projectmallard.org/experimental/" class=" key">Return</span></p></li>
-<li class="item-steps"><p class="p first-child">W oknie, które zostanie wyświetlone, naciśnięcie klawisza modyfikatora oraz litery lub cyfry w celu ustawienia globalnego skrótu. Przykładowo - naciśnięcie i przytrzymanie <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Alt</span></span> i naciśnięcie i puszczenie <span xmlns:e="http://projectmallard.org/experimental/" class=" key">R</span> w celu przypisania <span xmlns:e="http://projectmallard.org/experimental/" class=" keyseq"><span class=" key">Ctrl</span>+<span class=" key">Alt</span>+<span class=" key">R</span></span>.</p></li>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Wtyczka wyzwalaczy</span></h2></div>
+<div class="region"><div class="contents"><p class="p">Za pomocą <span class="app">wyzwalaczy</span> możliwe jest wywoływanie poleceń normalnie uruchamianych w <span class="app">Kupferze</span>, takich jak uruchamianie programów lub otwieranie dokumentów, za pomocą zdefiniowanych, globalnych skrótów klawiszowych. Jak długo <span class="app">Kupfer</span> jest uruchomiony, wyzwalacze będą działać niezależnie od aktualnie aktywnej aplikacji.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Podstawy obsługi</span></h2></div>
+<div class="region"><div class="contents">
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Tworzenie nowego wyzwalacza</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">Wskazanie polecenia w <span class="app">Kupferze</span> które ma być uruchamiane</p></li>
+<li class="steps"><p class="p">Naciśnięcie <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Return</kbd></span></span> w celu stworzenia <span class="em">skomponowanego polecenia</span>.</p></li>
+<li class="steps"><p class="p">Naciśnięcie <span class="key"><kbd>Tab</kbd></span>, wybór akcji <span class="em">Dodaj wyzwalacz...</span> i naciśnięcie <span class="key"><kbd>Return</kbd></span></p></li>
+<li class="steps"><p class="p">W oknie, które zostanie wyświetlone, naciśnięcie klawisza modyfikatora oraz litery lub cyfry w celu ustawienia globalnego skrótu. Przykładowo - naciśnięcie i przytrzymanie <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Alt</kbd></span></span> i naciśnięcie i puszczenie <span class="key"><kbd>R</kbd></span> w celu przypisania <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>R</kbd></span></span>.</p></li>
 </ol></div>
-</div>
-<div class="steps">
-<div class="title title-steps">Usuwanie wyzwalaczy</div>
-<div class="steps-contents"><ol class="steps">
-<li class="item-steps first-child"><p class="p first-child">Znalezienie źródła <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Wyzwalacze</span> w programie <span xmlns:e="http://projectmallard.org/experimental/" class=" app">Kupfer</span> i naciśnięcie klawisza <span xmlns:e="http://projectmallard.org/experimental/" class=" key">→</span> w celu wyświetlenia zawartości.</p></li>
-<li class="item-steps"><p class="p first-child">Znalezienie aktywnego wyzwalacza na liście i użycie akcji <span xmlns:e="http://projectmallard.org/experimental/" class=" em">Usuń wyzwalacz</span></p></li>
+</div></div>
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Usuwanie wyzwalaczy</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">Znalezienie źródła <span class="em">Wyzwalacze</span> w programie <span class="app">Kupfer</span> i naciśnięcie klawisza <span class="key"><kbd>→</kbd></span> w celu wyświetlenia zawartości.</p></li>
+<li class="steps"><p class="p">Znalezienie aktywnego wyzwalacza na liście i użycie akcji <span class="em">Usuń wyzwalacz</span>.</p></li>
 </ol></div>
+</div></div>
+<p class="p">Skróty klawiszowe wyzwalaczy są globalne - mogą być używane z poziomu innych programów. Skróty należy wybierać z rozwagą, tak aby nie powstały konflikty z innymi funkcjami.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Porady dla zaawansowanych użytkowników</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"><span class="em">Obiekty pośredniczące</span> takie jak <span class="em">zaznaczony tekst</span>, <span class="em">wybrany plik</span>, <span class="em">pierwszoplanowe okno</span>, <span class="em">ostatnie polecenie</span> itp pozwalają na tworzenie bardzo użytecznych wyzwalaczy.</p>
+<p class="p">Akcja programów <span class="em">uruchom</span> jest specjalna. Utworzenie wyzwalacza z użyciem <span class="em">uruchom</span> spowoduje uruchomienie programu, jeżeli nie jest uruchomiony lub uaktywnienie jego okna, gdy jest już uruchomiony. W przeciwieństwie <span class="em">uruchom ponownie</span> uruchomi program niezależnie czy jest uruchomiony czy nie.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Przykładowe wyzwalacze</span></h2></div>
+<div class="region"><div class="contents"><div class="terms"><div class="inner"><div class="region"><dl class="terms">
+<dt class="terms"><span class="em">Edytor tekstu → Uruchom</span></dt>
+<dd class="terms"><p class="p">Uruchamia <span class="em">edytor tekstu</span> lub uaktywnia jego okno, gdy jest już uruchomiony.</p></dd>
+<dt class="terms"><span class="em">Zaznaczony tekst → Szukaj za pomocą... → Google</span></dt>
+<dd class="terms"><p class="p">Przeszukuje sieć używając aktualnie zaznaczonego tekstu.</p></dd>
+<dt class="terms"><span class="em">Wybrany plik → Przenieś do → (Pobrane)</span></dt>
+<dd class="terms"><p class="p">Przeniesienie zaznaczonego pliku do wskazanego katalogu</p></dd>
+<dt class="terms"><span class="em">Utwory → Przeszukaj zawartość</span></dt>
+<dd class="terms"><p class="p">Możliwe jest dodanie wyzwalacza w celu otwierania określonego podkatalogu w Kupferze, na przykład utworów w Rhythmboksie.</p></dd>
+</dl></div></div></div></div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Więcej informacji</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#plugins" title="Informacje o niektórych wtyczkach">Informacje o niektórych wtyczkach</a></li></ul></div>
+</div></div></div>
 </div>
-<p class="p">Skróty klawiszowe wyzwalaczy są globalne - mogą by używane z poziomu innych programów. Skróty należy wybierać z rozwagą, tak aby nie powstały konflikty z innymi funkcjami.</p>
 </div>
+<div class="clear"></div>
 </div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Porady dla zaawansowanych użytkowników</h2></div>
-<div class="contents">
-<p class="p first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Obiekty pośredniczące</span> takie jak <span xmlns:e="http://projectmallard.org/experimental/" class=" em">zaznaczony tekst</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" em">wybrany plik</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" em">pierwszoplanowe okno</span>, <span xmlns:e="http://projectmallard.org/experimental/" class=" em">ostatnie polecenie</span> itp pozwalają na tworzenie bardzo użytecznych wyzwalaczy.</p>
-<p class="p">Akcja programów <span xmlns:e="http://projectmallard.org/experimental/" class=" em">uruchom</span> jest specjalna. Utworzenie wyzwalacza z użyciem <span xmlns:e="http://projectmallard.org/experimental/" class=" em">uruchom</span> spowoduje uruchomienie programu jeżeli nie jest uruchomiony lub uaktywnienie jego okna gdy jest już uruchomiony. W przeciwieństwie <span xmlns:e="http://projectmallard.org/experimental/" class=" em">uruchom ponownie</span> uruchomi program niezależnie czy jest uruchomiony czy nie.</p>
-</div>
-</div>
-<div class="section" id="">
-<div class="header"><h2 class="title">Przykładowe wyzwalacze</h2></div>
-<div class="contents"><div class="terms first-child"><div class="terms-contents"><dl class="terms">
-<dt class="item-terms first-child"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Edytor tekstu → Uruchom</span></dt>
-<dd class="item-terms"><p class="p first-child">Uruchamia <span xmlns:e="http://projectmallard.org/experimental/" class=" em">edytor tekstu</span> lub uaktywnia jego okno gdy jest już uruchomiony.</p></dd>
-<dt class="item-terms"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Zaznaczony tekst → Szukaj za pomocą... → Google</span></dt>
-<dd class="item-terms"><p class="p first-child">Przeszukuje sieć używając aktualnie zaznaczonego tekstu.</p></dd>
-<dt class="item-terms"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Wybrany plik → Przenieś do  → (Pobrane)</span></dt>
-<dd class="item-terms"><p class="p first-child">Przeniesienie zaznaczonego pliku do wskazanego katalogu</p></dd>
-<dt class="item-terms"><span xmlns:e="http://projectmallard.org/experimental/" class=" em">Utwory → Przeszukaj zawartość</span></dt>
-<dd class="item-terms"><p class="p first-child">Możliwe jest dodanie wyzwalacza w celu otwierania określonego podkatalogu w Kupferze, na przykład utworów w Rhythmboxie.</p></dd>
-</dl></div></div></div>
-</div>
-<div class="section autolinkssection">
-<div class="header"><h2 class="title">Further Reading</h2></div>
-<div class="autolinks">
-<div class="title"><span>More About</span></div>
-<ul><li class="autolink"><a href="index.html#plugins">Informacje o niektórych wtyczkach</a></li></ul>
-</div>
-</div>
-</div>
-<div class="footbar"><div class="copyrights"></div></div>
-</body>
+<div class="footer"></div>
+</div></body>
 </html>

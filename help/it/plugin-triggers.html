@@ -1,0 +1,119 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Triggers</title>
+<link rel="stylesheet" type="text/css" href="it.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="it" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Kupfer Manual">Kupfer Manual</a> › <a class="trail" href="index.html#plugins" title="About Specific Plugins">About Specific Plugins</a> » </div></div></div>
+<div class="body">
+<div class="hgroup"><h1 class="title"><span class="title"><span class="app">Triggers</span></span></h1></div>
+<div class="region">
+<div class="contents"></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Triggers Plugin</span></h2></div>
+<div class="region"><div class="contents"><p class="p">
+    With <span class="app">Triggers</span> you can take a command you would normally
+    perform in <span class="app">Kupfer</span>, such as launching an application or
+    opening a document, and bind a global key combination to run this
+    command. As long as <span class="app">Kupfer</span> is running, any application can
+    have the current focus. 
+  </p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Uso di base</span></h2></div>
+<div class="region"><div class="contents">
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Creating a new trigger</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">
+        Set up a command in <span class="app">Kupfer</span> that you want to run
+      </p></li>
+<li class="steps"><p class="p">
+        Press <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Return</kbd></span></span>  to create a
+        <span class="em">composed command</span>.
+      </p></li>
+<li class="steps"><p class="p">
+        Type <span class="key"><kbd>Tab</kbd></span> and select the action <span class="em">Add Trigger...</span>
+        and press <span class="key"><kbd>Return</kbd></span>
+      </p></li>
+<li class="steps"><p class="p">
+        Using the window that appears, press modifier keys and a letter or
+        number key to set a global shortcut. An example is pressing and
+        holding <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Alt</kbd></span></span> and then
+        pressing and releasing <span class="key"><kbd>R</kbd></span> to bind
+        <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>R</kbd></span></span>.
+      </p></li>
+</ol></div>
+</div></div>
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Removing a trigger</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">
+        Find the source <span class="em">Triggers</span> in <span class="app">Kupfer</span> and
+        press <span class="key"><kbd>→</kbd></span> to see its contents.
+      </p></li>
+<li class="steps"><p class="p">
+        Find the active trigger in the list and use the action <span class="em">Remove
+          Trigger</span>.
+      </p></li>
+</ol></div>
+</div></div>
+<p class="p"> Since trigger keyboard shortcuts are global, they can be used from
+      any application. Select shortcuts with care so that they do
+      not conflict with other functions.
+    </p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Power User Tips</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"> <span class="em">Proxy objects</span> such as <span class="em">Selected Text</span>,  <span class="em">Selected File</span>,
+     <span class="em">Frontmost Window</span>, <span class="em">Last Command</span> et cetera allow very
+     powerful triggers.
+   </p>
+<p class="p"> The application action <span class="em">Launch</span> is special; if you bind a
+     trigger using <span class="em">Launch</span>, it will start the application if it is
+     not running, but focus the application when it is already running. By
+     contrast, <span class="em">Start Again</span> will start the application if it is
+     running or not.
+   </p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Example Triggers</span></h2></div>
+<div class="region"><div class="contents"><div class="terms"><div class="inner"><div class="region"><dl class="terms">
+<dt class="terms"><span class="em">Text Editor → Launch</span></dt>
+<dd class="terms"><p class="p">
+         Start <span class="em">Text Editor</span> or focus its window if it is already
+         running.
+       </p></dd>
+<dt class="terms"><span class="em">Selected Text → Search With → Google</span></dt>
+<dd class="terms"><p class="p">Search the web using the currently selected text.  </p></dd>
+<dt class="terms"><span class="em">Selected File → Move To → (Downloads Folder)</span></dt>
+<dd class="terms"><p class="p"> Move the currently selected file to a specific folder
+     </p></dd>
+<dt class="terms"><span class="em">Songs → Search Contents</span></dt>
+<dd class="terms"><p class="p">
+         You may even add a trigger to open a specific subcatalog in Kupfer,
+         for example Rhythmbox's songs.
+       </p></dd>
+</dl></div></div></div></div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Ulteriori informazioni</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#plugins" title="About Specific Plugins">About Specific Plugins</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Calculator</title>
+<link rel="stylesheet" type="text/css" href="ro.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="ro" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Kupfer Manual">Kupfer Manual</a> › <a class="trail" href="index.html#plugins" title="About Specific Plugins">About Specific Plugins</a> » </div></div></div>
+<div class="body">
+<div class="hgroup"><h1 class="title"><span class="title"><span class="app">Calculator</span></span></h1></div>
+<div class="region">
+<div class="contents"></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Modulul calculator</span></h2></div>
+<div class="region"><div class="contents"><p class="p">Modulul calculator vă permite să calculați expresii rapid. Acesta poate evalua expresii introduse ca text ce începe cu „=”. Introducerea = din modul de comandă va porni modul text direct cu = ca prefix pentru acces rapid.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Folosire de bază</span></h2></div>
+<div class="region"><div class="contents"><div class="steps"><div class="inner"><div class="region"><ol class="steps">
+<li class="steps"><p class="p">
+        Activate Kupfer and type <span class="key"><kbd>=</kbd></span>
+    </p></li>
+<li class="steps"><p class="p">Type in a mathematical expression using
+        <span class="key"><kbd>+</kbd></span>,<span class="key"><kbd>-</kbd></span>,<span class="key"><kbd>/</kbd></span>,<span class="key"><kbd>*</kbd></span> (and
+        <span class="key"><kbd>**</kbd></span> for exponentiation)
+    </p></li>
+<li class="steps"><p class="p">
+        Press <span class="key"><kbd>Return</kbd></span> to get the result.
+    </p></li>
+</ol></div></div></div></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Notes</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+      The Calculator uses python's math and complex math modules, 
+      and parses expressions as Python expressions. You may use common 
+      mathematical functions, such as <span class="cmd">sqrt</span>, <span class="cmd">sin</span>,
+      <span class="cmd">exp</span> and <span class="cmd">log</span>; the command <span class="cmd">=help</span> will
+      show a list of all defined functions and constants. 
+    </p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">
+       Notice that the power operator in Python is double stars, for example 
+       <span class="code">=3**3</span> will evaluate to 27.
+      </p></li>
+<li class="list">
+<p class="p">Pentru a calcula funcții trigonometrice pentru unghiuri, transformați măsura unghiurilor în radiani întâi:</p>
+<div class="code"><pre class="contents ">sin(radians(30)) -&gt; 0.5</pre></div>
+</li>
+<li class="list"><p class="p">Ultimul rezultat este stocat sub numele de _ (un underscore, ca și în consola Python).</p></li>
+</ul></div></div></div>
+<p class="p">
+       The Calculator lets you also calculate expression without "=" on the 
+       beginning as long it have inside one of operators: +, -, *, /, ^, |, &amp;, ~.
+     </p>
+</div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Mai multe informații</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#plugins" title="About Specific Plugins">About Specific Plugins</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>

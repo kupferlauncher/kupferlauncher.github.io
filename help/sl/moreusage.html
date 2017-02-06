@@ -1,0 +1,85 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Podrobnejša uporaba Kupferja.</title>
+<link rel="stylesheet" type="text/css" href="sl.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="sl" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Priročnik Kupfer">Priročnik Kupfer</a> › <a class="trail" href="index.html#usage" title="Uporabljanje programa Kupfer">Uporabljanje programa Kupfer</a> » </div></div></div>
+<div class="body">
+<div class="hgroup"><h1 class="title"><span class="title">Podrobnejša uporaba <span class="app">Kupferja</span>.</span></h1></div>
+<div class="region">
+<div class="contents"></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Dodajanje programov in skriptov</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"><span class="app">Kupfer</span> bo v urejevalniku menija prikazal vse programe, ki so nastavljeni kot vidni.</p>
+<p class="p">Če želite dodati program ročno, lahko ustvarite novo datoteko <span class="code">.desktop</span> in jo postavite v eno od standardnih mest za programe, na primer <span class="file">~/.local/share/applications</span>, kjer jo bo <span class="app">Kupfer</span> našel.</p>
+<p class="p">Če imate zbirko skriptov, ki jih želite poklicati v <span class="app">Kupferju</span>, lahko v možnostih dodate mapo skriptov kot mapo katalogov v <span class="app">Kupfer</span>. Skripte, ki jih dodate v <span class="app">Kupferjev</span> katalog na ta način, je mogoče zagnati neposredno v terminalu, če so izvedljivi. </p>
+<p class="p">Ukazne vrstice lahko shranite z uporabo dejanja <span class="em">Dodaj med priljubljene</span>.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Odpiranje datotek in map</span></h2></div>
+<div class="region"><div class="contents"><p class="p">Uporaba dejanja <span class="em">Odpri</span> odpre datoteke in mape na njihovem prednostnem mestu. Povezave programov je mogoče spremeniti, oglejte si <span class="link"><a href="plugin-applications.html" title="Programi"><span class="app">Programi</span></a></span>.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title"><span class="em">Trik z vejico</span></span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Trik z vejico uporabniku omogoča uporabo dejanj na več predmetih hkrati.</p>
+<p class="p">Pritisnite na <span class="key"><kbd>,</kbd></span>, ko je predmet izbran. Predmet je postavljen na "sklad" in lahko najdete še eno datoteko ali predmet in pritisnete brskalnik za postavitev nazaj v sklad. Ko prikličete dejanje, je izvedeno na vseh predmetih hkrati.</p>
+<p class="p">Nekatera dejanja so pri uporabi z več predmeti le večkrat izvedena, druga pa so pametnejša:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Izbira veliko datotek in uporaba dejanja Ustvari arhiv bo vse datoteke zapakirala v isti arhiv.</p></li>
+<li class="list"><p class="p">V primeru da izberete več stikov in uporabite dejanje Pošlji e-pošto, ustvari eno e-pošto, ki je usmerjena k vsem stikom.</p></li>
+<li class="list"><p class="p">V primeru da izberete več podkatalogov (na primer zaznamke Firefox ali zaznamke Epiphany) in uporabite Vsebino iskanja ..., lahko dobite podkatalog iskanja, ki je omejen na predmete teh dveh podkatalogov! Na ta ukaz lahko celo vežete sprožitec(!).</p></li>
+</ul></div></div></div>
+<p class="p">Trik z vejico je vzet <span class="link"><a href="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick" title="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick"> neposredno iz programa Quicksilver</a></span> (primer v zunanjem članku, bi moral v Kupferju delovati enako).</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Zgrabi trenutno izbiro</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Za uporabo trenutno izbranega besedila iz katregakoli programa s programom <span class="app">Kupfer</span> lahko nastavite splošno tipkovno bližnjico za dejanje <span class="em">Pokaži z izbiro</span> v <span class="app">Možnostih Kupfer</span>.</p>
+<p class="p">V primeru da je nastavljena, bo splošna tipkovna bližnjica priklicala <span class="app">Kupfer</span> s trenutno izbiro kot predmetom v žarišču. </p>
+<p class="p">Oglejte si <span class="link"><a href="keyboard.html" title="Tipke ukazov in pospeševalnikov">Tipke ukazov in pospeševalnikov</a></span></p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Povezava z ukazno vrstico</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Ukaz <span class="cmd">kupfer</span> v ukazni vrstici bo v žarišču na <span class="app">Kupfer</span>, če že teče. V nasprotnem primeru ga bo zagnal.</p>
+<p class="p">Ukaz <span class="cmd">kupfer</span> lahko uporabite za pošiljanje datotek ali besedila iz ukazne vrstice programu <span class="app">Kupfer</span>. Na primer, če uporabljate lupino v mapi, kjer imate datoteko "poročilo.pdf", lahko v <span class="app">Kupferju</span> to datoteko spravite v žarišče s poganjanjem <span class="cmd">kupfer porocilo.pdf</span>.</p>
+<p class="p">Besedilo lahko izberete tudi, če izhod ukaza vpišete v <span class="cmd">kupfer</span>.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Upravljanje vsebine in trenutne izbire</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">V primeru, da najdete predmet, ki ga želite uporabiti, prikličite dejanje. <span class="app">Kupfer</span> bo odšel stran za izvedbo dejanja (na primer zagnal program ali predvajal skladbo). Ko pridete nazaj v <span class="app">Kupfer</span>, bo le-ta obdržal izbiro istega predmeta in dejanja. Nekatera dejanja je smiselno ponavljati (na primer preskok na naslednjo skladbo), uporabno pa je lahko tudi izvajanje različnih dejanj na istem predmetu.</p>
+<p class="p">Vendar pa je katalog zgornje ravni dosegljiv vedno, ko "pridete nazaj" h programu <span class="app">Kupfer</span> -- recimo, da greste v podkatalog "Albumi" za brskanje le vaših albumov, izberete album za predvajanje in ga predvajate. Prišli ste nazaj z izbranim albumom -- toda vaše naslednje iskanje bo še vedno izvedeno na katalogu gornje ravni, ne samo v albumih. </p>
+<p class="p">Kako priti nazaj v podkatalog v katerem ste bili? To lahko storite z enostavnim brskanjem in ne iskanje, ko je <span class="app">Kupfer</span> znova v žarišču. Hiter način je pritisk na puščico navzdol ali preslednico za odprtje okna brskalnika. O tem mislite kot da bi rekli "Želim ostati v tej podmapi". Ko se odpre okno brskanja, bo vaša naslednja poizvedba iskala po trenutnem podkatalogu.</p>
+<p class="p">Na ta način lahko delate na oba načina - hitro lahko raziščete mape za iskanje datoteke in ko pridete nazaj za naslednje dejanje s <span class="app">Kupferjem</span> lahko pokličete katerikoli predmet zgornje ravni ali pa ostanete, kjer ste bili globoko v tisti mapi (pritisnite presledek in nato vpišite poizvedbo).</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Shranjevanje ukazov kot datoteke</span></h2></div>
+<div class="region"><div class="contents"><p class="p">Za ustvarjanje predmeta ukaza iz ukaza, ki je trenutno v žarišču v Kupferju, lahko uporabite tipkovno bližnjico <span class="em">Sestavi ukaz</span> (privzeto je <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Enter</kbd></span></span>). Ta predmet lahko shranite kot izvedljivo datoteko, če uporabite dejanje <span class="em">Shrani kot ...</span>. Nastala datoteka bo izvedena bo odprtju iz upravljalnika datotek (zahteva, da se Kupfer že izvaja).</p></div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Več podrobnosti</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Uporabljanje programa Kupfer">Uporabljanje programa Kupfer</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>

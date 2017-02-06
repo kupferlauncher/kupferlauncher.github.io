@@ -1,0 +1,81 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Kako nastaviti vstavke</title>
+<link rel="stylesheet" type="text/css" href="sl.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="sl" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Priročnik Kupfer">Priročnik Kupfer</a> › <a class="trail" href="index.html#usage" title="Uporabljanje programa Kupfer">Uporabljanje programa Kupfer</a> » </div></div></div>
+<div class="body">
+<div class="hgroup"><h1 class="title"><span class="title">Kako nastaviti vstavke</span></h1></div>
+<div class="region">
+<div class="contents"><p class="p">Zmožnost v Kupferju je organizirana po modulih razširitev, ki se imenujejo "vstavki". Vsak vstavek zagotavlja dodatno zmožnost na primer vključitev v zunanji program.</p></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Nastavljanje vstavkov</span></h2></div>
+<div class="region"><div class="contents">
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Odprite zavihek Vstavki v <span class="app">Možnostih Kupfer</span></span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps">
+<p class="p">Uporabite enega od naslednjih načinov:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Kliknite na ikono Kupfer v obvestilnem področju in izberite predmet <span class="em">Možnosti</span></p></li>
+<li class="list"><p class="p">Iščite predmet <span class="app">Možnosti Kupfer</span> v Kupferju. Pritisnite <span class="key"><kbd>Enter</kbd></span> za odprtje.</p></li>
+<li class="list"><p class="p">Uporabite tipkovno bližnjico <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>;</kbd></span></span></p></li>
+</ul></div></div></div>
+</li>
+<li class="steps"><p class="p">Izberite zavihek <span class="em">Vstavki</span></p></li>
+</ol></div>
+</div></div>
+<p class="p">Izberite vstavke s seznama za branje o njih in izberite polje poleg njegovega imena za njegovo omogočitev ali oznako odstranite za onemogočitev.</p>
+<p class="p">V primeru da ima vstavek nastavljive parametre, bodo vidni pod podatki o vstavku.</p>
+<p class="p">Vstavek <span class="app">Vstavki Kupfer</span> omogoča hiter dostop do strani s podatki o vstavkih kot tudi do dejanja "Pokaži izvorno kodo", ki prikaže izvedbo.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">V primeru da vstavka ni mogoče omogočiti</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">V primeru da vstavka ni mogoče omogočiti, ker zahteva programski modul, ki ni na voljo, bodo podatki o vstavku prikazali sporočilo kot je:</p>
+<p class="p"><span class="em">Vstavka ni mogoče prebrati zaradi napake:</span>
+      </p>
+<p class="p"><span class="em">Zahtevan je modul Python 'gdata'</span></p>
+<p class="p">To pomeni, da morate namestiti zahtevan modul python s svoje distribucije -- morda vam dokumentacija vstavka lahko pove kako.</p>
+<p class="p">Nalaganje vstavka lahko tudi nepričakovano spodleti in prikaže durgačno sporočilo o napaki. To je lahko programska napaka v vstavku ali v <span class="app">Kupferju</span>.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Nameščanje več vstavkov</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Vstavke po meri lahko namestite v mapo <span class="code">~/.local/share/kupfer/plugins</span>. Vsak vstavek je ena datoteka <span class="code">.py</span> ali paket python (mapa, ki vsebuje datoteko z imenom <span class="code">__init__.py</span>). Vstavki v obliki paketa lahko vključujejo datoteke ikone. Pakete Python lahko namestite tudi kot datoteke <span class="code">.zip</span>.</p>
+<p class="p"><span class="em">Pozor:</span> Vstavek obravnavajte kot računalniški program. Vstavkov, ki jim ne zaupajte, ne nameščajte.</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Ustvarjanje vstavkov</span></h2></div>
+<div class="region"><div class="contents"><p class="p">Dokumentacija za ustvarjalce vstavkov je na voljo v datoteki <span class="code">Documentation/Manual.rst</span> v izvorni distribuciji na spletni strani <span class="link"><a href="http://kaizer.se/wiki/kupfer/Manual/" title="http://kaizer.se/wiki/kupfer/Manual/">priročnika Kupfer</a></span>. Enostaven način za začetek je kopiranje obstoječega vstavka in njegovo preizkušanje.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Zavihek <span class="em">Katalog</span> v možnostih</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Vsak vstavek lahko izvozi številne vire, ki vsebujejo predmete. Običajno lahko do teh predmetov dostopate neposredno iz iskanja vrhne ravni. Nekateri vstavki izvozijo specializirane ali tako veliko predmetov, da je boljše, da njihovi katalogi predmetov ne izvažajo na vrhnjo raven. </p>
+<p class="p">V zavihku <span class="em">Katalog</span> v <span class="app">Možnostih Kupfer</span> je poleg vsakega vira izbrano polje, ki pomeni, da so njegovi predmeti izvoženi. Neizbrano polje pomeni, da je vsebina na vrhnji ravni skrita.</p>
+<p class="p"><span class="em">Opomba:</span> Kupfer lahko postane počasen, če v vrhnjo raven izvozite dovolj velike podkataloge.</p>
+</div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Več podrobnosti</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Uporabljanje programa Kupfer">Uporabljanje programa Kupfer</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>

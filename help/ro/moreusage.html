@@ -1,0 +1,145 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Using Kupfer in Depth</title>
+<link rel="stylesheet" type="text/css" href="ro.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="ro" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Kupfer Manual">Kupfer Manual</a> › <a class="trail" href="index.html#usage" title="Folosirea Kupfer">Folosirea Kupfer</a> » </div></div></div>
+<div class="body">
+<div class="hgroup"><h1 class="title"><span class="title">Using <span class="app">Kupfer</span> in Depth</span></h1></div>
+<div class="region">
+<div class="contents"></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Adding Applications and Scripts</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+   <span class="app">Kupfer</span> will show all applications that are configured visible
+   in your menu editor.
+ </p>
+<p class="p">
+   If you want to add an application manually, you can create a new
+   <span class="code">.desktop</span> file and place it in one of the standard directories
+   for applications, for example <span class="file">~/.local/share/applications</span>,
+   where <span class="app">Kupfer</span> will find it. 
+  </p>
+<p class="p">Dacă aveți o colecție de scripturi ce care doriți să le apelați din <span class="app">Kupfer</span>, puteți să le adăugați într-un dosar de scripturi ca și un dosar catalog în <span class="app">Kupfer</span> la preferințe. Scripturile pe care le adăugați în catalogul <span class="app">Kupfer</span> pot fi astfel rulate direct sau din terminal atât timp cât ele sunt executabile.</p>
+<p class="p">
+    You can also save command-lines by using the action <span class="em">Add to
+      Favorites</span>.
+  </p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Opening Files and Folders</span></h2></div>
+<div class="region"><div class="contents"><p class="p">
+      Using the action <span class="em">Open</span>, files and folders are opened in their
+      preferred application. The application associations can be changed,
+      see <span class="link"><a href="plugin-applications.html" title="Applications"><span class="app">Applications</span></a></span>.
+    </p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">The <span class="em">Comma Trick</span></span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"> The comma trick allows the user to use actions on many objects at
+       the same time.
+    </p>
+<p class="p">Simply press comma <span class="key"><kbd>,</kbd></span> when an object is selected. The object
+      is put on a "stack", and you can find yet another file or object, press
+      comma to put it on the stack. When you subsequently invoke an action, the
+      action is carried out on all of the objects at the same time.
+    </p>
+<p class="p">Some actions are only "multiplied" when used with many objects, other
+      are smarter than that:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"> Selecting many files and using the Create Archive action, all
+          files will be packed into the same archive.</p></li>
+<li class="list"><p class="p">If you select multiple contacts and use a Send Email action, it
+          creates one email directed at all the contacts.</p></li>
+<li class="list"><p class="p">If you select multiple subcatalogs (For example Firefox
+          Bookmarks and Epiphany Bookmarks) and use Search Contents.., you get
+          a subcatalog search restricted to the objects of those two catalogs!
+          You can even bind a trigger to this command(!) 
+      </p></li>
+</ul></div></div></div>
+<p class="p">The comma trick is 
+      <span class="link"><a href="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick" title="http://www.43folders.com/2005/06/13/quicksilver-the-comma-trick">
+        directly taken from Quicksilver</a></span>
+      (the example given in the external article should work identically in
+      Kupfer).
+    </p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Grab Current Selection</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p"> To use the current selected text, from any application, with
+    <span class="app">Kupfer</span>, you can configure a global keyboard shortcut for the
+    action <span class="em">Show with Selection</span> in <span class="app">Kupfer Preferences</span>.
+  </p>
+<p class="p">
+   If configured, pressing the global keyboard shortcut
+   will summon <span class="app">Kupfer</span> with the current selection as the focused
+   object.
+  </p>
+<p class="p">See <span class="link"><a href="keyboard.html" title="Command Keys and Accelerator Keys">Command Keys and Accelerator Keys</a></span></p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Command-line Connection</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+    The command <span class="cmd">kupfer</span> on the command-line will focus
+    <span class="app">Kupfer</span> if it's already running, otherwise it will start it.
+  </p>
+<p class="p">
+    The command <span class="cmd">kupfer</span> can be used to send files or text from
+    the command-line to <span class="app">Kupfer</span>.
+
+    For example, if you are using the shell in a directory where you have 
+    a file called "report.pdf", you can focus this file in <span class="app">Kupfer</span> by 
+    running <span class="cmd">kupfer report.pdf</span>. 
+  </p>
+<p class="p">
+    You can also send text if you pipe the output of a command into
+    <span class="cmd">kupfer</span>.
+  </p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Gestionarea contextului și a selecției curente</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Dacă găsiți un obiect pe care doriți să-l folosiți, apoi să invocați o acțiune, <span class="app">Kupfer</span> va pleca pentru a efectua acțiunea (de exemplu pentru a porni un program sau a reda o piesă). Când vă întoarceți la <span class="app">Kupfer</span>, acesta va păstra același obiect sau acțiune selectată. Unele acțiuni au sens să fie repetate (de exemplu saltul la următoarea piesă). De asemenea, poate fi folosit pentru a efectua acțiuni diferite pe același obiect.</p>
+<p class="p">Totuși, veți avea întotdeauna catalogul de cel mai înalt nivel accesibil când „vă întoarceți” la <span class="app">Kupfer</span> -- De exemplu dacă ați coborât în subcatalogul „Albume” pentru a căuta doar albume; ați ales un album pentru a fi redat și ați executat acțiunea, la întoarcere veți găsi același album selectat, dar căutarea va continua de la catalogul de cel mai înalt nivel, nu doar la albume.</p>
+<p class="p">Cum să vă întoarceți la același subcatalog? Faceți asta prin simplu fapt că navigați întâi, nu căutați, când focalizați din nou pe <span class="app">Kupfer</span>. Un mod rapid de a face asta e să apăsați săgeată-jos sau spațiu pentru a deschide fereastra de navigare. Puteți vedea această acțiune ca și „Vreau să stau în acest subdosar”. Cu fereastra de navigare deschisă, următoarea interogare va căuta în subcatalogul curent.</p>
+<p class="p">În acest mod, puteți lucra în ambele moduri -- puteți ajunge repede în dosare pentru a găsi un fișier, și când vă întoarceți pentru următoarea acțiune, veți putea să chemați un obiect normal de la nivelul cel mai înalt (începeți pur și simplu să scrieți), sau reveniți unde erați, adânc în acel dosar (apăsați spațiu înainte de a scrie interogarea).</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Saving Commands as Files</span></h2></div>
+<div class="region"><div class="contents"><p class="p">You can use keyboard shortcut for <span class="em">Compose Command</span> (by
+      default it is <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Return</kbd></span></span>) to
+      create a command object out of the currently focused command in
+      Kupfer.  This object can be saved as a runnable file if you use the
+      <span class="em">Save As...</span> action.  The resulting file will can be executed
+      when opened from the file manager (it requires that Kupfer is already
+      running).
+    </p></div></div>
+</div></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">Mai multe informații</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#usage" title="Folosirea Kupfer">Folosirea Kupfer</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>
