@@ -6,7 +6,7 @@
 <meta name="generator" content="Docutils 0.13.1: http://docutils.sourceforge.net/" />
 <title>kupfer</title>
 <meta name="author" content="Ulrik Sverdrup &lt;ulrik.sverdrup&#64;gmail.com&gt;" />
-<meta name="date" content="2011" />
+<meta name="date" content="2017" />
 <style type="text/css">
 
 /*
@@ -372,7 +372,7 @@ ul.auto-toc {
 <tr><th class="docinfo-name">Author:</th>
 <td>Ulrik Sverdrup &lt;<a class="reference external" href="mailto:ulrik.sverdrup&#64;gmail.com">ulrik.sverdrup&#64;gmail.com</a>&gt;</td></tr>
 <tr><th class="docinfo-name">Date:</th>
-<td>2011</td></tr>
+<td>2017</td></tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">1</td>
 </tr>
 </tbody>
@@ -402,11 +402,10 @@ the program it if already running.</p>
 <p>Kupfer can be invoked with a list of files</p>
 <blockquote>
 <tt class="docutils literal">kupfer</tt> <em>FILE</em> ...</blockquote>
-<p>This can be used to select files given as command-line arguments in the
-program. Then you can invoke actions even on objects from a shell-based
-context.</p>
-<p>You may also pipe text to <tt class="docutils literal">kupfer</tt> to pass it to a currently running
+<p>The file paths will be sent to and selected in an already running
 instance of the program.</p>
+<p>You may also pipe text to <tt class="docutils literal">kupfer</tt> to pass it to a currently running
+instance.</p>
 </div>
 <div class="section" id="options">
 <h1>OPTIONS</h1>
@@ -418,16 +417,16 @@ instance of the program.</p>
 <kbd><span class="option">--no-splash</span></kbd></td>
 <td>Launch without presenting main interface</td></tr>
 <tr><td class="option-group">
-<kbd><span class="option">--list-plugins</span></kbd></td>
-<td>Display a list of all installed plugins</td></tr>
-<tr><td class="option-group">
 <kbd><span class="option">--debug</span></kbd></td>
 <td>Enable more verbose output that can help understanding
 the program's operation.</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--relay</span></kbd></td>
-<td>Is deprecated and will be started by the Multihead
-Support plugin when needed</td></tr>
+</tbody>
+</table>
+<p>The following are options for internal use</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--exec-helper=<var>HELPER</var></span></kbd></td>
 </tr>
