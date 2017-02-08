@@ -365,19 +365,15 @@ ul.auto-toc {
 
 <p>kupfer is translated using gettext and it is managed in the build system
 using <tt class="docutils literal">intltool</tt>. Translation messages are located in the <tt class="docutils literal">po/</tt>
-directory.</p>
-<p>Kupfer's localizations are listed among GNOME's modules. Its homepage
-is:</p>
-<blockquote>
-<a class="reference external" href="http://l10n.gnome.org/module/kupfer/">http://l10n.gnome.org/module/kupfer/</a></blockquote>
-<p>You can download the latest version of your language's translation file
-there, if Kupfer is already translated to your language.</p>
+directory. The user’s guide is located in the <tt class="docutils literal">help/</tt> directory and it
+can also be translated, see its section.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#to-create-a-new-translation" id="id1">To create a new translation</a></li>
 <li><a class="reference internal" href="#to-update-or-check-an-existing-translation" id="id2">To update or check an existing translation</a></li>
 <li><a class="reference internal" href="#to-try-the-new-translation" id="id3">To try the new translation</a></li>
+<li><a class="reference internal" href="#users-guide" id="id4">User’s Guide</a></li>
 </ul>
 </div>
 <div class="section" id="to-create-a-new-translation">
@@ -445,6 +441,14 @@ find the installed translations unless you make a symlink called
 $ ln -s ~/.local/share/locale
 </pre>
 </div>
+</div>
+<div class="section" id="users-guide">
+<h1><a class="toc-backref" href="#id4">User’s Guide</a></h1>
+<p>Go to <tt class="docutils literal">help/</tt>. The english-language original of the user’s guide is
+defined in the <tt class="docutils literal">C/</tt> directory. Use <tt class="docutils literal">make $LANG</tt> inside <tt class="docutils literal">help</tt> to
+update a language’s <tt class="docutils literal">.po</tt> file. Currently, the best way to view the
+translated help page during development is to run the regular build and
+install, which puts the help pages under <tt class="docutils literal"><span class="pre">$PREFIX/help/$LANG/kupfer</span></tt>.</p>
 <!-- vim: ft=rst tw=72 et sts=4 -->
 <!-- this document best viewed with rst2html -->
 </div>

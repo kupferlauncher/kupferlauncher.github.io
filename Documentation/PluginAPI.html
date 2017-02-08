@@ -488,13 +488,14 @@ __description__ = _(&quot;View images quickly&quot;)
 __version__ = &quot;&quot;
 __author__ = &quot;Tom Author&quot;
 
-import gtk
+
+from gi.repository import Gtk
 
 from kupfer.objects import Action, FileLeaf
 
 class View (Action):
     def __init__(self):
-        Action.__init__(self, _(&quot;View&quot;))
+        super().__init__(_(&quot;View&quot;))
 
     def item_types(self):
         yield FileLeaf
@@ -503,15 +504,16 @@ class View (Action):
         return fileobj.object.endswith(&quot;.jpg&quot;)
 
     def activate(self, fileobj):
-        image_widget = gtk.image_new_from_file(fileobj.object)
+        image_widget = Gtk.Image.new_from_file(fileobj.object)
         image_widget.show()
-        window = gtk.Window()
+        window = Gtk.Window()
         window.add(image_widget)
         window.present()
 </pre>
 <p>That is all. What we did was the following:</p>
 <ul class="simple">
 <li>Declare a plugin called &quot;Image Viewer&quot; with an action class <tt class="docutils literal">View</tt>.</li>
+<li>Every string inside <tt class="docutils literal"><span class="pre">_(&quot;&quot;)</span></tt> is translatable</li>
 <li><tt class="docutils literal">View</tt> declares that it works with <tt class="docutils literal">FileLeaf</tt></li>
 <li><tt class="docutils literal">View</tt> only accepts <tt class="docutils literal">FileLeaf</tt> that end with '.jpg'</li>
 <li><tt class="docutils literal">View</tt> defines a method <tt class="docutils literal">activate</tt> that when called, will use gtk
