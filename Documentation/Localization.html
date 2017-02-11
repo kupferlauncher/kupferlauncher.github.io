@@ -1,282 +1,512 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8"/>
 <meta name="generator" content="Docutils 0.13.1: http://docutils.sourceforge.net/" />
 <title>Localization</title>
 <style type="text/css">
 
-/*
-:Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
-:Copyright: This stylesheet has been placed in the public domain.
+/* Minimal style sheet for the HTML output of Docutils.                    */
+/*                                                                         */
+/* :Author: Günter Milde, based on html4css1.css by David Goodger          */
+/* :Id: $Id: minimal.css 7952 2016-07-26 18:15:59Z milde $               */
+/* :Copyright: © 2015 Günter Milde.                                        */
+/* :License: Released under the terms of the `2-Clause BSD license`_,      */
+/*    in short:                                                            */
+/*                                                                         */
+/*    Copying and distribution of this file, with or without modification, */
+/*    are permitted in any medium without royalty provided the copyright   */
+/*    notice and this notice are preserved.                                */
+/*                                                                         */
+/*    This file is offered as-is, without any warranty.                    */
+/*                                                                         */
+/* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause     */
 
-Default cascading style sheet for the HTML output of Docutils.
+/* This CSS2.1_ stylesheet defines rules for Docutils elements without    */
+/* HTML equivalent. It is required to make the document semantic visible. */
+/*                                                                        */
+/* .. _CSS2.1: http://www.w3.org/TR/CSS2                                  */
+/* .. _validates: http://jigsaw.w3.org/css-validator/validator$link       */
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
-customize this style sheet.
-*/
+/* alignment of text and inline objects inside block objects*/
+.align-left   { text-align: left; }
+.align-right  { text-align: right; }
+.align-center { clear: both; text-align: center; }
+.align-top    { vertical-align: top; }
+.align-middle { vertical-align: middle; }
+.align-bottom { vertical-align: bottom; }
 
-/* used to remove borders from tables and images */
-.borderless, table.borderless td, table.borderless th {
-  border: 0 }
-
-table.borderless td, table.borderless th {
-  /* Override padding for "table.docutils td" with "! important".
-     The right padding separates the table cells. */
-  padding: 0 0.5em 0 0 ! important }
-
-.first {
-  /* Override more specific margin styles with "! important". */
-  margin-top: 0 ! important }
-
-.last, .with-subtitle {
-  margin-bottom: 0 ! important }
-
-.hidden {
-  display: none }
-
-.subscript {
-  vertical-align: sub;
-  font-size: smaller }
-
-.superscript {
-  vertical-align: super;
-  font-size: smaller }
-
+/* titles */
+h1.title, p.subtitle {
+  text-align: center;
+}
+p.admonition-title,
+p.topic-title,
+p.sidebar-title,
+p.rubric,
+p.system-message-title {
+  font-weight: bold;
+}
+h1 + p.subtitle,
+h1 + p.section-subtitle {
+  font-size: 1.6em;
+}
+h2 + p.section-subtitle { font-size: 1.28em; }
+p.subtitle,
+p.section-subtitle,
+p.sidebar-subtitle {
+  font-weight: bold;
+  margin-top: -0.5em;
+}
+p.sidebar-title,
+p.rubric {
+  font-size: larger;
+}
+p.rubric { color: maroon; }
 a.toc-backref {
-  text-decoration: none ;
-  color: black }
+  color: black;
+  text-decoration: none; }
 
-blockquote.epigraph {
-  margin: 2em 5em ; }
-
-dl.docutils dd {
-  margin-bottom: 0.5em }
-
-object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
-  overflow: hidden;
+/* Warnings, Errors */
+div.caution p.admonition-title,
+div.attention p.admonition-title,
+div.danger p.admonition-title,
+div.error p.admonition-title,
+div.warning p.admonition-title,
+div.system-messages h1,
+div.error,
+span.problematic,
+p.system-message-title {
+  color: red;
 }
 
-/* Uncomment (and remove this text!) to get bold-faced definition list terms
-dl.docutils dt {
-  font-weight: bold }
-*/
+/* inline literals */
+span.docutils.literal {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+/* do not wraph at hyphens and similar: */
+.literal > span.pre { white-space: nowrap; }
 
-div.abstract {
-  margin: 2em 5em }
+/* Lists */
 
-div.abstract p.topic-title {
-  font-weight: bold ;
-  text-align: center }
+/* compact and simple lists: no margin between items */
+.simple  li, .compact li,
+.simple  ul, .compact ul,
+.simple  ol, .compact ol,
+.simple > li p, .compact > li p,
+dl.simple > dd, dl.compact > dd {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
-div.admonition, div.attention, div.caution, div.danger, div.error,
-div.hint, div.important, div.note, div.tip, div.warning {
-  margin: 2em ;
-  border: medium outset ;
-  padding: 1em }
+/* Table of Contents */
+div.topic.contents { margin: 0; }
+ul.auto-toc {
+  list-style-type: none;
+  padding-left: 1.5em; }
 
-div.admonition p.admonition-title, div.hint p.admonition-title,
-div.important p.admonition-title, div.note p.admonition-title,
-div.tip p.admonition-title {
-  font-weight: bold ;
-  font-family: sans-serif }
+/* Enumerated Lists */
+ol.arabic     { list-style: decimal }
+ol.loweralpha { list-style: lower-alpha }
+ol.upperalpha { list-style: upper-alpha }
+ol.lowerroman { list-style: lower-roman }
+ol.upperroman { list-style: upper-roman }
 
-div.attention p.admonition-title, div.caution p.admonition-title,
-div.danger p.admonition-title, div.error p.admonition-title,
-div.warning p.admonition-title, .code .error {
-  color: red ;
-  font-weight: bold ;
-  font-family: sans-serif }
+dt span.classifier { font-style: italic }
+dt span.classifier:before {
+  font-style: normal;
+  margin: 0.5em;
+  content: ":";
+}
 
-/* Uncomment (and remove this text!) to get reduced vertical space in
-   compound paragraphs.
-div.compound .compound-first, div.compound .compound-middle {
-  margin-bottom: 0.5em }
+/* Field Lists and drivatives */
+/* bold field name, content starts on the same line */
+dl.field-list > dt,
+dl.option-list > dt,
+dl.docinfo > dt,
+dl.footnote > dt,
+dl.citation > dt {
+  font-weight: bold;
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.5em;
+}
+/* Offset for field content (corresponds to the --field-name-limit option) */
+dl.field-list > dd,
+dl.option-list > dd,
+dl.docinfo > dd {
+  margin-left:  9em; /* ca. 14 chars in the test examples */
+}
+/* start field-body on a new line after long field names */
+dl.field-list > dd > *:first-child,
+dl.option-list > dd > *:first-child
+{
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+}
+/* field names followed by a colon */
+dl.field-list > dt:after,
+dl.docinfo > dt:after {
+  content: ":";
+}
 
-div.compound .compound-last, div.compound .compound-middle {
-  margin-top: 0.5em }
-*/
+/* Bibliographic Fields (docinfo) */
+pre.address { font: inherit; }
+dd.authors > p { margin: 0; }
 
-div.dedication {
-  margin: 2em 5em ;
-  text-align: center ;
-  font-style: italic }
+/* Option Lists */
+dl.option-list { margin-left: 40px; }
+dl.option-list > dt { font-weight: normal; }
+span.option { white-space: nowrap; }
 
-div.dedication p.topic-title {
-  font-weight: bold ;
-  font-style: normal }
+/* Footnotes and Citations  */
+dl.footnote.superscript > dd {margin-left: 1em; }
+dl.footnote.brackets > dd {margin-left: 2em; }
+dl > dt.label { font-weight: normal; }
+a.footnote-reference.brackets:before,
+dt.label > span.brackets:before { content: "["; }
+a.footnote-reference.brackets:after,
+dt.label > span.brackets:after { content: "]"; }
+a.footnote-reference.superscript,
+dl.footnote.superscript > dt.label {
+  vertical-align: super;
+  font-size: smaller;
+}
+dt.label > span.fn-backref { margin-left: 0.2em; }
+dt.label > span.fn-backref > a { font-style: italic; }
 
-div.figure {
-  margin-left: 2em ;
-  margin-right: 2em }
-
-div.footer, div.header {
-  clear: both;
-  font-size: smaller }
-
-div.line-block {
-  display: block ;
-  margin-top: 1em ;
-  margin-bottom: 1em }
-
+/* Line Blocks */
+div.line-block { display: block; }
 div.line-block div.line-block {
-  margin-top: 0 ;
-  margin-bottom: 0 ;
-  margin-left: 1.5em }
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 40px;
+}
 
-div.sidebar {
-  margin: 0 0 0.5em 1em ;
-  border: medium outset ;
-  padding: 1em ;
-  background-color: #ffffee ;
-  width: 40% ;
-  float: right ;
-  clear: right }
-
-div.sidebar p.rubric {
-  font-family: sans-serif ;
-  font-size: medium }
-
-div.system-messages {
-  margin: 5em }
-
-div.system-messages h1 {
-  color: red }
-
-div.system-message {
-  border: medium outset ;
-  padding: 1em }
-
-div.system-message p.system-message-title {
-  color: red ;
-  font-weight: bold }
-
-div.topic {
-  margin: 2em }
-
-h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
-h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
-  margin-top: 0.4em }
-
-h1.title {
-  text-align: center }
-
-h2.subtitle {
-  text-align: center }
-
-hr.docutils {
-  width: 75% }
-
-img.align-left, .figure.align-left, object.align-left, table.align-left {
-  clear: left ;
-  float: left ;
-  margin-right: 1em }
-
-img.align-right, .figure.align-right, object.align-right, table.align-right {
-  clear: right ;
-  float: right ;
-  margin-left: 1em }
-
-img.align-center, .figure.align-center, object.align-center {
-  display: block;
-  margin-left: auto;
+/* Figures, Images, and Tables */
+.figure.align-left,
+img.align-left,
+object.align-left,
+table.align-left {
   margin-right: auto;
 }
-
+.figure.align-center,
+img.align-center,
+object.align-center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 table.align-center {
   margin-left: auto;
   margin-right: auto;
 }
+.figure.align-right,
+img.align-right,
+object.align-right,
+table.align-right {
+  margin-left: auto;
+}
+/* reset inner alignment in figures and tables */
+div.align-left, div.align-center, div.align-right,
+table.align-left, table.align-center, table.align-right
+{ text-align: inherit }
 
-.align-left {
-  text-align: left }
+/* Admonitions and System Messages */
+div.admonition,
+div.system-message,
+div.sidebar{
+  margin: 40px;
+  border: medium outset;
+  padding-right: 1em;
+  padding-left: 1em;
+}
 
-.align-center {
-  clear: both ;
-  text-align: center }
+/* Sidebar */
+div.sidebar {
+  width: 30%;
+  max-width: 26em;
+  float: right;
+  clear: right;
+}
 
-.align-right {
-  text-align: right }
+/* Text Blocks */
+div.topic,
+pre.literal-block,
+pre.doctest-block,
+pre.math,
+pre.code {
+  margin-right: 40px;
+  margin-left: 40px;
+}
+pre.code .ln { color: gray; } /* line numbers */
 
-/* reset inner alignment in figures */
-div.align-right {
-  text-align: inherit }
+/* Tables */
+table { border-collapse: collapse; }
+td, th {
+  border-style: solid;
+  border-color: silver;
+  padding: 0 1ex;
+  border-width: thin;
+}
+td > p:first-child, th > p:first-child { margin-top: 0; }
+td > p, th > p { margin-bottom: 0; }
 
-/* div.align-center * { */
-/*   text-align: left } */
+table > caption {
+  text-align: left;
+  margin-bottom: 0.25em
+}
 
-.align-top    {
-  vertical-align: top }
+table.borderless td, table.borderless th {
+  border: 0;
+  padding: 0;
+  padding-right: 0.5em /* separate table cells */
+}
 
-.align-middle {
-  vertical-align: middle }
+</style>
+<style type="text/css">
 
-.align-bottom {
-  vertical-align: bottom }
+/* CSS31_ style sheet for the output of Docutils HTML writers.             */
+/* Rules for easy reading and pre-defined style variants.		   */
+/*                                                                         */
+/* :Author: Günter Milde, based on html4css1.css by David Goodger          */
+/* :Id: $Id: plain.css 7952 2016-07-26 18:15:59Z milde $               */
+/* :Copyright: © 2015 Günter Milde.                                        */
+/* :License: Released under the terms of the `2-Clause BSD license`_,      */
+/*    in short:                                                            */
+/*                                                                         */
+/*    Copying and distribution of this file, with or without modification, */
+/*    are permitted in any medium without royalty provided the copyright   */
+/*    notice and this notice are preserved.                                */
+/*    	     	      	     	 					   */
+/*    This file is offered as-is, without any warranty.                    */
+/*                                                                         */
+/* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause     */
+/* .. _CSS3: http://www.w3.org/TR/CSS3		        		   */
 
-ol.simple, ul.simple {
-  margin-bottom: 1em }
 
-ol.arabic {
-  list-style: decimal }
+/* Document Structure */
+/* ****************** */
 
-ol.loweralpha {
-  list-style: lower-alpha }
+/* "page layout" */
+body {
+  padding: 0 5%;
+  margin: 8px 0;
+}
+div.document {
+  line-height:1.3;
+  counter-reset: table;
+  /* counter-reset: figure; */
+  /* avoid long lines --> better reading */
+  /* OTOH: lines should not be too short because of missing hyphenation, */
+  max-width: 50em;
+  margin: auto;
+}
 
-ol.upperalpha {
-  list-style: upper-alpha }
+/* Sections */
 
-ol.lowerroman {
-  list-style: lower-roman }
+/* Transitions */
 
-ol.upperroman {
-  list-style: upper-roman }
+hr.docutils {
+  width: 80%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  clear: both;
+}
 
-p.attribution {
-  text-align: right ;
-  margin-left: 50% }
+/* Paragraphs               */
+/* ==========               */
 
-p.caption {
-  font-style: italic }
+/* vertical space (parskip) */
+p, ol, ul, dl,
+div.line-block,
+table{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+h1, h2, h3, h4, h5, h6,
+dl > dd {
+  margin-bottom: 0.5em;
+}
 
-p.credits {
-  font-style: italic ;
-  font-size: smaller }
+/* Lists                    */
+/* ==========               */
 
-p.label {
-  white-space: nowrap }
+/* Definition Lists         */
 
-p.rubric {
-  font-weight: bold ;
-  font-size: larger ;
-  color: maroon ;
-  text-align: center }
+dl > dd p:first-child { margin-top: 0; }
+/* :last-child is not part of CSS 2.1 (introduced in CSS 3) */
+/* dl > dd p:last-child  { margin-bottom: 0; } */
 
-p.sidebar-title {
-  font-family: sans-serif ;
-  font-weight: bold ;
-  font-size: larger }
+/* lists nested in definition lists */
+/* :only-child is not part of CSS 2.1 (introduced in CSS 3) */
+dd > ul:only-child, dd > ol:only-child { padding-left: 1em; }
 
-p.sidebar-subtitle {
-  font-family: sans-serif ;
-  font-weight: bold }
+/* Description Lists */
+/* styled like in most dictionaries, encyclopedias etc. */
+dl.description > dt {
+  font-weight: bold;
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.5em;
+}
 
-p.topic-title {
-  font-weight: bold }
+/* Field Lists */
 
-pre.address {
-  margin-bottom: 0 ;
-  margin-top: 0 ;
-  font: inherit }
+/* example for custom field-name width */
+dl.field-list.narrow > dd {
+  margin-left: 5em;
+}
+/* run-in: start field-body on same line after long field names */
+dl.field-list.run-in > dd p {
+  display: block;
+}
 
-pre.literal-block, pre.doctest-block, pre.math, pre.code {
-  margin-left: 2em ;
-  margin-right: 2em }
+/* Bibliographic Fields */
 
-pre.code .ln { color: grey; } /* line numbers */
+/* generally, bibliographic fields use special definition list dl.docinfo */
+/* but dedication and abstract are placed into "topic" divs */
+div.abstract p.topic-title {
+  text-align: center;
+}
+div.dedication {
+  margin: 2em 5em;
+  text-align: center;
+  font-style: italic;
+}
+div.dedication p.topic-title {
+  font-style: normal;
+}
+
+/* Citations */
+dl.citation dt.label {
+  font-weight: bold;
+}
+span.fn-backref {
+  font-weight: normal;
+}
+
+/* Text Blocks           */
+/* ============          */
+
+/* Literal Blocks           */
+pre.literal-block, pre.doctest-block,
+pre.math, pre.code {
+  margin-left: 1.5em;
+  margin-right: 1.5em
+}
+
+/* Block Quotes             */
+
+blockquote,
+div.topic {
+  margin-left: 1.5em;
+  margin-right: 1.5em
+}
+blockquote > table,
+div.topic > table {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+blockquote p.attribution,
+div.topic p.attribution {
+  text-align: right;
+  margin-left: 20%;
+}
+
+/* Tables                   */
+/* ======                   */
+
+/* th { vertical-align: bottom; } */
+
+table tr { text-align: left; }
+
+/* "booktabs" style (no vertical lines) */
+table.booktabs {
+  border: 0;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.booktabs * {
+  border: 0;
+}
+table.booktabs th {
+  border-bottom: thin solid;
+}
+
+/* numbered tables (counter defined in div.document) */
+table.numbered > caption:before {
+  counter-increment: table;
+  content: "Table " counter(table) ": ";
+  font-weight: bold;
+}
+
+/* Explicit Markup Blocks   */
+/* ======================   */
+
+/* Footnotes and Citations  */
+/* -----------------------  */
+
+/* line on the left */
+dl.footnote {
+  padding-left: 1ex;
+  border-left: solid;
+  border-left-width: thin;
+}
+
+/* Directives               */
+/* ----------               */
+
+/* Body Elements            */
+/* ~~~~~~~~~~~~~            */
+
+/* Images and Figures */
+
+/* let content flow to the side of aligned images and figures */
+.figure.align-left,
+img.align-left,
+object.align-left {
+  display: block;
+  clear: left;
+  float: left;
+  margin-right: 1em
+}
+.figure.align-right,
+img.align-right,
+object.align-right {
+  display: block;
+  clear: right;
+  float: right;
+  margin-left: 1em
+}
+/* Stop floating sidebars, images and figures at section level 1,2,3 */
+h1, h2, h3 { clear: both; }
+
+/* Sidebar */
+
+/* Move into the margin. In a layout with fixed margins, */
+/* it can be moved into the margin completely.		 */
+div.sidebar {
+  width: 30%;
+  max-width: 26em;
+  margin-left: 1em;
+  margin-right: -5.5%;
+  background-color: #ffffee ;
+}
+
+/* Code                     */
+
 pre.code, code { background-color: #eeeeee }
+pre.code .ln { color: gray; } /* line numbers */
+/* basic highlighting: for a complete scheme, see */
+/* http://docutils.sourceforge.net/sandbox/stylesheets/ */
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
 pre.code .literal.string, code .literal.string { color: #0C5404 }
@@ -284,78 +514,50 @@ pre.code .name.builtin, code .name.builtin { color: #352B84 }
 pre.code .deleted, code .deleted { background-color: #DEB0A1}
 pre.code .inserted, code .inserted { background-color: #A3D289}
 
-span.classifier {
-  font-family: sans-serif ;
-  font-style: oblique }
+/* Math                     */
+/* styled separately (see math.css for math-output=HTML) */
 
-span.classifier-delimiter {
-  font-family: sans-serif ;
-  font-weight: bold }
+/* Epigraph                 */
+/* Highlights               */
+/* Pull-Quote               */
+/* Compound Paragraph       */
+/* Container                */
 
-span.interpreted {
-  font-family: sans-serif }
+/* can be styled in a custom stylesheet */
 
-span.option {
-  white-space: nowrap }
+/* Document Header and Footer */
 
-span.pre {
-  white-space: pre }
-
-span.problematic {
-  color: red }
-
-span.section-subtitle {
-  /* font-size relative to parent (h1..h6 element) */
-  font-size: 80% }
-
-table.citation {
-  border-left: solid 1px gray;
-  margin-left: 1px }
-
-table.docinfo {
-  margin: 2em 4em }
-
-table.docutils {
-  margin-top: 0.5em ;
-  margin-bottom: 0.5em }
-
-table.footnote {
-  border-left: solid 1px black;
-  margin-left: 1px }
-
-table.docutils td, table.docutils th,
-table.docinfo td, table.docinfo th {
-  padding-left: 0.5em ;
-  padding-right: 0.5em ;
-  vertical-align: top }
-
-table.docutils th.field-name, table.docinfo th.docinfo-name {
-  font-weight: bold ;
-  text-align: left ;
-  white-space: nowrap ;
-  padding-left: 0 }
-
-/* "booktabs" style (no vertical lines) */
-table.docutils.booktabs {
-  border: 0px;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-collapse: collapse;
-}
-table.docutils.booktabs * {
-  border: 0px;
-}
-table.docutils.booktabs th {
-  border-bottom: thin solid;
-  text-align: left;
+div.footer, div.header {
+  clear: both;
+  font-size: smaller;
 }
 
-h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
-h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
-  font-size: 100% }
+/* Inline Markup            */
+/* =============            */
 
-ul.auto-toc {
-  list-style-type: none }
+/* Emphasis                 */
+/*   em                     */
+/* Strong Emphasis          */
+/*   strong		    */
+/* Interpreted Text         */
+/*   span.interpreted  	    */
+/* Title Reference 	    */
+/*   cite		    */
+/* Inline Literals          */
+/* possible values: normal, nowrap, pre, pre-wrap, pre-line */
+/*   span.docutils.literal { white-space: pre-wrap; } */
+
+/* Hyperlink References     */
+a { text-decoration: none; }
+
+/* External Targets         */
+/*   span.target.external   */
+/* Internal Targets  	    */
+/*   span.target.internal   */
+/* Footnote References      */
+/*   a.footnote-reference   */
+/* Citation References      */
+/*   a.citation-reference   */
 
 </style>
 </head>
@@ -364,29 +566,30 @@ ul.auto-toc {
 <h1 class="title">Localization</h1>
 
 <p>kupfer is translated using gettext and it is managed in the build system
-using <tt class="docutils literal">intltool</tt>. Translation messages are located in the <tt class="docutils literal">po/</tt>
-directory. The user’s guide is located in the <tt class="docutils literal">help/</tt> directory and it
+using <span class="docutils literal">intltool</span>. Translation messages are located in the <span class="docutils literal">po/</span>
+directory. The user’s guide is located in the <span class="docutils literal">help/</span> directory and it
 can also be translated, see its section.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#to-create-a-new-translation" id="id1">To create a new translation</a></li>
-<li><a class="reference internal" href="#to-update-or-check-an-existing-translation" id="id2">To update or check an existing translation</a></li>
-<li><a class="reference internal" href="#to-try-the-new-translation" id="id3">To try the new translation</a></li>
-<li><a class="reference internal" href="#users-guide" id="id4">User’s Guide</a></li>
+<li><p><a class="reference internal" href="#to-create-a-new-translation" id="id1">To create a new translation</a></p></li>
+<li><p><a class="reference internal" href="#to-update-or-check-an-existing-translation" id="id2">To update or check an existing translation</a></p></li>
+<li><p><a class="reference internal" href="#to-try-the-new-translation" id="id3">To try the new translation</a></p></li>
+<li><p><a class="reference internal" href="#users-guide" id="id4">User’s Guide</a></p></li>
 </ul>
 </div>
 <div class="section" id="to-create-a-new-translation">
 <h1><a class="toc-backref" href="#id1">To create a new translation</a></h1>
-<p>Go into the directory <tt class="docutils literal">po</tt></p>
+<p>Go into the directory <span class="docutils literal">po</span></p>
 <ol class="arabic simple">
-<li>Add the language code <tt class="docutils literal">$LANG</tt> to the file <tt class="docutils literal">LINGUAS</tt></li>
-<li>Run <tt class="docutils literal"><span class="pre">intltool-update</span> <span class="pre">--pot</span></tt>, and copy <tt class="docutils literal">untitled.pot</tt> to <tt class="docutils literal">$LANG.po</tt></li>
-<li>Edit and check the whole file header:<ul>
-<li>Write in yourself as author</li>
-<li>Check <tt class="docutils literal">plurals</tt> (copy from a language that you know uses the same
-number of plural forms, or look up in GNOME's translation pages.)</li>
-<li>Replace everything written in CAPS</li>
+<li><p>Add the language code <span class="docutils literal">$LANG</span> to the file <span class="docutils literal">LINGUAS</span></p></li>
+<li><p>Run <span class="docutils literal"><span class="pre">intltool-update</span> <span class="pre">--pot</span></span>, and copy <span class="docutils literal">untitled.pot</span> to <span class="docutils literal">$LANG.po</span></p></li>
+<li><p>Edit and check the whole file header:</p>
+<ul class="simple">
+<li><p>Write in yourself as author</p></li>
+<li><p>Check <span class="docutils literal">plurals</span> (copy from a language that you know uses the same
+number of plural forms, or look up in GNOME's translation pages.)</p></li>
+<li><p>Replace everything written in CAPS</p></li>
 </ul>
 </li>
 </ol>
@@ -397,58 +600,50 @@ translation</a></p>
 <div class="section" id="to-update-or-check-an-existing-translation">
 <h1><a class="toc-backref" href="#id2">To update or check an existing translation</a></h1>
 <p>Go to your Kupfer source directory.</p>
-<p>Here we will call your language <tt class="docutils literal">$LANG</tt>. You should use a two or
-four-letter code for your language instead of <tt class="docutils literal">$LANG</tt>, for example
+<p>Here we will call your language <span class="docutils literal">$LANG</span>. You should use a two or
+four-letter code for your language instead of <span class="docutils literal">$LANG</span>, for example
 &quot;de&quot; for German or &quot;pt_BR&quot; for Brazilian Portuguese.</p>
-<p>Go to the translation directory <tt class="docutils literal">po</tt>:</p>
-<pre class="literal-block">
-cd po/
-</pre>
+<p>Go to the translation directory <span class="docutils literal">po</span>:</p>
+<pre class="literal-block">cd po/</pre>
 <p>To update and check the translation file, run:</p>
-<pre class="literal-block">
-intltool-update $LANG
-</pre>
-<p>Now check and edit <tt class="docutils literal">$LANG.po</tt>. Search for all messages marked &quot;fuzzy&quot;,
+<pre class="literal-block">intltool-update $LANG</pre>
+<p>Now check and edit <span class="docutils literal">$LANG.po</span>. Search for all messages marked &quot;fuzzy&quot;,
 and remove the word &quot;fuzzy&quot; from them when they are done.</p>
-<p>Continue running <tt class="docutils literal"><span class="pre">intltool-update</span> $LANG</tt> and check that you have 0
+<p>Continue running <span class="docutils literal"><span class="pre">intltool-update</span> $LANG</span> and check that you have 0
 fuzzy and 0 untranslated, then you're finished.</p>
 <p>This will also check consistency of the file, so that you know that all
 your syntax is correct.</p>
 <p>If you want to send in the translation to a repository, or as a patch,
 you can use git if you have a checked-out copy of kupfer:</p>
-<pre class="literal-block">
-git add po/$LANG.po
+<pre class="literal-block">git add po/$LANG.po
 git commit -m &quot;$LANG: Updated translation&quot;
 
 # now we create a patch out of the latest change
-git format-patch HEAD^
-</pre>
+git format-patch HEAD^</pre>
 <p>You can send the patch, or the whole file, to the mailing list
 <a class="reference external" href="mailto:kupfer-list&#64;gnome.org">kupfer-list&#64;gnome.org</a>.</p>
 </div>
 <div class="section" id="to-try-the-new-translation">
 <h1><a class="toc-backref" href="#id3">To try the new translation</a></h1>
-<p>Make sure the translation is listed in <tt class="docutils literal">po/LINGUAS</tt>.</p>
-<p>To try it, you have to install kupfer with <tt class="docutils literal">./waf install</tt>, then you
+<p>Make sure the translation is listed in <span class="docutils literal">po/LINGUAS</span>.</p>
+<p>To try it, you have to install kupfer with <span class="docutils literal">./waf install</span>, then you
 can run kupfer as normal.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>If you run <tt class="docutils literal"><span class="pre">./kupfer-run</span></tt> from the source directory it won't
+<p class="admonition-title">Note</p>
+<p>If you run <span class="docutils literal"><span class="pre">./kupfer-run</span></span> from the source directory it won't
 find the installed translations unless you make a symlink called
-<tt class="docutils literal">locale</tt> to the installed location (for example
-<tt class="docutils literal"><span class="pre">~/.local/share/locale</span></tt> if install prefix was <tt class="docutils literal"><span class="pre">~/.local</span></tt>):</p>
-<pre class="last literal-block">
-$ ln -s ~/.local/share/locale
-</pre>
+<span class="docutils literal">locale</span> to the installed location (for example
+<span class="docutils literal"><span class="pre">~/.local/share/locale</span></span> if install prefix was <span class="docutils literal"><span class="pre">~/.local</span></span>):</p>
+<pre class="literal-block">$ ln -s ~/.local/share/locale</pre>
 </div>
 </div>
 <div class="section" id="users-guide">
 <h1><a class="toc-backref" href="#id4">User’s Guide</a></h1>
-<p>Go to <tt class="docutils literal">help/</tt>. The english-language original of the user’s guide is
-defined in the <tt class="docutils literal">C/</tt> directory. Use <tt class="docutils literal">make $LANG</tt> inside <tt class="docutils literal">help</tt> to
-update a language’s <tt class="docutils literal">.po</tt> file. Currently, the best way to view the
+<p>Go to <span class="docutils literal">help/</span>. The english-language original of the user’s guide is
+defined in the <span class="docutils literal">C/</span> directory. Use <span class="docutils literal">make $LANG</span> inside <span class="docutils literal">help</span> to
+update a language’s <span class="docutils literal">.po</span> file. Currently, the best way to view the
 translated help page during development is to run the regular build and
-install, which puts the help pages under <tt class="docutils literal"><span class="pre">$PREFIX/help/$LANG/kupfer</span></tt>.</p>
+install, which puts the help pages under <span class="docutils literal"><span class="pre">$PREFIX/help/$LANG/kupfer</span></span>.</p>
 <!-- vim: ft=rst tw=72 et sts=4 -->
 <!-- this document best viewed with rst2html -->
 </div>
