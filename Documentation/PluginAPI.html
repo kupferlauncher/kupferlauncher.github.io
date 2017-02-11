@@ -546,7 +546,7 @@ $ python
 </pre>
 <div class="section" id="kupferobject">
 <h2><a class="toc-backref" href="#id5">KupferObject</a></h2>
-<p>KupferObject implements the things that are common to all objects:
+<p><tt class="docutils literal">class KupferObject</tt> implements the things that are common to all objects:
 <em>name</em>, <em>description</em>, <em>icon</em>, <em>thumbnail</em> and <em>name aliases</em>.</p>
 <dl class="docutils">
 <dt><tt class="docutils literal">__init__(self, name)</tt></dt>
@@ -601,7 +601,7 @@ that apply to many objects but not default for any.</dd>
 </div>
 <div class="section" id="leaf">
 <h2><a class="toc-backref" href="#id6">Leaf</a></h2>
-<p>Leaf inherits from KupferObject.</p>
+<p><tt class="docutils literal">class Leaf</tt> inherits from KupferObject.</p>
 <p>A Leaf represents an object that the user will want to act on. Examples
 are a file, an application or a free-text query (TextLeaf).</p>
 <p>This defines, in addition to KupferObject:</p>
@@ -639,7 +639,7 @@ an instance of a Source.</p>
 </div>
 <div class="section" id="action">
 <h2><a class="toc-backref" href="#id7">Action</a></h2>
-<p>Action inherits from KupferObject.</p>
+<p><tt class="docutils literal">class Action</tt> inherits from KupferObject.</p>
 <p>An Action represents a command using a direct object and an optional
 indirect object. One example is <tt class="docutils literal">kupfer.obj.fileactions.Open</tt> that
 will open its direct object (which must be a file), with its default
@@ -777,7 +777,7 @@ same Action class.</dd>
 </div>
 <div class="section" id="source">
 <h2><a class="toc-backref" href="#id8">Source</a></h2>
-<p>Source inherits from KupferObject.</p>
+<p><tt class="docutils literal">class Source</tt> inherits from KupferObject.</p>
 <p>A Source understands specific data and delivers Leaves for it.</p>
 <p>A Source subclass must at a minimum implement <tt class="docutils literal">__init__</tt>,
 <tt class="docutils literal">get_items</tt> and <tt class="docutils literal">provides</tt>.</p>
@@ -896,6 +896,9 @@ notifications so that this is not necessary.</dd>
 <dt><tt class="docutils literal">Source.source_prefer_sublevel = False</tt></dt>
 <dd>Set to <tt class="docutils literal">True</tt> to not export its objects to the top level by
 default. Normally you don't wan't to change this</dd>
+<dt><tt class="docutils literal">Source.source_use_cache =&nbsp; True`</tt></dt>
+<dd>If <tt class="docutils literal">True</tt>, the source can be pickled to disk to save its
+cached items until the next time the launcher is started.</dd>
 <dt><tt class="docutils literal">Source._version</tt></dt>
 <dd>Internal number that is <tt class="docutils literal">1</tt> by default. Update this number in
 <tt class="docutils literal">__init__</tt> to invalidate old versions of cache files.</dd>
