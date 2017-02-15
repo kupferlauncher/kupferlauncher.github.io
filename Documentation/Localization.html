@@ -613,15 +613,6 @@ and remove the word &quot;fuzzy&quot; from them when they are done.</p>
 fuzzy and 0 untranslated, then you're finished.</p>
 <p>This will also check consistency of the file, so that you know that all
 your syntax is correct.</p>
-<p>If you want to send in the translation to a repository, or as a patch,
-you can use git if you have a checked-out copy of kupfer:</p>
-<pre class="literal-block">git add po/$LANG.po
-git commit -m &quot;$LANG: Updated translation&quot;
-
-# now we create a patch out of the latest change
-git format-patch HEAD^</pre>
-<p>You can send the patch, or the whole file, to the mailing list
-<a class="reference external" href="mailto:kupfer-list&#64;gnome.org">kupfer-list&#64;gnome.org</a>.</p>
 </div>
 <div class="section" id="to-try-the-new-translation">
 <h1><a class="toc-backref" href="#id3">To try the new translation</a></h1>
