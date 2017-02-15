@@ -34,6 +34,7 @@ done
 rm [a-z][a-z]/*.js
 
 cp ../helpredirect.html index.html
+ln -s C en
 git add -A .
 
 })
