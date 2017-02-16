@@ -33,7 +33,7 @@ done
 # remove others
 rm [a-z][a-z]/*.js
 
-cp ../helpredirect.html index.html
+rst2html5 ../helpindex.rst > index.html
 ln -s C en
 git add -A .
 
