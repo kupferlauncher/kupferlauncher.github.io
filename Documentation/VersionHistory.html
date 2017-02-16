@@ -565,6 +565,34 @@ a { text-decoration: none; }
 <div class="document" id="news-for-kupfer">
 <h1 class="title">NEWS for kupfer</h1>
 
+<div class="section" id="kupfer-v308">
+<h1>kupfer v308</h1>
+<p>Be sure to check out the settings in the <em>Applications</em> plugin in this
+release. The web site now also shows a language selection for the user’s
+guide, so that the translations are readily available.</p>
+<ul class="simple">
+<li><p>Fix a slight wobble in the result list’s position by making sure the
+description label stays the same size</p></li>
+<li><p>Fix how the star and arrow at the right side of the result list line up</p></li>
+<li><p>Plugin API: Add methods <span class="docutils literal">get_gfile</span> and <span class="docutils literal">is_content_type</span> to <span class="docutils literal">FileLeaf</span></p></li>
+<li><p>Prerender and install fixed icon sizes</p></li>
+<li><p>Plugins:</p>
+<ul>
+<li><p>In <em>Applications</em> change how it filters applications based on desktop
+type. The new default desktop type is blank, and this should pick up
+the right desktop environment automatically. Make the <em>Use Desktop
+Filter</em> toggle actually work.</p></li>
+<li><p>Speed up recent documents slightly by caching an intermediate result</p></li>
+<li><p>In <em>Documents</em> also recognize more file extensions when sorting
+libreoffice documents to the right app.</p></li>
+<li><p>Remove action <em>Send in Email To</em> from <em>Default Email Client</em>, since it
+is unlikely to work for the default <span class="docutils literal">mailto:</span> URL handler.</p></li>
+<li><p>Rename the remaining action <em>Compose Email</em> → <em>Compose Email To</em> in
+default mail, for consistency.</p></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="kupfer-v307">
 <h1>kupfer v307</h1>
 <p>Released Wednesday, 15 feb 2017</p>
