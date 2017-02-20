@@ -908,6 +908,11 @@ indirect object.</p>
 catalog, but from a defined source, return an instance of the Source
 here, else return None. <span class="docutils literal">for_item</span> is the direct object.</p>
 </dd>
+<dt><span class="docutils literal">object_source_and_catalog(self, for_item)</span></dt>
+<dd><p>If the action has an object source, by default only that source is
+used for indirect objects. Return <span class="docutils literal">True</span> here to use both the
+custom source and the whole catalog.</p>
+</dd>
 <dt><span class="docutils literal">valid_object(self, iobj, for_item)</span></dt>
 <dd><p>This method, if defined,  will be called for each indirect object
 (with the direct object as <span class="docutils literal">for_item</span>), to decide if it can be
