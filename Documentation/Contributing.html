@@ -606,7 +606,7 @@ kupfer keep in mind that</p>
 <li><p>Python code should be clear</p></li>
 <li><p>Kupfer is a simple project. Do simple first.</p></li>
 </ul>
-<p>Python's general style guideline is called <a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">PEP 8</a>, and you should
+<p>Python's general style guideline is called <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>, and you should
 programmers should read it. The advice given there is very useful when
 coding for Kupfer.</p>
 </div>
@@ -642,17 +642,17 @@ Python, but the style is obsolete:</p>
 Internally, kupfer must use <span class="docutils literal">str</span> for all internal text.
 The module <span class="docutils literal">kupfer.kupferstring</span> has functions for the most important
 text conversions.</p>
-<p>Two good resources for unicode in Python are to be found here:</p>
+<p>A resource for unicode in Python:</p>
 <div class="line-block">
 <div class="line"><a class="reference external" href="http://farmdev.com/talks/unicode/">http://farmdev.com/talks/unicode/</a></div>
-<div class="line"><a class="reference external" href="http://www.amk.ca/python/howto/unicode">http://www.amk.ca/python/howto/unicode</a></div>
 </div>
 <p><strong>Always</strong> find out what encoding you must expect for externally read
 text (from files or command output). If you must guess, use the locale
 encoding.
-Text received from PyGTK is either already unicode or in the UTF-8
-encoding, so this text can be passed to <span class="docutils literal">kupferstring.tounicode</span>.</p>
-<p>Note that the gettext function <span class="docutils literal">_()</span> always returns a unicode string.</p>
+Text received from GTK is always <span class="docutils literal">str</span>, which means encoding is not
+a problem.</p>
+<p>Note that the gettext function <span class="docutils literal">_()</span> always returns a unicode string
+(<span class="docutils literal">str</span>).</p>
 <!-- vim: ft=rst tw=72 et sts=4 -->
 <!-- this document best viewed with rst2html -->
 </div>
