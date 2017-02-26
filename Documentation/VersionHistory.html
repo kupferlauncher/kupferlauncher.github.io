@@ -565,16 +565,53 @@ a { text-decoration: none; }
 <div class="document" id="news-for-kupfer">
 <h1 class="title">NEWS for kupfer</h1>
 
+<div class="section" id="kupfer-v313">
+<h1>kupfer v313</h1>
+<ul class="simple">
+<li><p><strong>Action Accelerators</strong>: every action can have a configurable accelerator
+key that allows activating it directly.</p></li>
+<li><p>Changed some default shortcuts:</p>
+<ul>
+<li><p><em>Select ‘Selected Text’</em> now uses Ctrl + G</p></li>
+<li><p><em>Switch to 1st Pane</em> now has no binding by default</p></li>
+</ul>
+</li>
+<li><p>Fix monitor placement in Unity (#45)</p></li>
+<li><p>The preferences window now loads and shows current icon size</p></li>
+<li><p>The configuration file is now written in sorted order.</p></li>
+<li><p>Fix a minor visual issue using some themes (padding under match text)</p></li>
+<li><p>The set keybinding window now has a button to clear the current binding</p></li>
+<li><p>The result list now has a minimum size depending on the small icon size,
+so it sizes better for hidpi</p></li>
+<li><p>Plugins</p>
+<ul>
+<li><p>Handle errors better in <em>Tracker</em> and make <em>Get Tracker Results...</em>
+fetch the results asynchronously.</p></li>
+<li><p>Fix <em>Dismiss</em> action in <em>Getting Things GNOME</em> plugin. Thanks
+&#64;khurshid-alam for the patch!</p></li>
+<li><p>Another <em>Create Task</em> action was added to GTG (an action on the app itself).</p></li>
+<li><p><em>Audacious</em> now refreshes when the program starts</p></li>
+<li><p><em>Attach in Email To</em> in <em>Thunderbird</em> is now not allowed on directories</p></li>
+<li><p><em>Notes</em> now has <em>(Note) → Append → (Text)</em> which is a reversal of
+an existing action</p></li>
+<li><p><em>Append To Note</em> now works for kzrnote as well</p></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="kupfer-v312">
 <h1>kupfer v312</h1>
 <p><em>There are some lingering open bugs for desktop environments that are not my
 main desktop. Kupfer only becomes what everyone puts in, so if you can help
 fixing bugs related to your environment, please come to our github page.</em></p>
 <ul class="simple">
-<li><p>Add several new possible accelerator keys in the main kupfer interface:
-+ <em>Select Pane 1, 2, 3</em>
-+ <em>Select Clipboard Text</em>, <em>Select Clipboard File</em>
-+ Configure them in the keyboard tab in preferences</p></li>
+<li><p>Add several new possible accelerator keys in the main kupfer interface:</p>
+<ul>
+<li><p><em>Select Pane 1, 2, 3</em></p></li>
+<li><p><em>Select Clipboard Text</em>, <em>Select Clipboard File</em></p></li>
+<li><p>Configure them in the keyboard tab in preferences</p></li>
+</ul>
+</li>
 <li><p><span class="docutils literal">Keybinder</span> which is optional is now also treated as such by configure</p></li>
 <li><p>(API) Minor bugfix so that async Tasks don't need to set a name</p></li>
 <li><p>Plugins:</p>

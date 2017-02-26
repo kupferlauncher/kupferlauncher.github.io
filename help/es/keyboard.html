@@ -71,8 +71,16 @@
 <div id="" class="sect"><div class="inner">
 <div class="hgroup"><h2 class="title"><span class="title">Atajos de teclado de Kupfer</span></h2></div>
 <div class="region"><div class="contents">
-<p class="p">Estos atajos de teclado se usan en la interfaz de <span class="app">Kupfer</span>. Tienen el significado y los atajos siguientes:</p>
+<p class="p">
+      These keyboard shortcuts are used in <span class="app">Kupfer</span>'s interface.
+      They have the following meanings and default shortcuts (some
+      have no default).
+    </p>
 <div class="table"><div class="inner"><div class="region"><table class="table">
+<tr>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>A</kbd></span></span></p></td>
+<td><p class="p">Activación alternativa</p></td>
+</tr>
 <tr>
 <td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>.</kbd></span></span></p></td>
 <td><p class="p">Alternar modo de texto</p></td>
@@ -90,27 +98,39 @@
 <td><p class="p">Restablecer todo</p></td>
 </tr>
 <tr>
-<td><p class="p"><span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>A</kbd></span></span></p></td>
-<td><p class="p">Activación alternativa</p></td>
-</tr>
-<tr>
 <td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Devolver</kbd></span></span></p></td>
 <td><p class="p">Componer comando</p></td>
 </tr>
 <tr>
-<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>S</kbd></span></span></p></td>
-<td><p class="p">Cambiar al primer panel</p></td>
+<td><p class="p"></p></td>
+<td><p class="p"> Switch to 1st pane </p></td>
+</tr>
+<tr>
+<td><p class="p"></p></td>
+<td><p class="p"> Switch to 2st pane </p></td>
+</tr>
+<tr>
+<td><p class="p"></p></td>
+<td><p class="p"> Switch to 3st pane </p></td>
 </tr>
 <tr>
 <td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Q</kbd></span></span></p></td>
 <td><p class="p">Seleccionar «Salir»</p></td>
 </tr>
 <tr>
-<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>G</kbd></span></span></p></td>
+<td><p class="p"></p></td>
+<td><p class="p"> Select 'Clipboard File' </p></td>
+</tr>
+<tr>
+<td><p class="p"></p></td>
+<td><p class="p"> Select 'Clipboard Text' </p></td>
+</tr>
+<tr>
+<td><p class="p"></p></td>
 <td><p class="p">Seleccionar «Archivo seleccionado»</p></td>
 </tr>
 <tr>
-<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>T</kbd></span></span></p></td>
+<td><p class="p"><span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>G</kbd></span></span></p></td>
 <td><p class="p">Seleccionar «Texto seleccionado»</p></td>
 </tr>
 <tr>
@@ -126,6 +146,48 @@
 <li class="steps"><p class="p">Usando la ventana que aparece, pulse las teclas modificadoras y un número o una letra para establecer un atajo. Un ejemplo es pulsar y mantener <span class="key"><kbd>Ctrl</kbd></span> y entonces pulsar y soltar <span class="key"><kbd>T</kbd></span> para asociar <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>T</kbd></span></span>.</p></li>
 </ol></div>
 </div></div>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Action Accelerators</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">
+      Action acclerators are a quick way to select or run a certain action
+      on an object.
+      All action accelerators use the same modifier key, which is <span class="key"><kbd>Ctrl</kbd></span>
+      by default.
+    </p>
+<p class="p">
+      An action's accelerator is a single letter that is pressed together
+      with the modifier to run the action (in the case of actions that need
+      an indirect object, the third pane will be selected instead).
+    </p>
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">How to configure an action accelerator</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">
+        Open <span class="app">Kupfer</span> and find an object that allows the action
+        you are configuring. Switch to the action pane with <span class="key"><kbd>Tab</kbd></span>.
+      </p></li>
+<li class="steps"><p class="p">
+        Find the action to configure an accelerator for in the action pane.
+      </p></li>
+<li class="steps"><p class="p">
+        Click the kupfer context menu in the window and select the option
+        <span class="em">Assign Accelerator to “(Action)”</span>
+      </p></li>
+<li class="steps"><p class="p">
+        Type a single letter (without modifier) in the window that pops up.
+        <span class="key"><kbd>Escape</kbd></span> cancels the configuration, and <span class="key"><kbd>Backspace</kbd></span>
+        unsets the accelerator key for the action.
+      </p></li>
+</ol></div>
+</div></div>
+<div class="note" title="Nota"><div class="inner"><div class="region"><div class="contents"><p class="p">Regular keyboard shortcuts in <span class="app">Kupfer</span> take precedence over
+        action accelerator keys. If multiple simultaneously eligible actions
+        have the same accelerator key, the highest ranked one will be
+        activated.
+      </p></div></div></div></div>
 </div></div>
 </div></div>
 <div id="" class="sect"><div class="inner">
