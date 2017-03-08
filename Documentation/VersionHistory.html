@@ -565,6 +565,29 @@ a { text-decoration: none; }
 <div class="document" id="news-for-kupfer">
 <h1 class="title">NEWS for kupfer</h1>
 
+<div class="section" id="kupfer-v317">
+<h1>kupfer v317</h1>
+<ul class="simple">
+<li><p>When an input method's preedit is active, backspace, return, arrows and
+other keys are now reserved for the input method (ibus-anthy was tested).</p></li>
+<li><p>All exceptions from content decorators from plugins are now caught and
+logged (#73)</p></li>
+<li><p>Fix remembering “Make (Action) Default for (Object)” when the object is
+a text or a shell command.</p></li>
+<li><p>Change so that <span class="docutils literal">kupfer</span> only reads from stdin when called with no
+arguments and when not started from a desktop file. This should fix issues
+with starting from autostart or menus in some environments. (#72)</p></li>
+<li><p>Fix a crash when the <em>Show Text</em> window is closed. (#71)</p></li>
+<li><p>(API) Trying to install a plugin setting key with a reserved name now raises
+an exception.</p></li>
+<li><p>Plugins:</p>
+<ul>
+<li><p>In <em>Recent Documents</em>, fix an exception with filenames in unknown encoding</p></li>
+<li><p>In <em>Tracker</em>, fix an exception with malformed <span class="docutils literal">.savedSearch</span> files.</p></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="kupfer-v316">
 <h1>kupfer v316</h1>
 <ul class="simple">
