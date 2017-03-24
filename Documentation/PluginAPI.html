@@ -685,8 +685,8 @@ selected.</p>
 <span class="keyword namespace">from</span> <span class="name namespace">kupfer.objects</span> <span class="keyword namespace">import</span> <span class="name">Action</span><span class="punctuation">,</span> <span class="name">FileLeaf</span>
 
 <span class="keyword">class</span> <span class="name class">View</span> <span class="punctuation">(</span><span class="name">Action</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
-        <span class="name builtin">super</span><span class="punctuation">()</span><span class="operator">.</span><span class="name">__init__</span><span class="punctuation">(</span><span class="name">_</span><span class="punctuation">(</span><span class="literal string double">&quot;View&quot;</span><span class="punctuation">))</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin">super</span><span class="punctuation">()</span><span class="operator">.</span><span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name">_</span><span class="punctuation">(</span><span class="literal string double">&quot;View&quot;</span><span class="punctuation">))</span>
 
     <span class="keyword">def</span> <span class="name function">item_types</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="keyword">yield</span> <span class="name">FileLeaf</span>
@@ -819,7 +819,7 @@ are &quot;built-in&quot; actions.</p>
 </dd>
 <dt><span class="docutils literal">__hash__</span> and <span class="docutils literal">__eq__</span></dt>
 <dd><p>Leaves are hashable, can be members in a set, and duplicates are
-recognized (and removed); this is essensial so that equivalent
+recognized (and removed); this is essential so that equivalent
 Leaves from different sources are recognized.</p>
 <p>These methods need normally not be overridden.</p>
 <p>By default leaves are equal if both the name and the <span class="docutils literal">Leaf.object</span>
@@ -873,7 +873,7 @@ appropriate.</p>
 side in a smart way.</p>
 <p>You should implement <span class="docutils literal">activate_multiple</span> if it is possible to do
 something better than the equivalent of repeating <span class="docutils literal">activate</span>
-<em>n</em> for <em>n</em> objects.</p>
+<em>n</em> times for <em>n</em> objects.</p>
 </dd>
 </dl>
 <p><span class="docutils literal">activate</span> and <span class="docutils literal">activate_multiple</span> also receive a keyword argument
@@ -961,7 +961,7 @@ as error. Otherwise, a tuple like <span class="docutils literal">sys.exc_info()<
 <dd><p>Return the display name (i.e <span class="docutils literal">:0.0</span>)</p>
 </dd>
 <dt><span class="docutils literal">present_window(self, window)</span></dt>
-<dd><p>Present <span class="docutils literal">window</span> (a <span class="docutils literal">gtk.Window</span>) on the current
+<dd><p>Present <span class="docutils literal">window</span> (a <span class="docutils literal">Gtk.Window</span>) on the current
 workspace and monitor using the current event time.</p>
 </dd>
 </dl>

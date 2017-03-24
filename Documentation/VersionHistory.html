@@ -565,6 +565,21 @@ a { text-decoration: none; }
 <div class="document" id="news-for-kupfer">
 <h1 class="title">NEWS for kupfer</h1>
 
+<div class="section" id="kupfer-v319">
+<h1>kupfer v319</h1>
+<ul class="simple">
+<li><p>Fix <em>Get Parent Folder</em> to always return a <span class="docutils literal">FileLeaf</span> (not a subclass)</p></li>
+<li><p>Plugins:</p>
+<ul>
+<li><p>In <em>Rhythmbox</em>, always use song uris for enqueueing tracks (fixes an issue
+with legacy encoded file paths).</p></li>
+<li><p>In <em>Rhythmbox</em>, improve error reporting on errors in <em>Get File</em>.</p></li>
+<li><p>Add <em>Prefer Dark Theme</em> that allows you to flip this GTK setting just
+for Kupfer</p></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="kupfer-v318">
 <h1>kupfer v318</h1>
 <ul class="simple">
@@ -643,7 +658,7 @@ documents listed inside.</p></li>
 with <em>Get Parent Folder</em> which has the default accelerator <em>P</em> and thus is
 very handy for navigation.</p></li>
 <li><p>Fix so that right arrow can enter directories even in text mode</p></li>
-<li><p>Allow <strong>Action Accelerators</strong> to use more keys</p></li>
+<li><p>Allow <strong>Action Accelerators</strong> to use more than just A-Z keys</p></li>
 <li><p>Misc fixes to start <strong>wayland compatibility</strong>. All uses of Wnck now
 gracefully disable when not applicable.</p></li>
 <li><p>Wnck is now technically optional, still recommended for best experience in X.</p></li>
